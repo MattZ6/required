@@ -1,0 +1,28 @@
+.container {
+  height: 3.5rem;
+
+  position: sticky;
+  top: 0;
+
+  backdrop-filter: saturate(180%) blur(10px);
+  z-index: 10;
+
+  transition: height 200ms ease-out;
+
+  > nav {
+    width: 100%;
+    max-width: var(--max-width);
+    height: 100%;
+
+    margin: 0 auto;
+
+    padding: 0 1.5rem;
+
+    display: flex;
+    align-items: center;
+
+    > h2 {
+      text-shadow: 0 0 6px rgba(255, 174, 0, 0.5);
+    }
+  }
+}

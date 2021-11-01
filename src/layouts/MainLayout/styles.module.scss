@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+.pagesWrapper {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}

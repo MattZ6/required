@@ -2,13 +2,14 @@
   "name": "authentication-app-web",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "author": {
     "name": "Matheus Zanin",
     "email": "matt_z6@hotmail.com",
     "url": "https://github.com/mattz6"
   },
-  "repository": "https://github.com/MattZ6/authentication-app-web",
-  "bugs": "https://github.com/MattZ6/authentication-app-web/issues",
+  "repository": "https://github.com/mattz6/authentication-app-web",
+  "bugs": "https://github.com/mattz6/authentication-app-web/issues",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

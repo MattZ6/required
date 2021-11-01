@@ -1,0 +1,71 @@
+:root {
+  --white: #ffffff;
+
+  --gray-100: #e1e1e6;
+  --gray-300: #a8a8b3;
+  --gray-700: #323238;
+  --gray-800: #29292e;
+  --gray-850: #1f2729;
+  --gray-900: #121214;
+
+  --cyan-500: #61dafb;
+  --yellow-500: #eba417;
+
+  --max-width: 1120px;
+  --medium-width: 720px;
+
+  --border-radius-default: 0.825rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+// font-size default 👉🏻 16px
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%; // 15px
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%; // 14px
+  }
+}
+
+html {
+  background: linear-gradient(105deg, var(--gray-900), var(--gray-850));
+  color: var(--white);
+  font: 400 1rem "Nunito", sans-serif;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0;
+  scrollbar-width: 6px;
+}
+
+::-webkit-scrollbar, ::-webkit-scrollbar-track {
+  background: var(--gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+}

@@ -1,0 +1,15 @@
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0.5rem 0;
+
+  > small {
+    text-transform: uppercase;
+    color: var(--gray-300);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1.25px;
+    line-height: 1rem;
+  }
+}

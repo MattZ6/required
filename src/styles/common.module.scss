@@ -1,0 +1,66 @@
+/* Page Container Styles */
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem 1.5rem 1.5rem;
+
+  animation: fade-in-keyframe 200ms ease-out;
+}
+
+@keyframes fade-in-keyframe {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page Header Styles */
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  > nav {
+    height: 5rem;
+  }
+
+  > h1 {
+    font-size: 2rem;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+  }
+
+  > p {
+    font-size: 1.125rem;
+    letter-spacing: 0.75px;
+    color: var(--gray-300);
+    margin-top: 1rem;
+  }
+}
+
+/* Page Footer Styles */
+
+.pageFooter {
+  > p {
+    color: var(--gray-300);
+
+    > a {
+      color: var(--yellow-500);
+      font-weight: 500;
+
+      transition: filter 200ms ease-out, text-shadow 200ms ease-out;
+
+      &:hover, &:focus {
+        filter: brightness(1.1);
+        text-shadow: 0 1px 15px rgba(255, 187, 0, 0.2);
+      }
+    }
+  }
+}

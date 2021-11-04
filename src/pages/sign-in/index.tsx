@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -6,6 +6,7 @@ import { MdAlternateEmail } from 'react-icons/md';
 import { RiKey2Fill } from 'react-icons/ri';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
+import * as Yup from 'yup';
 
 import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
 
@@ -16,6 +17,7 @@ import { Button } from '@components/Button';
 
 import styles from './styles.module.scss';
 import commonStyles from '@styles/common.module.scss';
+import { getValidationErrors } from '@utils/yup.utils';
 
 type SignInFormData = {
   email: string;
@@ -43,9 +45,22 @@ export default function SignInPage() {
   }, []);
 
   const handleSubmit = useCallback(async (data: SignInFormData) => {
-    setSubmiting(true);
+    formRef.current?.setErrors({});
 
     try {
+      const schema = Yup.object().shape({
+        [emailInputName]: Yup.string()
+          .required('The email is required')
+          .email('You must enter a valid email address'),
+        [passwordInputName]: Yup.string()
+          .min(6, 'At last 6 characters')
+          .required('The password is required'),
+      });
+
+      await schema.validate(data, { abortEarly: false });
+
+      setSubmiting(true);
+
       const { email, password } = data;
 
       await login({ email, password });
@@ -53,6 +68,18 @@ export default function SignInPage() {
       router.replace('/');
     } catch (error) {
       setSubmiting(false);
+
+      if (error instanceof Yup.ValidationError) {
+        const validationErrorObject = getValidationErrors(error);
+
+        formRef.current?.setErrors(validationErrorObject);
+
+        const [inputName] = Object.keys(validationErrorObject);
+
+        setFocusOnInput(`[name="${inputName}"]`);
+
+        return;
+      }
 
       // TODO: Tratar os erros
     }
@@ -68,12 +95,13 @@ export default function SignInPage() {
         </p>
       </header>
 
-      <Form className={styles.form} ref={formRef} onSubmit={handleSubmit}>
+      <Form noValidate className={styles.form} ref={formRef} onSubmit={handleSubmit}>
         <Input
           name={emailInputName}
           label="Type your e-mail"
           type="email"
           placeholder="Just type your e-mail bro"
+          autoComplete="off"
           icon={MdAlternateEmail}
           disabled={isSubmiting}
         />

@@ -1,20 +1,26 @@
 :root {
-  --white: #ffffff;
-
-  --gray-100: #e1e1e6;
-  --gray-300: #a8a8b3;
-  --gray-700: #323238;
-  --gray-800: #29292e;
-  --gray-850: #1f2729;
-  --gray-900: #121214;
-
-  --cyan-500: #61dafb;
-  --yellow-500: #eba417;
+  --primary-color: #eba417;
+  --error-color: #ff0000;
 
   --max-width: 1120px;
-  --medium-width: 720px;
 
   --border-radius-default: 0.825rem;
+
+  --input-text-color: #e1e1e6;
+  --input-border-color: rgba(255, 255, 255, 0.2);
+  --input-border-color-hover: rgba(255, 255, 255, 0.32);
+  --input-animation-time: 150ms;
+
+  --text-primary-color: #ffffff;
+  --text-secondary-color: #a8a8b3;
+
+  --background-light-color: #1f2729;
+  --background-color: #121214;
+
+  --button-text-color: #121214;
+  --button-box-shadow-color: rgba(255, 187, 0, 0.2);
+
+  --default-animation-time: 200ms;
 }
 
 * {
@@ -42,8 +48,8 @@
 }
 
 html {
-  background: linear-gradient(105deg, var(--gray-900), var(--gray-850));
-  color: var(--white);
+  background: linear-gradient(105deg, var(--background-color), var(--background-light-color));
+  color: var(--text-primary-color);
   font: 400 1rem "Nunito", sans-serif;
 }
 
@@ -63,9 +69,9 @@ a {
 }
 
 ::-webkit-scrollbar, ::-webkit-scrollbar-track {
-  background: var(--gray-900);
+  background: var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gray-300);
+  background: var(--text-secondary-color);
 }

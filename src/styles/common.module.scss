@@ -6,7 +6,7 @@
 
   padding: 2rem 1.5rem 1.5rem;
 
-  animation: fade-in-keyframe 200ms ease-out;
+  animation: fade-in-keyframe var(--default-animation-time) ease-out;
 }
 
 @keyframes fade-in-keyframe {
@@ -40,7 +40,7 @@
   > p {
     font-size: 1.125rem;
     letter-spacing: 0.75px;
-    color: var(--gray-300);
+    color: var(--text-secondary-color);
     margin-top: 1rem;
   }
 }
@@ -49,17 +49,25 @@
 
 .pageFooter {
   > p {
-    color: var(--gray-300);
+    color: var(--text-secondary-color);
 
-    > a {
-      color: var(--yellow-500);
+    > a, > button {
+      color: var(--primary-color);
       font-weight: 500;
+      background: transparent;
+      border: 0;
+      line-height: inherit;
+      font-size: inherit;
+      height: inherit;
 
-      transition: filter 200ms ease-out, text-shadow 200ms ease-out;
+      border-bottom: 1px solid transparent;
+
+      transition: filter var(--default-animation-time) ease-out, text-shadow var(--default-animation-time) ease-out, border-color var(--default-animation-time) ease-out;
 
       &:hover, &:focus {
-        filter: brightness(1.1);
-        text-shadow: 0 1px 15px rgba(255, 187, 0, 0.2);
+        filter: brightness(1.125);
+        text-shadow: 0 1px 15px var(--button-box-shadow-color);
+        border-color: var(--primary-color);
       }
     }
   }

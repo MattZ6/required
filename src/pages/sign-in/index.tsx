@@ -5,15 +5,15 @@ import Link from 'next/link';
 import { MdAlternateEmail } from 'react-icons/md';
 import { RiKey2Fill } from 'react-icons/ri';
 
-import { getAccessTokenFromCookies, getProfileDataFromCookies } from '../../utils/authentication.utils';
+import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
 
-import { useAuthentication } from '../../contexts/Authentication';
+import { useAuthentication } from '@contexts/Authentication';
 
-import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { Input } from '@components/Input';
+import { Button } from '@components/Button';
 
 import styles from './styles.module.scss';
-import commonStyles from '../../styles/common.module.scss';
+import commonStyles from '@styles/common.module.scss';
 
 export default function SignInPage() {
   const router = useRouter();

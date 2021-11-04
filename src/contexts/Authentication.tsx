@@ -1,10 +1,23 @@
-import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useState
+} from 'react';
 
-import { authenticationApi } from '../services/authenticationApi';
-import { login as authenticationApiLogin } from '../services/authenticationApi/login';
-import { getProfile as authenticationApigGetProfile, Profile } from '../services/authenticationApi/getProfile';
+import { authenticationApi } from '@services/authenticationApi';
+import { login as authenticationApiLogin } from '@services/authenticationApi/login';
+import { getProfile as authenticationApigGetProfile, Profile } from '@services/authenticationApi/getProfile';
 
-import { getAccessTokenCookie, removeAccessTokenCookie, removeProfileCookie, setAccessTokenCookie,  setProfileCookie } from '../utils/authentication.utils';
+import {
+  getAccessTokenCookie,
+  removeAccessTokenCookie,
+  removeProfileCookie,
+  setAccessTokenCookie,
+  setProfileCookie
+} from '@utils/authentication.utils';
 
 type LoginData = {
   email: string;
@@ -26,7 +39,8 @@ type AuthenticationProviderProps = {
 }
 
 function AuthenticationProvider({ children }: AuthenticationProviderProps) {
-  const [profile, setProfile] = useState<Profile | undefined>();
+  const [profile,
+    setProfile] = useState<Profile | undefined>();
 
   useEffect(() => {
     const accessToken = getAccessTokenCookie();

@@ -3,14 +3,14 @@ import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { RiKey2Fill } from 'react-icons/ri';
 
-import { getAccessTokenFromCookies, getProfileDataFromCookies } from '../../utils/authentication.utils';
+import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
 
-import { useAuthentication } from '../../contexts/Authentication';
+import { useAuthentication } from '@contexts/Authentication';
 
-import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { Input } from '@components/Input';
+import { Button } from '@components/Button';
 
-import commonStyles from '../../styles/common.module.scss';
+import commonStyles from '@styles/common.module.scss';
 import styles from './styles.module.scss';
 
 

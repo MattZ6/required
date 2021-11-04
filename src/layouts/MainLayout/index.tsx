@@ -1,4 +1,4 @@
-import { AuthenticationProvider } from '../../contexts/Authentication';
+import { AuthenticationProvider } from '@contexts/Authentication';
 
 import { AboutProjectSection } from './components/AboutProjectSection';
 import { Footer } from './components/Footer';

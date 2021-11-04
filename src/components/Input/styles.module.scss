@@ -69,10 +69,21 @@
 
   transition: opacity var(--default-animation-time) ease-out;
 
-  &.withError {
+  &.withError,
+  &.withError:hover,
+  &.withError:focus-within,
+  &.withError:focus-within:hover {
     > small {
       color: var(--error-color);
       font-weight: 600;
+    }
+
+    > input {
+     caret-color: var(--error-color);
+
+     &::selection {
+       background: var(--error-color);
+     }
     }
 
     &::after {
@@ -81,16 +92,6 @@
 
     > svg {
       color: var(--error-color);
-    }
-
-    &:hover {
-      &::after {
-        background: var(--error-color);
-      }
-
-      > svg {
-        color: var(--error-color);
-      }
     }
   }
 

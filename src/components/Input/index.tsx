@@ -1,21 +1,38 @@
-import { InputHTMLAttributes, useMemo, useState } from 'react';
+import { InputHTMLAttributes, useCallback, useEffect, useRef, useState } from 'react';
 import { IconType } from 'react-icons';
+import { useField } from '@unform/core';
 
 import styles from './styles.module.scss';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  name: string;
   label: string;
   icon: IconType;
 }
 
-export function Input({ label, icon: Icon, ...rest }: InputProps) {
-  const [value, setValue] = useState(rest.value);
+export function Input({ label, name, icon: Icon, ...rest }: InputProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { fieldName, registerField, error, defaultValue } = useField(name);
 
-  const error = '';
+  const [isFilled, setIsFilled] = useState(false);
 
-  const isFilled = useMemo(() => {
-    return String(value ?? '').length > 0;
-  }, [value]);
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: inputRef.current,
+      path: 'value',
+    });
+
+    setIsFilled(!!String(inputRef.current?.value ?? '').length);
+  }, [registerField, fieldName]);
+
+  useEffect(() => {
+    setIsFilled(!!inputRef.current?.value);
+  }, [rest.disabled]);
+
+  const handleInputBlur = useCallback(() => {
+    setIsFilled(!!inputRef.current?.value);
+  }, []);
 
   return (
     <div className={`${styles.wrapper} ${rest.disabled ? styles.disabled : ''}`}>
@@ -26,8 +43,11 @@ export function Input({ label, icon: Icon, ...rest }: InputProps) {
       >
         <small>{label}</small>
         <input
+          ref={inputRef}
+          defaultValue={defaultValue}
+          name={name}
+          onBlur={handleInputBlur}
           {...rest}
-          onChange={event => setValue(event.target.value)}
         />
 
         <Icon size={20} />

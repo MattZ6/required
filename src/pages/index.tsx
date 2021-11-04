@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { getAccessTokenFromCookies, getProfileDataFromCookies } from '../utils/authentication.utils';
 
-import { useAuthentication } from '../context/Authentication';
+import { useAuthentication } from '../contexts/Authentication';
 
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';

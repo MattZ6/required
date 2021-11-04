@@ -7,7 +7,7 @@ import { RiKey2Fill } from 'react-icons/ri';
 
 import { getAccessTokenFromCookies, getProfileDataFromCookies } from '../../utils/authentication.utils';
 
-import { useAuthentication } from '../../context/Authentication';
+import { useAuthentication } from '../../contexts/Authentication';
 
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';

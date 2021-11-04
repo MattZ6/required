@@ -17,7 +17,6 @@ import { useAuthentication } from '@contexts/Authentication';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
-import styles from './styles.module.scss';
 import commonStyles from '@styles/common.module.scss';
 
 type SignInFormData = {
@@ -88,7 +87,7 @@ export default function SignInPage() {
         </p>
       </header>
 
-      <Form noValidate className={styles.form} ref={formRef} onSubmit={handleSubmit}>
+      <Form noValidate className={commonStyles.pageForm} ref={formRef} onSubmit={handleSubmit}>
         <Input
           name={emailInputName}
           label="Type your e-mail"

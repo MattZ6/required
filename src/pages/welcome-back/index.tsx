@@ -16,7 +16,6 @@ import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 import commonStyles from '@styles/common.module.scss';
-import styles from './styles.module.scss';
 
 type WelcomeBackFormData = {
   email: string;
@@ -93,7 +92,7 @@ export default function WelcomePagePage({ profile }: WelcomePageProps) {
         <p>Type your password to continue. 🔑</p>
       </header>
 
-      <Form noValidate className={styles.form} ref={formRef} onSubmit={handleSubmit}>
+      <Form noValidate className={commonStyles.pageForm} ref={formRef} onSubmit={handleSubmit}>
         <Input
           name={passwordInputName}
           label="Type your password"

@@ -9,6 +9,8 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
 import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
+import { getValidationErrors } from '@utils/yup.utils';
+import { setFocusOnInput } from '@utils/form.utils';
 
 import { useAuthentication } from '@contexts/Authentication';
 
@@ -17,17 +19,10 @@ import { Button } from '@components/Button';
 
 import styles from './styles.module.scss';
 import commonStyles from '@styles/common.module.scss';
-import { getValidationErrors } from '@utils/yup.utils';
 
 type SignInFormData = {
   email: string;
   password: string;
-}
-
-function setFocusOnInput(selector: string) {
-  const input = document.querySelector<HTMLInputElement>(selector);
-
-  input?.focus();
 }
 
 export default function SignInPage() {
@@ -61,9 +56,7 @@ export default function SignInPage() {
 
       setSubmiting(true);
 
-      const { email, password } = data;
-
-      await login({ email, password });
+      await login({ email: data.email.trim(), password: data.password });
 
       router.replace('/');
     } catch (error) {

@@ -1,3 +1,5 @@
+import { AuthenticationProvider } from '../../context/Authentication';
+
 import { AboutProjectSection } from './components/AboutProjectSection';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
@@ -15,7 +17,9 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       <div className={styles.pagesWrapper}>
         <section>
-          {children}
+          <AuthenticationProvider>
+           {children}
+          </AuthenticationProvider>
         </section>
 
         <AboutProjectSection />

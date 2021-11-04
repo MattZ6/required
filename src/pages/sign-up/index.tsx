@@ -4,13 +4,13 @@ import Link from 'next/link';
 import { MdAlternateEmail } from 'react-icons/md';
 import { RiKey2Fill, RiUserSmileFill } from 'react-icons/ri';
 
-import { getAccessTokenFromCookies, getProfileDataFromCookies } from '../../utils/authentication.utils';
+import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
 
-import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
-import { BackButtonLink } from '../../components/BackButtonLink';
+import { Input } from '@components/Input';
+import { Button } from '@components/Button';
+import { BackButtonLink } from '@components/BackButtonLink';
 
-import commonStyles from '../../styles/common.module.scss';
+import commonStyles from '@styles/common.module.scss';
 import styles from './styles.module.scss';
 
 export default function SignUpPage() {

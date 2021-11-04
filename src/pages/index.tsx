@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 
-import { getAccessTokenFromCookies, getProfileDataFromCookies } from '../utils/authentication.utils';
+import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
 
-import { useAuthentication } from '../contexts/Authentication';
+import { useAuthentication } from '@contexts/Authentication';
 
-import commonStyles from '../styles/common.module.scss';
+import commonStyles from '@styles/common.module.scss';
 import styles from './home.module.scss';
 
 // TODO: Get access token from cookies and set to axios auth api service instance

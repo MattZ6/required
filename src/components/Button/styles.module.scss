@@ -1,0 +1,71 @@
+.container {
+  border: 0;
+  border-radius: .5rem;
+  height: 2.5rem;
+  background: var(--primary-color);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 1rem;
+
+  min-width: 100px;
+
+  transition: filter var(--default-animation-time) ease-out, box-shadow var(--default-animation-time) ease-out, opacity var(--default-animation-time) ease-out;
+
+  &:hover, &:focus {
+    filter: brightness(1.1);
+    box-shadow: 0 1px 15px var(--button-box-shadow-color);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.56;
+
+    &:focus, &:hover {
+      filter: unset;
+      box-shadow: unset;
+    }
+  }
+
+  > span {
+    line-height: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--button-text-color);
+
+    transition: opacity var(--default-animation-time) ease-out;
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
+
+  > .spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--button-text-color);
+    border-left-color: transparent;
+
+    position: absolute;
+
+    @keyframes rotate {
+      0% {
+        transform: rotateZ(-360deg)
+      }
+      100% {
+        transform: rotateZ(0deg)
+      }
+    }
+
+    animation: rotate 1s linear infinite;
+  }
+}

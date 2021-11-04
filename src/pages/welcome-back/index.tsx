@@ -97,7 +97,7 @@ export default function WelcomePagePage({ profile }: WelcomePageProps) {
           name={passwordInputName}
           label="Type your password"
           type="password"
-          placeholder="I won't tell anyone 🤫"
+          placeholder="I will keep it a secret... I swear ✋"
           icon={RiKey2Fill}
           disabled={isSubmiting}
         />
@@ -113,7 +113,7 @@ export default function WelcomePagePage({ profile }: WelcomePageProps) {
       </Form>
 
       <footer className={commonStyles.pageFooter}>
-        <p>Sign in with <button onClick={handleUseAnotherAccount}>another account</button>.</p>
+        <p>Sign in with <button disabled={isSubmiting} onClick={handleUseAnotherAccount}>another account</button>.</p>
       </footer>
     </div>
   );

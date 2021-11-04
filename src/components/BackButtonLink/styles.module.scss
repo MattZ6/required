@@ -1,0 +1,21 @@
+.container {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 2.5rem;
+  background: var(--background-light-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+
+  transition: filter var(--default-animation-time) ease-out;
+
+  &:hover {
+    filter: brightness(1.125);
+  }
+
+  > svg {
+    color: var(--text-secondary-color);
+  }
+}

@@ -6,7 +6,7 @@
   padding: 2rem 1.5rem 1.5rem;
 
   > p {
-    color: var(--gray-300);
+    color: var(--text-secondary-color);
 
     & + p {
       margin-top: 1.5rem;
@@ -31,7 +31,7 @@
     letter-spacing: 1.5px;
     font-weight: 700;
 
-    color: var(--gray-300);
+    color: var(--text-secondary-color);
   }
 }
 
@@ -68,7 +68,7 @@
       font-size: 0.875rem;
       line-height: 1.5rem;
       letter-spacing: 0.5px;
-      color: var(--gray-300);
+      color: var(--text-secondary-color);
     }
   }
 }

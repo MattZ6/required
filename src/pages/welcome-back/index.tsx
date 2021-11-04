@@ -1,18 +1,26 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { RiKey2Fill } from 'react-icons/ri';
-
-import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
+import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
 
 import { useAuthentication } from '@contexts/Authentication';
+
+import { getAccessTokenFromCookies, getProfileDataFromCookies } from '@utils/authentication.utils';
+import { getValidationErrors } from '@utils/yup.utils';
+import { setFocusOnInput } from '@utils/form.utils';
 
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 import commonStyles from '@styles/common.module.scss';
-import styles from './styles.module.scss';
 
+type WelcomeBackFormData = {
+  email: string;
+  password: string;
+}
 
 type WelcomePageProps = {
   profile: {
@@ -24,18 +32,57 @@ type WelcomePageProps = {
 
 export default function WelcomePagePage({ profile }: WelcomePageProps) {
   const router = useRouter();
-  const { forgetLastLogin } = useAuthentication();
+  const { login, forgetLastLogin } = useAuthentication();
+  const formRef = useRef<FormHandles>(null);
+
+  const passwordInputName = 'password';
+
+  const [isSubmiting, setSubmiting] = useState(false);
 
   useEffect(() => {
-    const input = document.querySelector<HTMLInputElement>('[name="auth-app-welcome-back-pass"]');
-
-    input?.focus();
+    setFocusOnInput(`[name="${passwordInputName}"]`);
   }, []);
 
   const handleUseAnotherAccount = useCallback(() => {
     forgetLastLogin();
     router.replace('/sign-in');
   }, [forgetLastLogin, router]);
+
+  const handleSubmit = useCallback(async (data: WelcomeBackFormData) => {
+    formRef.current?.setErrors({});
+
+    try {
+      const schema = Yup.object().shape({
+        [passwordInputName]: Yup.string()
+          .min(6, 'At last 6 characters')
+          .required('The password is required'),
+      });
+
+      await schema.validate(data, { abortEarly: false });
+
+      setSubmiting(true);
+
+      await login({ email: profile.email.trim(), password: data.password });
+
+      router.replace('/');
+    } catch (error) {
+      setSubmiting(false);
+
+      if (error instanceof Yup.ValidationError) {
+        const validationErrorObject = getValidationErrors(error);
+
+        formRef.current?.setErrors(validationErrorObject);
+
+        const [inputName] = Object.keys(validationErrorObject);
+
+        setFocusOnInput(`[name="${inputName}"]`);
+
+        return;
+      }
+
+      // TODO: Tratar os erros
+    }
+  }, [login, router, profile.email]);
 
   return (
     <div className={commonStyles.pageContainer}>
@@ -45,22 +92,28 @@ export default function WelcomePagePage({ profile }: WelcomePageProps) {
         <p>Type your password to continue. 🔑</p>
       </header>
 
-      <form className={styles.form} onSubmit={event => event.preventDefault()}>
+      <Form noValidate className={commonStyles.pageForm} ref={formRef} onSubmit={handleSubmit}>
         <Input
+          name={passwordInputName}
           label="Type your password"
           type="password"
-          placeholder="I won't tell anyone 🤫"
-          name="auth-app-welcome-back-pass"
+          placeholder="I will keep it a secret... I swear ✋"
           icon={RiKey2Fill}
+          disabled={isSubmiting}
         />
 
-        <Button style={{ alignSelf: 'flex-end' }} type="submit">
+        <Button
+          style={{ alignSelf: 'flex-end' }}
+          type="submit"
+          disabled={isSubmiting}
+          showLoader={isSubmiting}
+        >
           Continue
         </Button>
-      </form>
+      </Form>
 
       <footer className={commonStyles.pageFooter}>
-        <p>Sign in with <button onClick={handleUseAnotherAccount}>another account</button>.</p>
+        <p>Sign in with <button disabled={isSubmiting} onClick={handleUseAnotherAccount}>another account</button>.</p>
       </footer>
     </div>
   );

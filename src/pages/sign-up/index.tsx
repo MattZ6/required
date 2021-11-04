@@ -19,7 +19,6 @@ import { Button } from '@components/Button';
 import { BackButtonLink } from '@components/BackButtonLink';
 
 import commonStyles from '@styles/common.module.scss';
-import styles from './styles.module.scss';
 
 type SignUpFormData = {
   name: string;
@@ -95,7 +94,7 @@ export default function SignUpPage() {
         <p>{`Not have an account yet? You're in the right place.`}</p>
       </header>
 
-      <Form noValidate className={styles.form} ref={formRef} onSubmit={handleSubmit}>
+      <Form noValidate className={commonStyles.pageForm} ref={formRef} onSubmit={handleSubmit}>
         <Input
           name={nameInputName}
           label="Whats your name?"

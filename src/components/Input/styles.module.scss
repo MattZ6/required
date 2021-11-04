@@ -1,0 +1,246 @@
+@mixin fadeInAnimation($fromPixels: 16px) {
+  @keyframes fadeInKeyframes {
+    from {
+      opacity: 0;
+      transform: translateY($fromPixels);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  animation: fadeInKeyframes var(--default-animation-time) ease-out;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  overflow: hidden;
+
+  transition: opacity var(--default-animation-time) ease-out;
+
+  &.disabled {
+    opacity: 0.56;
+
+    > label, > label > input {
+      cursor: not-allowed;
+    }
+
+    > label,
+    > label:hover {
+      > small {
+        color: var(--text-secondary-color);
+      }
+
+      &::after {
+        background: var(--input-border-color);
+      }
+
+      > svg {
+        color: var(--input-border-color);
+      }
+    }
+
+    > .error {
+      > span {
+        display: none;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  position: relative;
+
+  cursor: text;
+
+  border-top-left-radius: var(--border-radius-default);
+  border-top-right-radius: var(--border-radius-default);
+
+  overflow: hidden;
+
+  transition: opacity var(--default-animation-time) ease-out;
+
+  &.withError {
+    > small {
+      color: var(--error-color);
+      font-weight: 600;
+    }
+
+    &::after {
+      background: var(--error-color);
+    }
+
+    > svg {
+      color: var(--error-color);
+    }
+
+    &:hover {
+      &::after {
+        background: var(--error-color);
+      }
+
+      > svg {
+        color: var(--error-color);
+      }
+    }
+  }
+
+  &.filled {
+    &:hover {
+      > svg {
+        color: var(--primary-color);
+      }
+    }
+
+    > small {
+      transform: translateY(-15px);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    > svg {
+      color: var(--primary-color);
+    }
+  }
+
+  &:focus-within {
+    &:hover {
+      &::after {
+        background: var(--primary-color);
+      }
+
+      > svg {
+        color: var(--primary-color);
+      }
+    }
+
+    > small {
+      transform: translateY(-15px);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    > input::placeholder {
+      color: var(--text-secondary-color);
+      visibility: visible;
+    }
+
+    &::after {
+      background: var(--primary-color);
+    }
+
+    > svg {
+      color: var(--primary-color);
+    }
+  }
+
+  &:hover {
+    &::after {
+      background: var(--input-border-color-hover);
+    }
+
+    > svg {
+      color: var(--input-border-color-hover);
+    }
+  }
+
+  > small {
+    position: absolute;
+    left: 16px;
+    letter-spacing: 0.5px;
+
+    font-size: 0.875rem;
+    color: var(--text-secondary-color);
+
+    pointer-events: none;
+
+    transition: transform var(--input-animation-time) ease-out, font-size var(--input-animation-time) ease-out, color var(--input-animation-time) ease-out;
+  }
+
+  > input {
+    width: 100%;
+    border: 0;
+    background: var(--background-light-color);
+    border-top-left-radius: var(--border-radius-default);
+    border-top-right-radius: var(--border-radius-default);
+
+    padding: 24px 36px 8px 16px;
+
+    caret-color: var(--primary-color);
+
+    color: var(--input-text-color);
+    letter-spacing: 0.5px;
+
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+
+    transition: border-color var(--input-animation-time) ease-out;
+
+    &::placeholder {
+      color: transparent;
+
+      transition: color var(--input-animation-time) ease-out;
+    }
+
+    &::selection {
+      color: var(--button-text-color);
+      background: var(--primary-color);
+    }
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--input-border-color);
+
+    transition: background-color var(--input-animation-time) ease-out;
+
+    position: absolute;
+    bottom: 0;
+  }
+
+  > svg {
+    position: absolute;
+    right: 12px;
+    color: var(--input-border-color);
+    pointer-events: none;
+
+    transition: color var(--input-animation-time) ease-out;
+  }
+}
+
+.error {
+  display: flex;
+  align-items: center;
+
+  height: 1.75rem;
+  padding: 0 16px;
+
+  > span {
+    @include fadeInAnimation($fromPixels: 2px);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+
+    font-size: 0.8rem;
+    line-height: 1.75rem;
+    letter-spacing: 0.25px;
+
+    font-weight: 600;
+
+    color: var(--error-color);
+  }
+}
+

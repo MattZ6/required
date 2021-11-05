@@ -118,7 +118,7 @@ export default function SignInPage() {
       </Form>
 
       <footer className={commonStyles.pageFooter}>
-        <p>Not have an account yet? <Link href="/sign-up"><a aria-disabled={isSubmiting}>Create right now</a></Link>!
+        <p>Not have an account yet? <Link href="/sign-up" passHref><button disabled={isSubmiting}>Create right now</button></Link>!
         </p>
       </footer>
     </div>

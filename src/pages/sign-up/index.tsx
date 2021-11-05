@@ -88,7 +88,7 @@ export default function SignUpPage() {
     <div className={commonStyles.pageContainer}>
       <header className={commonStyles.pageHeader}>
         <nav>
-          <BackButtonLink to="/sign-in" />
+          <BackButtonLink disabled={isSubmiting} to="/sign-in" />
         </nav>
         <h1>Create account</h1>
         <p>{`Not have an account yet? You're in the right place.`}</p>
@@ -106,9 +106,9 @@ export default function SignUpPage() {
 
         <Input
           name={emailInputName}
-          label="Type your e-mail"
+          label="Whats your email?"
           type="email"
-          placeholder="Just type your e-mail bro"
+          placeholder="Your best email"
           autoComplete="off"
           icon={MdAlternateEmail}
           disabled={isSubmiting}
@@ -116,9 +116,9 @@ export default function SignUpPage() {
 
         <Input
           name={passwordInputName}
-          label="Type your password"
+          label="Enter a password"
           type="password"
-          placeholder="I won't tell anyone 🤫"
+          placeholder="It will be our little secret 😉"
           icon={RiKey2Fill}
           disabled={isSubmiting}
         />
@@ -134,7 +134,7 @@ export default function SignUpPage() {
       </Form>
 
       <footer className={commonStyles.pageFooter}>
-        <p>Oh wait... <Link href="/sign-in"><a>I already have a account</a></Link>!</p>
+        <p>Oh wait... <Link href="/sign-in" passHref><button disabled={isSubmiting}>I already have a account</button></Link>!</p>
       </footer>
     </div>
   );

@@ -9,10 +9,22 @@
   justify-content: center;
   line-height: 0;
 
-  transition: filter var(--default-animation-time) ease-out;
+  border: 0;
 
-  &:hover {
+  transition: filter var(--default-animation-time) ease-out,
+              opacity var(--default-animation-time) ease-out;
+
+  &:hover, &:focus {
     filter: brightness(1.125);
+  }
+
+  &:disabled {
+    opacity: 0.56;
+    cursor: not-allowed;
+
+    &:hover, &:focus {
+      filter: brightness(1);
+    }
   }
 
   > svg {

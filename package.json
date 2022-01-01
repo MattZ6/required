@@ -29,7 +29,7 @@
     "yup": "0.32.11"
   },
   "devDependencies": {
-    "@types/js-cookie": "3.0.0",
+    "@types/js-cookie": "3.0.1",
     "@types/node": "16.11.6",
     "@types/react": "17.0.33",
     "eslint": "7",

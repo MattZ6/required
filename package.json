@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/js-cookie": "3.0.0",
     "@types/node": "16.11.6",
-    "@types/react": "17.0.33",
+    "@types/react": "17.0.38",
     "eslint": "7",
     "eslint-config-next": "12.0.1",
     "typescript": "4.4.4"

@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@types/js-cookie": "3.0.1",
-    "@types/node": "16.11.25",
+    "@types/node": "16.11.26",
     "@types/react": "17.0.39",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",

@@ -1,6 +1,6 @@
 {
   "name": "stitches-test",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,9 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "2.8.8",
+    "@radix-ui/colors": "0.1.8",
+    "@radix-ui/react-dropdown-menu": "0.1.4",
+    "@stitches/react": "1.2.6",
     "next": "12.1.0",
+    "next-intl": "2.4.0",
+    "next-themes": "0.1.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "7.27.1",
+    "react-icons": "4.3.1",
+    "yup": "0.32.11"
   },
   "devDependencies": {
     "@types/node": "17.0.19",

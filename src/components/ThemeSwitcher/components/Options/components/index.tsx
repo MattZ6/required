@@ -1,0 +1,1 @@
+export { ThemeSwitcherOption } from './Option';

@@ -1,0 +1,1 @@
+export { GithubRepositoryLink } from './GithubRepositoryLink';

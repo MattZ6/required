@@ -1,0 +1,1 @@
+export { ThemeSwitcherTriggerIcon } from './TriggerIcon';

@@ -1,0 +1,102 @@
+{
+  "common": {
+    "themes": {
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema"
+    },
+    "locales": {
+      "en-US": "Inglês",
+      "pt-BR": "Português"
+    }
+  },
+  "home": {
+    "title": "Bem vindo(a)"
+  },
+  "sign-in": {
+    "title": "Entrar",
+    "description": "Entre para continuar para seu perfil",
+    "form": {
+      "email": {
+        "label": "Digite seu e-mail",
+        "placeholder": "É só digitar, sem erro"
+      },
+      "password": {
+        "label": "Digite sua senha",
+        "placeholder": "Não vou contar pra ninguém 🤫"
+      },
+      "submit": "Entrar"
+    },
+    "errors": {
+      "email": {
+        "required": "O endereço de e-mail é obrigatório",
+        "invalid": "Você precisa informar um endereço de e-mail válido"
+      },
+      "password": {
+        "required": "A senha é obrigatória",
+        "min": "Pelo menos {count} caracteres"
+      }
+    },
+    "footer": {
+      "text": "Ainda não tem uma conta?",
+      "create_account": "Criar conta agora mesmo"
+    }
+  },
+  "sign-up": {
+    "title": "Criar conta",
+    "description": "Ainda não tem uma conta? Então você está no lugar certo",
+    "form": {
+      "name": {
+        "label": "Qual o seu nome?",
+        "placeholder": "Alejandro? Fernando? Roberto? ..."
+      },
+      "email": {
+        "label": "Qual seu endereço de e-mail?",
+        "placeholder": "Seu melhor e-mail"
+      },
+      "password": {
+        "label": "Informe uma senha",
+        "placeholder": "Esse vai ser nosso segredinho 😉"
+      },
+      "submit": "Criar conta"
+    },
+    "errors": {
+      "name": {
+        "required": "O nome é obrigatório",
+        "min": "Pelo menos {count} caracteres"
+      },
+      "email": {
+        "required": "O endereço de e-mail é obrigatório",
+        "invalid": "Você precisa informar um endereço de e-mail válido"
+      },
+      "password": {
+        "required": "A senha é obrigatória",
+        "min": "Pelo menos {count} caracteres"
+      }
+    },
+    "footer": {
+      "text": "Ei, espera",
+      "sign_in": "eu já tenho uma conta"
+    }
+  },
+  "welcome-back": {
+    "title": "Olá novamente, {firstName}!",
+    "description": "Informe sua senha para continuar 🔑",
+    "form": {
+      "password": {
+        "label": "Digite sua senha",
+        "placeholder": "Vou manter em segredo... eu juro ✋"
+      },
+      "submit": "Continuar"
+    },
+    "errors": {
+      "password": {
+        "required": "A senha é obrigatória",
+        "min": "Pelo menos {count} caracteres"
+      }
+    },
+    "footer": {
+      "sign_in": "Entrar com outra conta"
+    }
+  }
+}

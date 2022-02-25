@@ -1,0 +1,1 @@
+export { LanguageSwitcherOption } from './Option';

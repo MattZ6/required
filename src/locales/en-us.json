@@ -1,0 +1,102 @@
+{
+  "common": {
+    "themes": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "locales": {
+      "en-US": "English",
+      "pt-BR": "Portuguese (Brazil)"
+    }
+  },
+  "home": {
+    "title": "Welcome"
+  },
+  "sign-in": {
+    "title": "Sign in",
+    "description": "Sign in to continue to your profile page",
+    "form": {
+      "email": {
+        "label": "Type your e-mail",
+        "placeholder": "Just type your e-mail bro"
+      },
+      "password": {
+        "label": "Type your password",
+        "placeholder": "I won't tell anyone 🤫"
+      },
+      "submit": "Sign in"
+    },
+    "errors": {
+      "email": {
+        "required": "The email is required",
+        "invalid": "You must enter a valid email address"
+      },
+      "password": {
+        "required": "The password is required",
+        "min": "At least {count} characters"
+      }
+    },
+    "footer": {
+      "text": "Don't have an account yet?",
+      "create_account": "Create account right now"
+    }
+  },
+  "sign-up": {
+    "title": "Create account",
+    "description": "Not have an account yet? You're in the right place",
+    "form": {
+      "name": {
+        "label": "Whats your name?",
+        "placeholder": "Alejandro? Fernando? Roberto? ..."
+      },
+      "email": {
+        "label": "Whats your email?",
+        "placeholder": "Your best email"
+      },
+      "password": {
+        "label": "Enter a password",
+        "placeholder": "It will be our little secret 😉"
+      },
+      "submit": "Create account"
+    },
+    "errors": {
+      "name": {
+        "required": "The name is required",
+        "min": "At least {count} characters"
+      },
+      "email": {
+        "required": "The email is required",
+        "invalid": "You must enter a valid email address"
+      },
+      "password": {
+        "required": "The password is required",
+        "min": "At least {count} characters"
+      }
+    },
+    "footer": {
+      "text": "Oh wait",
+      "sign_in": "I already have a account"
+    }
+  },
+  "welcome-back": {
+    "title": "Welcome back, {firstName}!",
+    "description": "Type your password to continue 🔑",
+    "form": {
+      "password": {
+        "label": "Type your password",
+        "placeholder": "I will keep it a secret... I swear ✋"
+      },
+      "submit": "Continue"
+    },
+    "errors": {
+      "password": {
+        "required": "The password is required",
+        "min": "At least {count} characters"
+      }
+    },
+    "footer": {
+      "sign_in": "Sign in with another account"
+    }
+  }
+}

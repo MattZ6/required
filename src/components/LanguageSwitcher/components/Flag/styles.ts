@@ -1,14 +1,15 @@
 import Image from 'next/image';
-import { styled } from "@styles/stitches.config";
 
-export namespace LanguageSwitcherTriggerFlagImageStyles {
+import { styled } from '@styles/stitches.config';
+
+export namespace LanguageSwitcherFlagImageStyles {
   export const Container = styled('div', {
     flexShrink: 0,
 
-    width: '24px',
-    height: '18px',
     borderRadius: '$small',
     overflow: 'hidden',
+
+    backgroundColor: '$inputBackground',
   });
 
   export const Flag = styled(Image, {

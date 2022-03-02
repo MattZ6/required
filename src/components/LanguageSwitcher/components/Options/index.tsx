@@ -1,4 +1,3 @@
-import { useTranslation } from '@hooks/useTranslation';
 import { useRouter } from 'next/router';
 
 import { LanguageSwitcherOption as Option } from './components';

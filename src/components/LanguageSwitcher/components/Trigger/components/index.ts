@@ -1,1 +1,0 @@
-export { LanguageSwitcherTriggerFlagImage } from './Flag';

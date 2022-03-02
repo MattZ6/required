@@ -34,14 +34,6 @@ export namespace LanguageSwitcherOptionSyles {
     },
   });
 
-  export const Flag = styled('div', {
-    width: 22,
-    height: 16.5,
-    borderRadius: '$small',
-
-    backgroundColor: '$backgroundLight',
-  });
-
   export const Text = styled('small', {
     fontSize: '$small',
     lineHeight: '$small',

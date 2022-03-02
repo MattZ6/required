@@ -3,7 +3,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { useTranslation } from '@hooks/useTranslation';
 
-import { LanguageSwitcherTriggerFlagImage as Flag } from './components';
+import { LanguageSwitcherFlagImage as Flag } from '@components/LanguageSwitcher/components';
 
 import { LanguageSwitcherTriggerStyles as Styles } from './styles';
 
@@ -13,7 +13,11 @@ export function LanguageSwitcherTrigger() {
 
   return (
     <Styles.Trigger>
-      <Flag locale={locale as any} />
+      <Flag
+        locale={locale as any}
+        width={24}
+        height={18}
+      />
 
       <Styles.Label>{t(`locales.${locale}`)}</Styles.Label>
 

@@ -1,5 +1,4 @@
-import {  } from 'next-themes';
-import { MdDarkMode, MdLightMode, MdOpenWith } from 'react-icons/md';
+import { MdDarkMode, MdLightMode, MdMonitor } from 'react-icons/md';
 
 type Props = {
   theme: 'light' | 'dark' | 'system';
@@ -15,7 +14,7 @@ export function ThemeSwitcherTriggerIcon({ theme }: Props) {
   }
 
   if (theme === 'system') {
-    return <MdOpenWith />;
+    return <MdMonitor />;
   }
 
   return null;

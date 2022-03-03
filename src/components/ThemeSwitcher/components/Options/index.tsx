@@ -9,9 +9,9 @@ export function ThemeSwitcherOptions() {
 
   return (
     <Styles.Container>
-      <Styles.List value={currentTheme} onValueChange={setTheme}>
+      <Styles.RadioGroup value={currentTheme} onValueChange={setTheme}>
         { themes.map((theme: any) => <Option key={theme} theme={theme} />) }
-      </Styles.List>
+      </Styles.RadioGroup>
     </Styles.Container>
   );
 }

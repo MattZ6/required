@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+
+import { Dropdown } from '@components/Dropdown';
 
 import {
   ThemeSwitcherTrigger as Trigger,
@@ -16,10 +17,10 @@ export function ThemeSwitcher() {
   }
 
   return (
-    <DropdownMenu.DropdownMenu>
+    <Dropdown>
       <Trigger />
 
       <Options />
-    </DropdownMenu.DropdownMenu>
+    </Dropdown>
   );
 }

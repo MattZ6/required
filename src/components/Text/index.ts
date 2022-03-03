@@ -3,11 +3,11 @@ import { styled } from "@styles/stitches.config";
 export const Text = styled('p', {
   variants: {
     contrast: {
-      hight: {
-        color: '$textPrimary'
+      high: {
+        color: '$highContrast'
       },
       low: {
-        color: '$textSecondary'
+        color: '$lowContrast'
       },
     },
     size: {

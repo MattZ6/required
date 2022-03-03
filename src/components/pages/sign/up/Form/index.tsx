@@ -5,7 +5,7 @@ import * as yup from 'yup';
 
 import { useTranslation } from '@hooks/useTranslation';
 
-import { FormField, PasswordFormField, FormButton } from '@components/Form';
+import { FormField, PasswordFormField, FormButton } from '@components/form';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 

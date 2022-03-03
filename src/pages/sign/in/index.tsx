@@ -4,7 +4,7 @@ import { useTranslation } from '@hooks/useTranslation';
 
 import { loadLocalMessages } from '@utils/loadLocalMessages';
 
-import { PageHeader } from '@components/Page';
+import { PageHeader } from '@components/pages/components';
 import { Text } from '@components/Text';
 
 import { CommonPageStyles as Styles } from '@components/pages/styles';

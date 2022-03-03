@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
-import { MdMailOutline } from 'react-icons/md';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { useTranslation } from '@hooks/useTranslation';
 
-import { PasswordFormField, FormButton } from '@components/Form';
+import { PasswordFormField, FormButton } from '@components/form';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 

@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next';
 import { useTranslation } from '@hooks/useTranslation';
 
-import { PageHeader } from '@components/Page';
+import { PageHeader } from '@components/pages/components';
 import { Text } from '@components/Text';
 
 import { loadLocalMessages } from '@utils/loadLocalMessages';

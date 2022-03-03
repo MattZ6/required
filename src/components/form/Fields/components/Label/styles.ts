@@ -1,4 +1,4 @@
-import { styled } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export namespace FormFieldLabelStyles {
   export const Label = styled('small', {

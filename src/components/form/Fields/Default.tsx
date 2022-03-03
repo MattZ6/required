@@ -1,4 +1,4 @@
-import { forwardRef, ForwardRefRenderFunction, useState } from 'react';
+import { IconType } from 'react-icons';
 
 import { BaseProps } from './types';
 import { FormFieldStyles as Styles } from './styles';
@@ -6,15 +6,16 @@ import {
   FormFieldLabel as Label,
   FormFieldInput as Input,
   FormFieldError as Error,
-  PasswordFormFieldVisibilityToggleButton as ToggleButton,
+  FormFieldIcon as Icon,
 } from './components';
+import { forwardRef, ForwardRefRenderFunction } from 'react';
 
-type Props = Omit<BaseProps, 'type'>;
+type Props = BaseProps & {
+  icon?: IconType
+}
 
 const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> =
-  ({ label, error, ...props }, ref) => {
-  const [isVisible, setIsVisible] = useState(false);
-
+  ({ label, icon, error, ...props }, ref) => {
   return (
     <Styles.Container>
       <Styles.Field
@@ -25,18 +26,14 @@ const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> =
         <Input
           ref={ref}
           label={label}
-          withTrailing
+          withTrailing={!!icon}
+          aria-invalid={!props.disabled && !!error}
           {...props}
-          type={isVisible ? 'text' : 'password'}
         />
 
         <Label label={label} />
 
-        <ToggleButton
-          disabled={props.disabled}
-          isVisible={isVisible}
-          onToggle={() => setIsVisible(state => !state)}
-        />
+        <Icon icon={icon} />
       </Styles.Field>
 
       <Error error={error} />
@@ -44,4 +41,4 @@ const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> =
   );
 }
 
-export const PasswordFormField = forwardRef(PrimitiveFormField);
+export const FormField = forwardRef(PrimitiveFormField);

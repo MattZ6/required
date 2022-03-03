@@ -1,4 +1,4 @@
-import { styled } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export namespace FormFieldInputStyles {
   export const Input = styled('input', {
@@ -6,11 +6,11 @@ export namespace FormFieldInputStyles {
 
     fontSize: '$normal',
     lineHeight: '$normal',
-    color: '$textPrimary',
+    color: '$highContrast',
 
-    caretColor: '$primary',
+    caretColor: '$primarySolid',
 
-    backgroundColor: '$inputBackground',
+    backgroundColor: '$elementBackground',
 
     outlineColor: 'transparent',
     outlineWidth: 0,
@@ -19,26 +19,25 @@ export namespace FormFieldInputStyles {
     paddingTop: '$medium',
     paddingBottom: '$small',
 
-    border: "none",
-    borderBottomStyle: "solid",
+    border: 'none',
+    borderBottomStyle: 'solid',
     borderBottomWidth: '2px',
-    borderBottomColor: '$inputBorder',
+    borderBottomColor: '$elementBorder',
     upperBorderRadius: '$normal',
 
-    transitionAnimation: 'background-color border-color',
+    transitionAnimation: 'background-color, border-color',
 
     '&::placeholder': {
       userSelect: 'none',
-      color: '$textSecondary',
+      color: '$lowContrast',
     },
 
     '&:hover': {
-      borderColor: '$inputBorderHover',
+      borderColor: '$hoveredElementBorder',
     },
 
     '&:focus': {
-      backgroundColor: '$inputBackgroundFocus',
-      borderColor: '$primary',
+      borderColor: '$primaryHoveredElementBorder',
     },
 
     '&:disabled': {

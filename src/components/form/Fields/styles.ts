@@ -1,13 +1,6 @@
 import { styled, css } from "@styles/stitches.config";
 
 export namespace FormFieldStyles {
-  const undergoLabelStyle = css({
-    fontSize: '$small',
-    lineHeight: '$small',
-
-    top: '4px',
-  });
-
   export const Container = styled('div', {
     display: 'flex',
     flexDirection: 'column',
@@ -22,7 +15,7 @@ export namespace FormFieldStyles {
     transitionAnimation: 'opacity',
 
     '> small': {
-      color: '$inputHint',
+      color: '$lowContrast',
 
       fontSize: '$normal',
       lineHeight: '$normal',
@@ -48,7 +41,7 @@ export namespace FormFieldStyles {
     },
 
     'svg': {
-      color: '$inputHint',
+      color: '$lowContrast',
       transitionAnimation: 'color',
     },
 
@@ -59,12 +52,11 @@ export namespace FormFieldStyles {
 
         top: '4px',
 
-        color: '$primary',
+        color: '$primarySolid',
       },
 
       '> input': {
-        backgroundColor: '$inputBackgroundFocus',
-        borderColor: '$primary',
+        borderColor: '$primaryHoveredElementBorder',
 
         '&::placeholder': {
           opacity: '1',
@@ -72,7 +64,7 @@ export namespace FormFieldStyles {
       },
 
       'svg': {
-        color: '$primary',
+        color: '$primarySolid',
       },
     },
 
@@ -86,19 +78,19 @@ export namespace FormFieldStyles {
       invalid: {
         true: {
           '> small': {
-            color: '$danger',
+            color: '$dangerSolid',
           },
 
           '> input': {
-            borderColor: '$danger',
+            borderColor: '$dangerSolid',
 
             '&:hover:not(:focus)': {
-              borderColor: '$danger',
+              borderColor: '$dangerSolid',
             },
           },
 
           'svg': {
-            color: '$danger',
+            color: '$dangerSolid',
           },
         },
       },

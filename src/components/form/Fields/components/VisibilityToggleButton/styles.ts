@@ -7,19 +7,24 @@ export namespace PasswordFormFieldVisibilityToggleButtonStyles {
     justifyContent: 'center',
     flexShrink: 0,
 
-    width: 36,
-    height: 36,
-    borderRadius: 36,
+    $$size: '36px',
+
+    size: '$$size',
+    borderRadius: '$$size',
 
     border: 'none',
     backgroundColor: 'transparent',
 
     cursor: 'pointer',
 
-    transitionAnimation: 'background-color',
+    transitionAnimation: 'color, background-color',
 
     '&:hover': {
-      backgroundColor: '$inputBackground',
+      backgroundColor: '$primaryHoveredElementBackground',
+
+      '> svg': {
+        color: '$primaryHoveredSolid',
+      },
     },
 
     '> svg': {

@@ -13,9 +13,9 @@ export function LanguageSwitcherOptions() {
 
   return (
     <Styles.Container>
-      <Styles.Options value={currentLocale} onValueChange={onChange}>
+      <Styles.RadioGroup value={currentLocale} onValueChange={onChange}>
       { locales?.map(locale => <Option key={locale} locale={locale} />) }
-      </Styles.Options>
+      </Styles.RadioGroup>
     </Styles.Container>
   );
 }

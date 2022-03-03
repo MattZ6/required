@@ -1,4 +1,4 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { Dropdown } from '@components/Dropdown';
 
 import {
   LanguageSwitcherTrigger as Trigger,
@@ -7,10 +7,10 @@ import {
 
 export function LanguageSwitcher() {
   return (
-    <DropdownMenu.DropdownMenu>
+    <Dropdown>
       <Trigger />
 
       <Options />
-    </DropdownMenu.DropdownMenu>
+    </Dropdown>
   );
 }

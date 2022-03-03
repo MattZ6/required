@@ -1,4 +1,7 @@
 {
+  "app": {
+    "title": "Auth Flow"
+  },
   "common": {
     "themes": {
       "light": "Claro",
@@ -8,6 +11,9 @@
     "locales": {
       "en-US": "Inglês",
       "pt-BR": "Português"
+    },
+    "project": {
+      "description": "O projeto foi criado no intuito de validar o processo de persitência da autenticação do usuário em projetos Nextjs que utilizam Server Side Rendering (SSR) e Static Site Generation (SSG)."
     }
   },
   "home": {

@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 
-import { Footer, Header, ProjectDescription } from './components';
+import { Footer, Header, Project } from './components';
 
-import { MainLayoutStyles } from './styles';
+import { MainLayoutStyles as Styles } from './styles';
 
 type MainLayoutProps = {
   children: ReactElement;
@@ -10,18 +10,18 @@ type MainLayoutProps = {
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (
-    <MainLayoutStyles.Container>
+    <Styles.Container>
       <Header />
 
-      <MainLayoutStyles.Content>
-        <MainLayoutStyles.Page>
+      <Styles.Content>
+        <Styles.Page>
           {children}
-        </MainLayoutStyles.Page>
+        </Styles.Page>
 
-        <ProjectDescription />
-      </MainLayoutStyles.Content>
+        <Project />
+      </Styles.Content>
 
       <Footer />
-    </MainLayoutStyles.Container>
+    </Styles.Container>
   );
 }

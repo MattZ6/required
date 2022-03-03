@@ -12,6 +12,8 @@ export namespace MainLayoutStyles {
   export const Content = styled(CenterContent, {
     flex: 1,
     display: 'flex',
+    paddingVertical: '$normal',
+    gap: '$normal',
   });
 
   export const Page = styled('section', {

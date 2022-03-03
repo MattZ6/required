@@ -1,0 +1,1 @@
+export { ProjectAuthor } from './ProjectAuthor';

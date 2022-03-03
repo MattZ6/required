@@ -1,14 +1,22 @@
-import { ThemeSwitcher } from "@components/ThemeSwitcher";
-import { styled } from "@styles/stitches.config";
 
-const StyledHeader = styled('header', {});
+import { ThemeSwitcher } from '@components/ThemeSwitcher';
+
+import {
+  HeaderTitle as Title
+} from './components';
+
+import { MainLayoutHeader as Styles } from './styles';
 
 export function Header() {
   return (
-    <StyledHeader>
-      Here goes the header
+    <Styles.Header>
+      <Styles.Content>
+        <Title />
 
-      <ThemeSwitcher />
-    </StyledHeader>
+        <Styles.Right>
+          <ThemeSwitcher />
+        </Styles.Right>
+      </Styles.Content>
+    </Styles.Header>
   );
 }

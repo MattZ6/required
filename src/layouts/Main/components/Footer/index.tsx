@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import { LanguageSwitcher } from '@components/LanguageSwitcher';
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
 
@@ -20,17 +18,5 @@ export function Footer() {
         </Styles.RightContainer>
       </Styles.Content>
     </Styles.Footer>
-  );
-}
-
-function Copyright() {
-  const now = useMemo(() => new Date(), []);
-
-  return (
-    <address>
-      <small>
-        Matheus Felipe Zanin © { now.getFullYear() }
-      </small>
-    </address>
   );
 }

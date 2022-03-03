@@ -21,41 +21,79 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      background: mauve.mauve1,
-      backgroundLight: mauve.mauve2,
+      /** Danger solid */
 
-      componentsBackground: mauve.mauve3,
+      dangerSolid: red.red10,
 
-      textPrimary: mauve.mauve12,
-      textSecondary: mauve.mauve11,
+      /** Backgrounds */
 
-      link: violet.violet9,
-      linkHover: violet.violet10,
-      linkOutline: violet.violet7,
+      appBackground: mauve.mauve1,
+      subtleBackground: mauve.mauve2,
 
-      inputBackground: mauve.mauve3,
-      inputBackgroundFocus: mauve.mauve4,
-      inputBorder: mauve.mauve7,
-      inputBorderHover: mauve.mauve8,
-      inputHint: '$textSecondary',
+      /** Elements */
 
-      buttonBackground: violet.violet4,
-      buttonBackgroundHover: violet.violet5,
-      buttonColor: violet.violet11,
-      buttonBorder: violet.violet7,
-      buttonBorderHover: violet.violet8,
+      elementBackground: mauve.mauve3,
+      hoveredElementBackground: mauve.mauve4,
+      activeElementBackground: mauve.mauve5,
 
-      danger: red.red10,
+      /** Separators */
 
-      primary: violet.violet9,
+      divider: mauve.mauve6,
+
+      /** Borders */
+
+      elementBorder: mauve.mauve7,
+      hoveredElementBorder: mauve.mauve8,
+
+      /** Main color */
+
+      solid: mauve.mauve9,
+      hoveredSolid: mauve.mauve10,
+
+      /** Texts */
+
+      lowContrast: mauve.mauve11,
+      highContrast: mauve.mauve12,
+
+      /** Primary backgrounds */
+
+      primaryAppBackground: violet.violet1,
+      primarySubtleBackground: violet.violet2,
+
+      /** Primary elements */
+
+      primaryElementBackground: violet.violet3,
+      primaryHoveredElementBackground: violet.violet4,
+      primaryActiveElementBackground: violet.violet5,
+
+      /** Primary separators */
+
+      primaryDivider: violet.violet6,
+
+      /** Primary borders */
+
+      primaryElementBorder: violet.violet7,
+      primaryHoveredElementBorder: violet.violet8,
+
+      /** Primary main color */
+
+      primarySolid: violet.violet9,
+      primaryHoveredSolid: violet.violet10,
+
+      /** Primary texts */
+
+      primaryLowContrast: violet.violet11,
+      primaryHighContrast: violet.violet12,
     },
     space: {
+      smallest: '2px',
       smaller: '4px',
       small: '8px',
       normal: '16px',
       medium: '24px',
     },
     sizes: {
+      small: '8px',
       normal: '16px',
       medium: '24px',
     },
@@ -77,7 +115,7 @@ export const {
       default: '"Nunito", sans-serif',
     },
     transitions: {
-      default: '150ms',
+      default: '125ms',
     },
   },
   utils: {
@@ -106,6 +144,10 @@ export const {
       transitionTimingFunction: 'ease-out',
       transitionProperty: property,
     }),
+    size: (value: string | number) => ({
+      width: value,
+      height: value,
+    }),
   },
   media: {
   },
@@ -113,32 +155,69 @@ export const {
 
 export const darkTheme = createTheme('dark-theme', {
   colors: {
-    background: mauveDark.mauve1,
-    backgroundLight: mauveDark.mauve2,
+    /** Danger solid */
 
-    componentsBackground: mauveDark.mauve3,
+    dangerSolid: redDark.red10,
 
-    link: violetDark.violet9,
-    linkHover: violetDark.violet10,
-    linkOutline: violetDark.violet7,
+    /** Backgrounds */
 
-    textPrimary: mauveDark.mauve12,
-    textSecondary: mauveDark.mauve11,
+    appBackground: mauveDark.mauve1,
+    subtleBackground: mauveDark.mauve2,
 
-    inputBackground: mauveDark.mauve2,
-    inputBackgroundFocus: mauveDark.mauve4,
-    inputBorder: mauveDark.mauve7,
-    inputBorderHover: mauveDark.mauve8,
+    /** Elements */
 
-    buttonBackground: violetDark.violet4,
-    buttonBackgroundHover: violetDark.violet5,
-    buttonColor: violetDark.violet11,
-    buttonBorder: violetDark.violet7,
-    buttonBorderHover: violetDark.violet8,
+    elementBackground: mauveDark.mauve3,
+    hoveredElementBackground: mauveDark.mauve4,
+    activeElementBackground: mauveDark.mauve5,
 
-    danger: redDark.red10,
+    /** Separators */
 
-    primary: violetDark.violet9,
+    divider: mauveDark.mauve6,
+
+    /** Borders */
+
+    elementBorder: mauveDark.mauve7,
+    hoveredElementBorder: mauveDark.mauve8,
+
+    /** Main color */
+
+    solid: mauveDark.mauve9,
+    hoveredSolid: mauveDark.mauve10,
+
+    /** Texts */
+
+    lowContrast: mauveDark.mauve11,
+    highContrast: mauveDark.mauve12,
+
+    /** Primary backgrounds */
+
+    primaryAppBackground: violetDark.violet1,
+    primarySubtleBackground: violetDark.violet2,
+
+    /** Primary elements */
+
+    primaryElementBackground: violetDark.violet3,
+    primaryHoveredElementBackground: violetDark.violet4,
+    primaryActiveElementBackground: violetDark.violet5,
+
+    /** Primary separators */
+
+    primaryDivider: violetDark.violet6,
+
+    /** Primary borders */
+
+    primaryElementBorder: violetDark.violet7,
+    primaryHoveredElementBorder: violetDark.violet8,
+
+    /** Primary main color */
+
+    primarySolid: violetDark.violet9,
+    primaryHoveredSolid: violetDark.violet10,
+
+    /** Primary texts */
+
+    primaryLowContrast: violetDark.violet11,
+    primaryHighContrast: violetDark.violet12,
   },
 });
 
@@ -150,8 +229,8 @@ export const globalStyles = globalCss({
   },
 
   html: {
-    backgroundColor: '$background',
-    color: '$textPrimary',
+    backgroundColor: '$appBackground',
+    color: '$highContrast',
 
     fontFamily: '$default',
   }

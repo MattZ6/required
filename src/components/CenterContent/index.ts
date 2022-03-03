@@ -6,6 +6,6 @@ export const CenterContent = styled('div', {
 
   paddingHorizontal: '$normal',
 
-  maxWidth: 960,
+  maxWidth: '1024px',
   width: '100%',
 });

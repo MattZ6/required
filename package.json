@@ -11,7 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "2.8.8",
     "@radix-ui/colors": "0.1.8",
-    "@radix-ui/react-dropdown-menu": "0.1.5",
+    "@radix-ui/react-dropdown-menu": "0.1.6",
     "@stitches/react": "1.2.7",
     "next": "12.1.0",
     "next-intl": "2.4.0",

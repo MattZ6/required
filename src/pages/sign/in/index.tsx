@@ -1,8 +1,6 @@
-import { GetStaticProps } from 'next';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
 import { useTranslation } from '@hooks/useTranslation';
-
-import { loadLocalMessages } from '@utils/loadLocalMessages';
 
 import { PageHeader } from '@components/pages/components';
 import { Text } from '@components/Text';
@@ -28,10 +26,8 @@ export default function SignIn() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps = withLocaleMessages(async () => {
   return {
-    props: {
-      messages: await loadLocalMessages(locale),
-    }
+    props: { }
   }
-}
+});

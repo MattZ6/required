@@ -1,10 +1,9 @@
-import type { GetStaticProps } from 'next';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
+
 import { useTranslation } from '@hooks/useTranslation';
 
 import { PageHeader } from '@components/pages/components';
 import { Text } from '@components/Text';
-
-import { loadLocalMessages } from '@utils/loadLocalMessages';
 
 import { CommonPageStyles as Styles } from '@components/pages/styles';
 
@@ -27,10 +26,8 @@ export default function WelcomeBackPage() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps = withLocaleMessages(async () => {
   return {
-    props: {
-      messages: await loadLocalMessages(locale),
-    }
+    props: { }
   }
-}
+});

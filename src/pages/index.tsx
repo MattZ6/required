@@ -1,7 +1,5 @@
-import { GetStaticProps } from 'next';
-
-import { loadLocalMessages } from '@utils/loadLocalMessages';
 import { useTranslation } from '@hooks/useTranslation';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
 export default function Home() {
   const t = useTranslation('home');
@@ -13,10 +11,8 @@ export default function Home() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps = withLocaleMessages(async () => {
   return {
-    props: {
-      messages: await loadLocalMessages(locale),
-    }
+    props: { }
   }
-}
+});

@@ -140,5 +140,36 @@
         "invalid": "Você precisa informar um endereço de e-mail válido"
       }
     }
+  },
+  "update-profile-password": {
+    "title": "Atualização de senha",
+    "description": "Informe sua senha atual para efetuar a alteração",
+    "form": {
+      "current_password": {
+        "label": "Senha atual",
+        "placeholder": "Informe sua atual senha"
+      },
+      "new_password": {
+        "label": "Nova senha",
+        "placeholder": "Insira uma nova senha"
+      },
+      "new_password_confirmation": {
+        "label": "Confirmação da nova senha",
+        "placeholder": "Confirme sua nova senha"
+      },
+      "submit": "Salvar"
+    },
+    "errors": {
+      "current_password": {
+        "required": "A senha atual é obrigatória"
+      },
+      "new_password": {
+        "required": "A nova senha é obrigatória"
+      },
+      "new_password_confirmation": {
+        "required": "A confirmação da nova senha é obrigatória",
+        "match": "As senhas não condizem"
+      }
+    }
   }
 }

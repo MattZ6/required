@@ -140,5 +140,36 @@
         "invalid": "You must enter a valid email address"
       }
     }
+  },
+  "update-profile-password": {
+    "title": "Change password",
+    "description": "Update your profile password",
+    "form": {
+      "current_password": {
+        "label": "Current password",
+        "placeholder": "Type your current password"
+      },
+      "new_password": {
+        "label": "New password",
+        "placeholder": "Type your new password"
+      },
+      "new_password_confirmation": {
+        "label": "New password confirmation",
+        "placeholder": "Confirm your new password"
+      },
+      "submit": "Submit"
+    },
+    "errors": {
+      "current_password": {
+        "required": "The current password is required"
+      },
+      "new_password": {
+        "required": "The new password is required"
+      },
+      "new_password_confirmation": {
+        "required": "The new password confirmation is required",
+        "match": "The passwords not match"
+      }
+    }
   }
 }

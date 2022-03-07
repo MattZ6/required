@@ -1,0 +1,1 @@
+export { PropertyLink } from './PropertyLink';

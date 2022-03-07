@@ -7,7 +7,7 @@ import { SignInLink, SignUpForm } from '@components/pages/sign/up';
 import { CommonPageStyles as Styles } from '@components/pages/styles';
 import { Text } from '@components/Text';
 
-export default function SignIn() {
+export default function SignUpPage() {
   const t = useTranslation('sign-up');
 
   return (

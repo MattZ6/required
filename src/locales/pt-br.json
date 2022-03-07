@@ -14,6 +14,9 @@
     },
     "project": {
       "description": "O projeto foi criado no intuito de validar o processo de persitência da autenticação do usuário em projetos Nextjs que utilizam Server Side Rendering (SSR) e Static Site Generation (SSG)."
+    },
+    "errors": {
+      "min": "Pelo menos {count} caracteres"
     }
   },
   "home": {
@@ -103,6 +106,22 @@
     },
     "footer": {
       "sign_in": "Entrar com outra conta"
+    }
+  },
+  "update-profile-name": {
+    "title": "Editar nome",
+    "description": "Atualizar seu nome de perfil",
+    "form": {
+      "name": {
+        "label": "Nome",
+        "placeholder": "Digite seu nome "
+      },
+      "submit": "Enviar"
+    },
+    "errors": {
+      "name": {
+        "required": "O nome é obrigatório"
+      }
     }
   }
 }

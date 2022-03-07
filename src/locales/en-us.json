@@ -14,6 +14,9 @@
     },
     "project": {
       "description": "The project was created in order to validate the user authentication persitence process in Nextjs projects that use Server Side Rendering (SSR) and Static Site Generation (SSG)."
+    },
+    "errors": {
+      "min": "At least {count} characters"
     }
   },
   "home": {
@@ -103,6 +106,22 @@
     },
     "footer": {
       "sign_in": "Sign in with another account"
+    }
+  },
+  "update-profile-name": {
+    "title": "Edit name",
+    "description": "Update your profile name",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Type your name "
+      },
+      "submit": "Submit"
+    },
+    "errors": {
+      "name": {
+        "required": "The name is required"
+      }
     }
   }
 }

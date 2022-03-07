@@ -7,7 +7,7 @@ import { CreateAccountLink, SignInForm } from '@components/pages/sign/in';
 import { CommonPageStyles as Styles } from '@components/pages/styles';
 import { Text } from '@components/Text';
 
-export default function SignIn() {
+export default function SignInPage() {
   const t = useTranslation('sign-in');
 
   return (

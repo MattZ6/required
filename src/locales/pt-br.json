@@ -123,5 +123,22 @@
         "required": "O nome é obrigatório"
       }
     }
+  },
+  "update-profile-email": {
+    "title": "Editar endereço de e-mail",
+    "description": "Atualizar seu endereço de e-mail atual",
+    "form": {
+      "email": {
+        "label": "Endereço de e-mail",
+        "placeholder": "Digite seu endereço de e-mail"
+      },
+      "submit": "Enviar"
+    },
+    "errors": {
+      "email": {
+        "required": "O endereço de e-mail é obrigatório",
+        "invalid": "Você precisa informar um endereço de e-mail válido"
+      }
+    }
   }
 }

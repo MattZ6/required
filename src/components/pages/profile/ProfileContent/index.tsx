@@ -21,7 +21,7 @@ export function ProfileContent() {
         trailingIcon={MdMailOutline}
         label="E-mail"
         value="matt@email.com"
-        to="/profile/name"
+        to="/profile/email"
       />
 
       <PropertyLink

@@ -123,5 +123,22 @@
         "required": "The name is required"
       }
     }
+  },
+  "update-profile-email": {
+    "title": "Edit e-mail address",
+    "description": "Update your profile e-mail address",
+    "form": {
+      "email": {
+        "label": "E-mail address",
+        "placeholder": "Type your e-mail address"
+      },
+      "submit": "Submit"
+    },
+    "errors": {
+      "email": {
+        "required": "The e-mail is required",
+        "invalid": "You must enter a valid email address"
+      }
+    }
   }
 }

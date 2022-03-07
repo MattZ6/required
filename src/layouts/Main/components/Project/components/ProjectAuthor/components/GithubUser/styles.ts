@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { styled } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export namespace ProjectAuthorGithubUserStyles {
   export const Container = styled('div', {

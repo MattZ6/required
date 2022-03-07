@@ -6,8 +6,7 @@ import {
   red,
   redDark,
 } from '@radix-ui/colors';
-
-import { createStitches } from '@stitches/react'
+import { createStitches } from '@stitches/react';
 
 export const {
   config,
@@ -149,8 +148,7 @@ export const {
       height: value,
     }),
   },
-  media: {
-  },
+  media: {},
 });
 
 export const darkTheme = createTheme('dark-theme', {
@@ -233,5 +231,5 @@ export const globalStyles = globalCss({
     color: '$highContrast',
 
     fontFamily: '$default',
-  }
+  },
 });

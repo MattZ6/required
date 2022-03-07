@@ -1,8 +1,10 @@
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+
+import { MainLayout } from '@layouts/Main';
+
+import { Provider } from '@providers/Provider';
 
 import { globalStyles } from '@styles/stitches.config';
-import { MainLayout } from '@layouts/Main';
-import { Provider } from '@providers/Provider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
@@ -13,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </MainLayout>
     </Provider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

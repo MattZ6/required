@@ -38,7 +38,7 @@ export namespace PropertyLinkStyles {
 
       '&:first-child': {
         fontSize: '22px',
-      }
+      },
     },
   });
 

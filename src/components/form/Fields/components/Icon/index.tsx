@@ -4,7 +4,7 @@ import { FormFieldSlot as Slot } from '../Slot';
 
 type Props = {
   icon?: IconType;
-}
+};
 
 export function FormFieldIcon({ icon: Icon }: Props) {
   if (!Icon) {

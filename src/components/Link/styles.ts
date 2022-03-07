@@ -23,7 +23,7 @@ export namespace LinkStyles {
     '&:focus-visible': {
       backgroundColor: '$primaryHoveredElementBackground',
       color: '$primaryHoveredSolid',
-      outlineColor: '$primaryElementBorder'
+      outlineColor: '$primaryElementBorder',
     },
   });
 }

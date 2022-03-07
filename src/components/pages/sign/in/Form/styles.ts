@@ -1,4 +1,4 @@
-import { styled } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export namespace FormStyles {
   export const Form = styled('form', {

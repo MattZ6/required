@@ -1,6 +1,6 @@
 import { DropdownItemIndicator, DropdownRadioItem } from '@components/Dropdown';
 
-import { styled } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export namespace ThemeSwitcherOptionStyles {
   export const Option = styled(DropdownRadioItem, {

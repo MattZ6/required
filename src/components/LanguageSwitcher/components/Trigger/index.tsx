@@ -13,11 +13,7 @@ export function LanguageSwitcherTrigger() {
 
   return (
     <Styles.Trigger>
-      <Flag
-        locale={locale as any}
-        width={24}
-        height={18}
-      />
+      <Flag locale={locale as any} width={24} height={18} />
 
       <Styles.Label>{t(`locales.${locale}`)}</Styles.Label>
 

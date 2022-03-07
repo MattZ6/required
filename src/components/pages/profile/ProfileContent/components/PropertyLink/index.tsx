@@ -10,7 +10,7 @@ type Props = {
   label: string;
   value: string;
   to: string;
-}
+};
 
 export function PropertyLink({ trailingIcon: Icon, label, value, to }: Props) {
   const { locale } = useRouter();
@@ -28,5 +28,5 @@ export function PropertyLink({ trailingIcon: Icon, label, value, to }: Props) {
         <MdEdit />
       </Styles.Button>
     </Link>
-  )
+  );
 }

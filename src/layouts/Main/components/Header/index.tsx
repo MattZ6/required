@@ -1,10 +1,6 @@
-
 import { ThemeSwitcher } from '@components/ThemeSwitcher';
 
-import {
-  HeaderTitle as Title
-} from './components';
-
+import { HeaderTitle as Title } from './components';
 import { MainLayoutHeader as Styles } from './styles';
 
 export function Header() {

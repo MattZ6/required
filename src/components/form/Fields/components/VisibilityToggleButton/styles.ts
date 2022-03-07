@@ -1,4 +1,4 @@
-import { styled } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export namespace PasswordFormFieldVisibilityToggleButtonStyles {
   export const Button = styled('button', {
@@ -31,6 +31,6 @@ export namespace PasswordFormFieldVisibilityToggleButtonStyles {
       fontSize: '24px',
 
       transitionAnimation: 'color',
-    }
+    },
   });
 }

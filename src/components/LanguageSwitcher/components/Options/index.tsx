@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 
 import { LanguageSwitcherOption as Option } from './components';
-
 import { LanguageSwitcherOptionsStyles as Styles } from './styles';
 
 export function LanguageSwitcherOptions() {
@@ -9,12 +8,14 @@ export function LanguageSwitcherOptions() {
 
   const onChange = (locale: string) => {
     replace(asPath, asPath, { locale });
-  }
+  };
 
   return (
     <Styles.Container>
       <Styles.RadioGroup value={currentLocale} onValueChange={onChange}>
-      { locales?.map(locale => <Option key={locale} locale={locale} />) }
+        {locales?.map(locale => (
+          <Option key={locale} locale={locale} />
+        ))}
       </Styles.RadioGroup>
     </Styles.Container>
   );

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
+
 import {
   ProjectAuthorGithubUser as User,
   ProjectAuthorGithubLink as Link,
 } from './components';
-
 import { ProjectAuthorStyles as Styles } from './styles';
 
 type User = {
@@ -11,7 +11,7 @@ type User = {
   avatar_url: string;
   name: string;
   login: string;
-}
+};
 
 export function ProjectAuthor() {
   const [user, setUser] = useState<User | undefined>();

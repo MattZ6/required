@@ -1,13 +1,13 @@
-import { styled } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export const Text = styled('p', {
   variants: {
     contrast: {
       high: {
-        color: '$highContrast'
+        color: '$highContrast',
       },
       low: {
-        color: '$lowContrast'
+        color: '$lowContrast',
       },
     },
     size: {
@@ -24,5 +24,5 @@ export const Text = styled('p', {
   defaultVariants: {
     contrast: 'low',
     size: 'normal',
-  }
+  },
 });

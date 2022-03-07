@@ -1,12 +1,11 @@
 import { ReactElement } from 'react';
 
 import { Footer, Header, Project } from './components';
-
 import { MainLayoutStyles as Styles } from './styles';
 
 type MainLayoutProps = {
   children: ReactElement;
-}
+};
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (
@@ -14,9 +13,7 @@ export function MainLayout({ children }: MainLayoutProps) {
       <Header />
 
       <Styles.Content>
-        <Styles.Page>
-          {children}
-        </Styles.Page>
+        <Styles.Page>{children}</Styles.Page>
 
         <Project />
       </Styles.Content>

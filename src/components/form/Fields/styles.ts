@@ -1,4 +1,4 @@
-import { styled, css } from "@styles/stitches.config";
+import { styled } from '@styles/stitches.config';
 
 export namespace FormFieldStyles {
   export const Container = styled('div', {
@@ -40,7 +40,7 @@ export namespace FormFieldStyles {
       top: '4px',
     },
 
-    'svg': {
+    svg: {
       color: '$lowContrast',
       transitionAnimation: 'color',
     },
@@ -63,7 +63,7 @@ export namespace FormFieldStyles {
         },
       },
 
-      'svg': {
+      svg: {
         color: '$primarySolid',
       },
     },
@@ -89,7 +89,7 @@ export namespace FormFieldStyles {
             },
           },
 
-          'svg': {
+          svg: {
             color: '$dangerSolid',
           },
         },

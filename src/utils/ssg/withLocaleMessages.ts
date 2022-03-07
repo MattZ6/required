@@ -1,12 +1,17 @@
+import {
+  GetStaticProps,
+  GetStaticPropsContext,
+  GetStaticPropsResult,
+} from 'next';
+
 import { loadLocaleMessages } from '@utils/loadLocaleMessages';
-import { GetStaticProps, GetStaticPropsContext, GetStaticPropsResult } from 'next';
 
 type WithMessages<P> = P & {
   messages?: any;
-}
+};
 
 export function withLocaleMessages<P>(fn: GetStaticProps<P>) {
-  return async function(context: GetStaticPropsContext) {
+  return async (context: GetStaticPropsContext) => {
     const { locale } = context;
 
     const messages = await loadLocaleMessages(locale ?? 'en-US');
@@ -16,9 +21,9 @@ export function withLocaleMessages<P>(fn: GetStaticProps<P>) {
     return {
       ...response,
       props: {
-        ...response?.props ?? { },
+        ...(response?.props ?? {}),
         messages,
-      }
+      },
     } as GetStaticPropsResult<WithMessages<P>>;
-  }
+  };
 }

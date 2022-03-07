@@ -1,5 +1,6 @@
-import { styled } from "@styles/stitches.config";
-import { CenterContent } from "@components/CenterContent";
+import { CenterContent } from '@components/CenterContent';
+
+import { styled } from '@styles/stitches.config';
 
 export namespace MainLayoutStyles {
   export const Container = styled('main', {

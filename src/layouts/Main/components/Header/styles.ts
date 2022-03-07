@@ -1,6 +1,6 @@
-import { styled } from '@styles/stitches.config';
-
 import { CenterContent } from '@components/CenterContent';
+
+import { styled } from '@styles/stitches.config';
 
 export namespace MainLayoutHeader {
   export const Header = styled('header', {

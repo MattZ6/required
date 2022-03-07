@@ -1,6 +1,6 @@
-import { styled } from '@styles/stitches.config';
-
 import { DropdownTrigger } from '@components/Dropdown';
+
+import { styled } from '@styles/stitches.config';
 
 export namespace LanguageSwitcherTriggerStyles {
   export const Trigger = styled(DropdownTrigger, {
@@ -14,6 +14,6 @@ export namespace LanguageSwitcherTriggerStyles {
 
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
   });
 }

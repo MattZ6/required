@@ -1,14 +1,12 @@
 import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
-import { Title } from '@components/Title';
-
 import {
   ProfileAvatar as Avatar,
   ProfileContent as Content,
 } from '@components/pages/profile';
-
 import { CommonPageStyles as Styles } from '@components/pages/styles';
 import { Text } from '@components/Text';
+import { Title } from '@components/Title';
 
 export default function ProfilePage() {
   return (
@@ -22,13 +20,13 @@ export default function ProfilePage() {
 
       <Content />
 
-      <button>Sair</button>
+      <button type="button">Sair</button>
     </Styles.Page>
   );
 }
 
 export const getStaticProps = withLocaleMessages(async () => {
   return {
-    props: { }
-  }
+    props: {},
+  };
 });

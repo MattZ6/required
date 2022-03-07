@@ -1,6 +1,6 @@
-import { styled } from '@styles/stitches.config';
-
 import { Text } from '@components/Text';
+
+import { styled } from '@styles/stitches.config';
 
 export namespace ProjectStyles {
   export const Container = styled('div', {

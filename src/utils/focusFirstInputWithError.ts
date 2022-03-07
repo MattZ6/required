@@ -1,6 +1,6 @@
 import { SubmitErrorHandler } from 'react-hook-form';
 
-export const focusFirstInputWithError: SubmitErrorHandler<any> = (errors) => {
+export const focusFirstInputWithError: SubmitErrorHandler<any> = errors => {
   const [first] = Object.keys(errors);
 
   setTimeout(() => {
@@ -8,4 +8,4 @@ export const focusFirstInputWithError: SubmitErrorHandler<any> = (errors) => {
 
     input?.focus();
   }, 0);
-}
+};

@@ -2,9 +2,9 @@ import { MdSecurity } from 'react-icons/md';
 
 import { useTranslation } from '@hooks/useTranslation';
 
-import { HeaderTitleStyles as Styles } from './styles';
-
 import { Title } from '@components/Title';
+
+import { HeaderTitleStyles as Styles } from './styles';
 
 export function HeaderTitle() {
   const t = useTranslation('app');

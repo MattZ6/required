@@ -1,9 +1,6 @@
 import { useTranslation } from '@hooks/useTranslation';
 
-import {
-  ProjectAuthor as Author,
-} from './components'
-
+import { ProjectAuthor as Author } from './components';
 import { ProjectStyles as Styles } from './styles';
 
 export function Project() {
@@ -11,7 +8,7 @@ export function Project() {
 
   return (
     <Styles.Container>
-      <Styles.Description>{ t('project.description') }</Styles.Description>
+      <Styles.Description>{t('project.description')}</Styles.Description>
 
       <Author />
     </Styles.Container>

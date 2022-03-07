@@ -5,11 +5,11 @@ type User = {
   avatar_url: string;
   name: string;
   login: string;
-}
+};
 
 type Props = {
   user: User;
-}
+};
 
 export function ProjectAuthorGithubUser({ user }: Props) {
   return (

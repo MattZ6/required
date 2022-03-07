@@ -5,4 +5,4 @@ export type BaseProps = InputHTMLAttributes<HTMLInputElement> & {
   name: string;
   label: string;
   error?: FieldError;
-}
+};

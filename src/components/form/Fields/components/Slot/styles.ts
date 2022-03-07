@@ -18,7 +18,7 @@ export namespace FormFieldSlotStyles {
 
       side: {
         right: {
-          right: '$normal'
+          right: '$normal',
         },
       },
 

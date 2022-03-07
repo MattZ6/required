@@ -6,12 +6,12 @@ type Props = {
   to: string;
   locale?: string;
   children: string;
-}
+};
 
 export function TextLink({ to, locale, children }: Props) {
   return (
     <Link href={to} locale={locale} passHref>
-      <Styles.Link>{ children }</Styles.Link>
+      <Styles.Link>{children}</Styles.Link>
     </Link>
   );
 }

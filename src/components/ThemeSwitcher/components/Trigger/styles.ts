@@ -1,6 +1,6 @@
-import { styled } from '@styles/stitches.config';
-
 import { DropdownTrigger } from '@components/Dropdown';
+
+import { styled } from '@styles/stitches.config';
 
 export namespace ThemeSwitcherTriggerStyles {
   export const Trigger = styled(DropdownTrigger, {

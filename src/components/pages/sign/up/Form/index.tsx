@@ -4,7 +4,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdMailOutline, MdOutlineEmojiEmotions } from 'react-icons/md';
 import * as yup from 'yup';
 
+import { useAuth } from '@hooks/useAuth';
 import { useTranslation } from '@hooks/useTranslation';
+
+import { useCreateAccount } from '@services/user/auth';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { setFocusOnInput } from '@utils/setFocusOnInput';
@@ -17,8 +20,17 @@ const nameFormFieldName = 'name';
 const emailFormFieldName = 'email';
 const passwordFormFieldName = 'password';
 
+type SignUpFormData = {
+  name: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+};
+
 export function SignUpForm() {
   const t = useTranslation('sign-up');
+  const { isSuccess, mutateAsync } = useCreateAccount();
+  const { signIn } = useAuth();
 
   const schema = yup.object().shape({
     [nameFormFieldName]: yup
@@ -36,12 +48,27 @@ export function SignUpForm() {
       .min(6, t('errors.password.min', { count: 6 })),
   });
 
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm<SignUpFormData>({
     resolver: yupResolver(schema),
   });
 
-  const signUp: SubmitHandler<any> = async () => {
-    // TODO:
+  const signUp: SubmitHandler<SignUpFormData> = async data => {
+    try {
+      await mutateAsync({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        password_confirmation: data.password,
+      });
+
+      await signIn({
+        email: data.email,
+        password: data.password,
+      });
+    } catch (error) {
+      // TODO: Tratar os erros
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -55,7 +82,7 @@ export function SignUpForm() {
         placeholder={t('form.name.placeholder')}
         icon={MdOutlineEmojiEmotions}
         error={formState.errors[nameFormFieldName]}
-        disabled={formState.isSubmitting}
+        disabled={formState.isSubmitting || isSuccess}
         {...register(nameFormFieldName)}
       />
 
@@ -65,7 +92,7 @@ export function SignUpForm() {
         type="email"
         icon={MdMailOutline}
         error={formState.errors[emailFormFieldName]}
-        disabled={formState.isSubmitting}
+        disabled={formState.isSubmitting || isSuccess}
         {...register(emailFormFieldName)}
       />
 

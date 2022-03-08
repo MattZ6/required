@@ -19,6 +19,7 @@
       "@components/*": ["./components/*"],
       "@contexts/*": ["./contexts/*"],
       "@hooks/*": ["./hooks/*"],
+      "@services/*": ["./services/*"],
       "@layouts/*": ["./layouts/*"],
       "@locales/*": ["./locales/*"],
       "@pages/*": ["./pages/*"],

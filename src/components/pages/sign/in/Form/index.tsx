@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdMailOutline } from 'react-icons/md';
 import * as yup from 'yup';
 
+import { useAuth } from '@hooks/useAuth';
 import { useTranslation } from '@hooks/useTranslation';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
@@ -16,7 +17,13 @@ import { FormStyles as Styles } from './styles';
 const emailFormFieldName = 'email';
 const passwordFormFieldName = 'password';
 
+type SignInFormDate = {
+  email: string;
+  password: string;
+};
+
 export function SignInForm() {
+  const { signIn } = useAuth();
   const t = useTranslation('sign-in');
 
   const schema = yup.object().shape({
@@ -30,12 +37,16 @@ export function SignInForm() {
       .min(6, t('errors.password.min', { count: 6 })),
   });
 
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm<SignInFormDate>({
     resolver: yupResolver(schema),
   });
 
-  const signIn: SubmitHandler<any> = async () => {
-    // TODO
+  const submit: SubmitHandler<SignInFormDate> = async data => {
+    try {
+      await signIn(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -43,14 +54,14 @@ export function SignInForm() {
   }, []);
 
   return (
-    <Styles.Form onSubmit={handleSubmit(signIn, focusFirstInputWithError)}>
+    <Styles.Form onSubmit={handleSubmit(submit, focusFirstInputWithError)}>
       <FormField
         label={t('form.email.label')}
         placeholder={t('form.email.placeholder')}
         type="email"
         icon={MdMailOutline}
         error={formState.errors[emailFormFieldName]}
-        disabled={formState.isSubmitting}
+        disabled={formState.isSubmitting || formState.isSubmitSuccessful}
         {...register(emailFormFieldName)}
       />
 
@@ -58,7 +69,7 @@ export function SignInForm() {
         label={t('form.password.label')}
         placeholder={t('form.password.placeholder')}
         error={formState.errors[passwordFormFieldName]}
-        disabled={formState.isSubmitting}
+        disabled={formState.isSubmitting || formState.isSubmitSuccessful}
         {...register(passwordFormFieldName)}
       />
 

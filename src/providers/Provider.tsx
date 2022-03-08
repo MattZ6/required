@@ -1,6 +1,9 @@
 import { IntlMessages, NextIntlProvider } from 'next-intl';
 import { ThemeProvider } from 'next-themes';
 import { ReactElement } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import { AuthProvider } from '@contexts/Auth';
 
 import { darkTheme } from '@styles/stitches.config';
 
@@ -8,6 +11,8 @@ type ProviderProps = {
   children: ReactElement;
   messages?: IntlMessages;
 };
+
+const queryClient = new QueryClient();
 
 export function Provider({ children, messages }: ProviderProps) {
   return (
@@ -17,7 +22,11 @@ export function Provider({ children, messages }: ProviderProps) {
       value={{ light: 'light-theme', dark: darkTheme.className }}
       defaultTheme="system"
     >
-      <NextIntlProvider messages={messages}>{children}</NextIntlProvider>
+      <NextIntlProvider messages={messages}>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>{children}</AuthProvider>
+        </QueryClientProvider>
+      </NextIntlProvider>
     </ThemeProvider>
   );
 }

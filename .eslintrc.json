@@ -86,6 +86,7 @@
           "module",
           "/^@contexts/",
           "/^@hooks/",
+          "/^@services/",
           "/^@layouts/",
           "/^@locales/",
           "/^@providers/",

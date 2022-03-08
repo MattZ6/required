@@ -1,7 +1,12 @@
 {
-  "name": "stitches-test",
+  "name": "auth-flow",
   "version": "0.0.0",
   "private": true,
+  "author": {
+    "name": "Matheus Felipe Zanin",
+    "email": "matt_z6@hotmail.com",
+    "url": "https://github.com/mattz6"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

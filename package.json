@@ -7,6 +7,7 @@
     "email": "matt_z6@hotmail.com",
     "url": "https://github.com/mattz6"
   },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

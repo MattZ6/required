@@ -4,6 +4,8 @@ import { MainLayout } from '@layouts/Main';
 
 import { Provider } from '@providers/Provider';
 
+import { SEO } from '@components/SEO';
+
 import { globalStyles } from '@styles/stitches.config';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -11,9 +13,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Provider messages={pageProps.messages}>
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
+      <>
+        <SEO />
+
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </>
     </Provider>
   );
 }

@@ -23,8 +23,6 @@ export default class CustomDocument extends Document {
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
-
-          <link rel="icon" type="image/ico" href="favicon.ico" />
         </Head>
 
         <body>

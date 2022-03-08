@@ -1,3 +1,4 @@
+import { SEO } from '@components/SEO';
 import { Text } from '@components/Text';
 import { Title } from '@components/Title';
 
@@ -17,6 +18,8 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <Styles.Container>
+      <SEO title={title} description={description} />
+
       <Styles.ButtonContainer>
         {backLinkUrl && <BackButton to={backLinkUrl} />}
       </Styles.ButtonContainer>

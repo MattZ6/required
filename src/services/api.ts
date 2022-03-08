@@ -1,9 +1,20 @@
 import axios from 'axios';
 
-export function makeApiClient() {
+import { setAuthCookies } from '@utils/auth-cookies';
+
+import { Authentication } from './user/auth';
+
+export function makeApiClient(context?: any) {
   const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
   });
 
-  return api;
+  function saveAuthOnCookies(data: Authentication) {
+    setAuthCookies(data, context);
+  }
+
+  return {
+    api,
+    saveAuthOnCookies,
+  };
 }

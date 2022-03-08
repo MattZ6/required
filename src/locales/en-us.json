@@ -109,14 +109,14 @@
     }
   },
   "update-profile-name": {
-    "title": "Edit name",
-    "description": "Update your profile name",
+    "title": "Change name",
+    "description": "Change your profile name",
     "form": {
       "name": {
         "label": "Name",
         "placeholder": "Type your name "
       },
-      "submit": "Submit"
+      "submit": "Save"
     },
     "errors": {
       "name": {
@@ -125,14 +125,14 @@
     }
   },
   "update-profile-email": {
-    "title": "Edit e-mail address",
-    "description": "Update your profile e-mail address",
+    "title": "Change e-mail address",
+    "description": "Change your e-mail address (for future access and communication messages)",
     "form": {
       "email": {
         "label": "E-mail address",
-        "placeholder": "Type your e-mail address"
+        "placeholder": "Type your new e-mail address"
       },
-      "submit": "Submit"
+      "submit": "Save"
     },
     "errors": {
       "email": {
@@ -143,7 +143,7 @@
   },
   "update-profile-password": {
     "title": "Change password",
-    "description": "Update your profile password",
+    "description": "Enter your current password to make the change",
     "form": {
       "current_password": {
         "label": "Current password",
@@ -157,7 +157,7 @@
         "label": "New password confirmation",
         "placeholder": "Confirm your new password"
       },
-      "submit": "Submit"
+      "submit": "Save"
     },
     "errors": {
       "current_password": {

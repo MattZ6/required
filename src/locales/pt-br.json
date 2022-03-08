@@ -109,14 +109,14 @@
     }
   },
   "update-profile-name": {
-    "title": "Editar nome",
-    "description": "Atualizar seu nome de perfil",
+    "title": "Alterar nome",
+    "description": "Alterar o nome visível no seu perfil",
     "form": {
       "name": {
         "label": "Nome",
         "placeholder": "Digite seu nome "
       },
-      "submit": "Enviar"
+      "submit": "Salvar"
     },
     "errors": {
       "name": {
@@ -125,12 +125,12 @@
     }
   },
   "update-profile-email": {
-    "title": "Editar endereço de e-mail",
-    "description": "Atualizar seu endereço de e-mail atual",
+    "title": "Alterar endereço de e-mail",
+    "description": "Alterar seu endereço de e-mail atual (para futuros acessos e mensagens de comunicação)",
     "form": {
       "email": {
         "label": "Endereço de e-mail",
-        "placeholder": "Digite seu endereço de e-mail"
+        "placeholder": "Digite seu novo endereço de e-mail"
       },
       "submit": "Enviar"
     },
@@ -142,7 +142,7 @@
     }
   },
   "update-profile-password": {
-    "title": "Atualização de senha",
+    "title": "Alterar senha",
     "description": "Informe sua senha atual para efetuar a alteração",
     "form": {
       "current_password": {

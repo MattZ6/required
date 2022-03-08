@@ -1,17 +1,14 @@
-import { useRouter } from 'next/router';
-
+import { useAuth } from '@hooks/useAuth';
 import { useTranslation } from '@hooks/useTranslation';
 
-import { TextLink } from '@components/Link';
-
 export function SignInLink() {
-  const { locale } = useRouter();
+  const { removePreviousAuth } = useAuth();
 
   const t = useTranslation('welcome-back');
 
   return (
-    <TextLink to="/sign/in" locale={locale}>
+    <button type="button" onClick={removePreviousAuth}>
       {t('footer.sign_in')}
-    </TextLink>
+    </button>
   );
 }

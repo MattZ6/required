@@ -15,5 +15,13 @@ export function checkAuthentication(req: NextRequest) {
     return NextResponse.redirect(nextUrlClone, 307);
   }
 
+  if (!cookies.refresh_token) {
+    const nextUrlClone = req.nextUrl.clone();
+
+    nextUrlClone.pathname = '/welcome-back';
+
+    return NextResponse.redirect(nextUrlClone, 307);
+  }
+
   return NextResponse.next();
 }

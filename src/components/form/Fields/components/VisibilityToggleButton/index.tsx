@@ -1,8 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md';
 
-import { FormFieldSlot as Slot } from '..';
-
+import { FormFieldSlot as Slot } from '../Slot';
 import { PasswordFormFieldVisibilityToggleButtonStyles as Styles } from './styles';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {

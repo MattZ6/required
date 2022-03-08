@@ -3,8 +3,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { useTranslation } from '@hooks/useTranslation';
 
-import { LanguageSwitcherFlagImage as Flag } from '@components/LanguageSwitcher/components';
-
+import { LanguageSwitcherFlagImage as Flag } from '../Flag';
 import { LanguageSwitcherTriggerStyles as Styles } from './styles';
 
 export function LanguageSwitcherTrigger() {

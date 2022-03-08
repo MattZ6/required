@@ -45,7 +45,7 @@ export function SignInForm() {
     try {
       await signIn(data);
     } catch (error) {
-      console.log(error);
+      // TODO: Tratar os erros
     }
   };
 

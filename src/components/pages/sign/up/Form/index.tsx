@@ -67,7 +67,6 @@ export function SignUpForm() {
       });
     } catch (error) {
       // TODO: Tratar os erros
-      console.log(error);
     }
   };
 

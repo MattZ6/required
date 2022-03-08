@@ -208,5 +208,29 @@
         "invalid": "You must enter a valid email address"
       }
     }
+  },
+  "password-reset-page": {
+    "title": "Password reset",
+    "description": "Easy, right? Now all you have to do is enter your new password",
+    "form": {
+      "new_password": {
+        "label": "New password",
+        "placeholder": "Type your new password"
+      },
+      "new_password_confirmation": {
+        "label": "New password confirmation",
+        "placeholder": "Confirm your new password"
+      },
+      "submit": "Save"
+    },
+    "errors": {
+      "new_password": {
+        "required": "The new password is required"
+      },
+      "new_password_confirmation": {
+        "required": "The new password confirmation is required",
+        "match": "The passwords not match"
+      }
+    }
   }
 }

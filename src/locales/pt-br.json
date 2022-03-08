@@ -208,5 +208,29 @@
         "invalid": "Você precisa informar um endereço de e-mail válido"
       }
     }
+  },
+  "password-reset-page": {
+    "title": "Resetar senha",
+    "description": "Fácil, né? Agora é só informar sua nova senha",
+    "form": {
+      "new_password": {
+        "label": "Nova senha",
+        "placeholder": "Insira uma nova senha"
+      },
+      "new_password_confirmation": {
+        "label": "Confirmação da nova senha",
+        "placeholder": "Confirme sua nova senha"
+      },
+      "submit": "Salvar"
+    },
+    "errors": {
+      "new_password": {
+        "required": "A nova senha é obrigatória"
+      },
+      "new_password_confirmation": {
+        "required": "A confirmação da nova senha é obrigatória",
+        "match": "As senhas não condizem"
+      }
+    }
   }
 }

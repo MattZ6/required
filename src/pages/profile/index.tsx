@@ -1,26 +1,26 @@
 import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
 import {
+  ProfileActions,
   ProfileAvatar as Avatar,
   ProfileContent as Content,
+  ProfileSignOutButton as SignOutButton,
+  ProfileTitle as Title,
 } from '@components/pages/profile';
 import { CommonPageStyles as Styles } from '@components/pages/styles';
-import { Text } from '@components/Text';
-import { Title } from '@components/Title';
 
 export default function ProfilePage() {
   return (
     <Styles.Page>
       <Avatar />
 
-      <div>
-        <Text>How are you today?</Text>
-        <Title as="h4">Hello, Matheus</Title>
-      </div>
+      <Title />
 
       <Content />
 
-      <button type="button">Sair</button>
+      <ProfileActions.Actions>
+        <SignOutButton />
+      </ProfileActions.Actions>
     </Styles.Page>
   );
 }

@@ -171,5 +171,24 @@
         "match": "The passwords not match"
       }
     }
+  },
+  "profile": {
+    "label": "Hello, {firstName}",
+    "title": "My profile",
+    "links": {
+      "name": {
+        "label": "Name"
+      },
+      "email": {
+        "label": "E-mail address"
+      },
+      "password": {
+        "label": "Password",
+        "text": "Change my password"
+      }
+    },
+    "actions": {
+      "sign-out-button": "Sign out"
+    }
   }
 }

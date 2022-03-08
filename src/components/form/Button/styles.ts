@@ -40,5 +40,22 @@ export namespace FormButtonStyles {
       color: '$primaryHoveredSolid',
       outlineColor: '$primaryHoveredElementBorder',
     },
+
+    variants: {
+      clear: {
+        true: {
+          backgroundColor: 'transparent',
+        },
+      },
+      color: {
+        danger: {
+          color: '$dangerSolid',
+        },
+      },
+    },
+
+    defaultVariants: {
+      clear: false,
+    },
   });
 }

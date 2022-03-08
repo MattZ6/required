@@ -1,13 +1,13 @@
+import { VariantProps } from '@stitches/react';
 import { ButtonHTMLAttributes } from 'react';
 
-import { FormButtonStyles } from './styles';
+import { FormButtonStyles as Styles } from './styles';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: string;
-};
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof Styles.Button> & {
+    children: string;
+  };
 
 export function FormButton({ children, ...props }: ButtonProps) {
-  return (
-    <FormButtonStyles.Button {...props}>{children}</FormButtonStyles.Button>
-  );
+  return <Styles.Button {...props}>{children}</Styles.Button>;
 }

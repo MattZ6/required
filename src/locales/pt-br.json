@@ -171,5 +171,24 @@
         "match": "As senhas não condizem"
       }
     }
+  },
+  "profile": {
+    "label": "Olá, {firstName}",
+    "title": "Meu perfil",
+    "links": {
+      "name": {
+        "label": "Nome"
+      },
+      "email": {
+        "label": "Endereço de e-mail"
+      },
+      "password": {
+        "label": "Senha",
+        "text": "Alterar minha senha"
+      }
+    },
+    "actions": {
+      "sign-out-button": "Sair"
+    }
   }
 }

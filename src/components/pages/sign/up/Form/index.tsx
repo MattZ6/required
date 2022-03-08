@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { MdMailOutline, MdOutlinePersonOutline } from 'react-icons/md';
+import { MdMailOutline, MdOutlineEmojiEmotions } from 'react-icons/md';
 import * as yup from 'yup';
 
 import { useTranslation } from '@hooks/useTranslation';
@@ -53,7 +53,7 @@ export function SignUpForm() {
       <FormField
         label={t('form.name.label')}
         placeholder={t('form.name.placeholder')}
-        icon={MdOutlinePersonOutline}
+        icon={MdOutlineEmojiEmotions}
         error={formState.errors[nameFormFieldName]}
         disabled={formState.isSubmitting}
         {...register(nameFormFieldName)}

@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { MdMailOutline } from 'react-icons/md';
 import * as yup from 'yup';
 
 import { useTranslation } from '@hooks/useTranslation';
@@ -41,6 +42,7 @@ export function UpdateProfileEmailForm() {
       <FormField
         label={t('form.email.label')}
         placeholder={t('form.email.placeholder')}
+        icon={MdMailOutline}
         error={formState.errors[emailFieldName]}
         disabled={formState.isSubmitting}
         {...register(emailFieldName)}

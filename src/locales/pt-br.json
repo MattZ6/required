@@ -17,7 +17,8 @@
     },
     "errors": {
       "min": "Pelo menos {count} caracteres"
-    }
+    },
+    "forgot_password": "Esqueci minha senha"
   },
   "home": {
     "title": "Bem vindo(a)"
@@ -189,6 +190,23 @@
     },
     "actions": {
       "sign-out-button": "Sair"
+    }
+  },
+  "password-recovery-page": {
+    "title": "Esqueci minha senha",
+    "description": "Sem crise, bicho... vamos te ajudar",
+    "form": {
+      "email": {
+        "label": "Endereço de e-mail",
+        "placeholder": "Informe seu endereço de e-mail"
+      },
+      "submit": "Recuperar senha"
+    },
+    "errors": {
+      "email": {
+        "required": "O endereço de e-mail é obrigatório",
+        "invalid": "Você precisa informar um endereço de e-mail válido"
+      }
     }
   }
 }

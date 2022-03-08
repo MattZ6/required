@@ -17,7 +17,8 @@
     },
     "errors": {
       "min": "At least {count} characters"
-    }
+    },
+    "forgot_password": "Forgot my password"
   },
   "home": {
     "title": "Welcome"
@@ -189,6 +190,23 @@
     },
     "actions": {
       "sign-out-button": "Sign out"
+    }
+  },
+  "password-recovery-page": {
+    "title": "Forgot password",
+    "description": "Don't worry, just type your e-mail",
+    "form": {
+      "email": {
+        "label": "E-mail address",
+        "placeholder": "Type your e-mail address"
+      },
+      "submit": "Recover password"
+    },
+    "errors": {
+      "email": {
+        "required": "The e-mail is required",
+        "invalid": "You must enter a valid email address"
+      }
     }
   }
 }

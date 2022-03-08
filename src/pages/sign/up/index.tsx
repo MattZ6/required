@@ -2,7 +2,11 @@ import { useTranslation } from '@hooks/useTranslation';
 
 import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
-import { PageHeader } from '@components/pages/components';
+import {
+  ForgotPasswordLink,
+  LinksContainer,
+  PageHeader,
+} from '@components/pages/components';
 import { SignInLink, SignUpForm } from '@components/pages/sign/up';
 import { CommonPageStyles as Styles } from '@components/pages/styles';
 import { Text } from '@components/Text';
@@ -20,9 +24,15 @@ export default function SignUpPage() {
 
       <SignUpForm />
 
-      <Text>
-        {t('footer.text')}... <SignInLink />
-      </Text>
+      <LinksContainer>
+        <Text>
+          <ForgotPasswordLink />
+        </Text>
+
+        <Text>
+          {t('footer.text')}... <SignInLink />
+        </Text>
+      </LinksContainer>
     </Styles.Page>
   );
 }

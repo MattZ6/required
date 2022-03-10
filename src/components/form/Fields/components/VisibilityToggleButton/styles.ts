@@ -27,6 +27,15 @@ export namespace PasswordFormFieldVisibilityToggleButtonStyles {
       },
     },
 
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      cursor: 'not-allowed',
+
+      '> svg': {
+        color: '$lowContrast',
+      },
+    },
+
     '> svg': {
       fontSize: '24px',
 

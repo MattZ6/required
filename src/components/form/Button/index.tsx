@@ -1,6 +1,8 @@
 import { VariantProps } from '@stitches/react';
 import { ButtonHTMLAttributes } from 'react';
 
+import { LoadingSpinner } from '@components/Spinner';
+
 import { FormButtonStyles as Styles } from './styles';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
@@ -8,6 +10,24 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
     children: string;
   };
 
-export function FormButton({ children, ...props }: ButtonProps) {
-  return <Styles.Button {...props}>{children}</Styles.Button>;
+export function FormButton({
+  children,
+  showLoading = false,
+  ...props
+}: ButtonProps) {
+  return (
+    <Styles.Button
+      aria-disabled={props.disabled}
+      showLoading={showLoading}
+      {...props}
+    >
+      {children}
+
+      {showLoading && (
+        <Styles.LoadingContainer>
+          <LoadingSpinner />
+        </Styles.LoadingContainer>
+      )}
+    </Styles.Button>
+  );
 }

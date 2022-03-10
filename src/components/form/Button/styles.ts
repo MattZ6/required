@@ -6,6 +6,8 @@ export namespace FormButtonStyles {
     alignItems: 'center',
     justifyContent: 'center',
 
+    position: 'relative',
+
     minWidth: '100px',
     height: '42px',
 
@@ -32,7 +34,7 @@ export namespace FormButtonStyles {
 
     '&:hover': {
       backgroundColor: '$primaryHoveredElementBackground',
-      color: '$primarySolid',
+      color: '$primaryHoveredSolid',
     },
 
     '&:focus-visible': {
@@ -41,7 +43,19 @@ export namespace FormButtonStyles {
       outlineColor: '$primaryHoveredElementBorder',
     },
 
+    '&:disabled': {
+      cursor: 'not-allowed',
+      backgroundColor: '$primaryElementBackground',
+      color: '$lowContrast',
+    },
+
     variants: {
+      showLoading: {
+        true: {
+          color: 'transparent !important',
+          cursor: 'wait !important',
+        },
+      },
       clear: {
         true: {
           backgroundColor: 'transparent',
@@ -56,6 +70,12 @@ export namespace FormButtonStyles {
 
     defaultVariants: {
       clear: false,
+      showLoading: false,
     },
+  });
+
+  export const LoadingContainer = styled('div', {
+    position: 'absolute',
+    height: '24px',
   });
 }

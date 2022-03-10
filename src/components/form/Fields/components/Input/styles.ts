@@ -41,8 +41,7 @@ export namespace FormFieldInputStyles {
     },
 
     '&:disabled': {
-      borderColor: '$inputBorder',
-
+      borderColor: '$elementBorder',
       cursor: 'not-allowed',
     },
 

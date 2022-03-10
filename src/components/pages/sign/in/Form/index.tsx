@@ -8,7 +8,7 @@ import { useAuth } from '@hooks/useAuth';
 import { useTranslation } from '@hooks/useTranslation';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
-import { setFocusOnInput } from '@utils/setFocusOnInput';
+import { parseRequestError } from '@utils/parseRequestError';
 
 import { FormField, PasswordFormField, FormButton } from '@components/form';
 
@@ -23,7 +23,7 @@ type SignInFormDate = {
 };
 
 export function SignInForm() {
-  const { signIn } = useAuth();
+  const { signIn, isAuthenticated } = useAuth();
   const t = useTranslation('sign-in');
 
   const schema = yup.object().shape({
@@ -37,21 +37,26 @@ export function SignInForm() {
       .min(6, t('errors.password.min', { count: 6 })),
   });
 
-  const { register, handleSubmit, formState } = useForm<SignInFormDate>({
-    resolver: yupResolver(schema),
-  });
+  const { register, handleSubmit, formState, setFocus } =
+    useForm<SignInFormDate>({
+      resolver: yupResolver(schema),
+    });
 
   const submit: SubmitHandler<SignInFormDate> = async data => {
     try {
       await signIn(data);
-    } catch (error) {
+    } catch (err) {
       // TODO: Tratar os erros
+
+      const error = parseRequestError(err);
+
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    setFocusOnInput(emailFormFieldName);
-  }, []);
+    setFocus('email');
+  }, [setFocus]);
 
   return (
     <Styles.Form onSubmit={handleSubmit(submit, focusFirstInputWithError)}>
@@ -61,7 +66,7 @@ export function SignInForm() {
         type="email"
         icon={MdMailOutline}
         error={formState.errors[emailFormFieldName]}
-        disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+        disabled={formState.isSubmitting || isAuthenticated}
         {...register(emailFormFieldName)}
       />
 
@@ -69,12 +74,18 @@ export function SignInForm() {
         label={t('form.password.label')}
         placeholder={t('form.password.placeholder')}
         error={formState.errors[passwordFormFieldName]}
-        disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+        disabled={formState.isSubmitting || isAuthenticated}
         {...register(passwordFormFieldName)}
       />
 
       <Styles.Actions>
-        <FormButton type="submit">{t('form.submit')}</FormButton>
+        <FormButton
+          type="submit"
+          disabled={formState.isSubmitting || isAuthenticated}
+          showLoading={formState.isSubmitting || isAuthenticated}
+        >
+          {t('form.submit')}
+        </FormButton>
       </Styles.Actions>
     </Styles.Form>
   );

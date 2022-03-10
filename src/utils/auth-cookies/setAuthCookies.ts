@@ -1,6 +1,6 @@
 import { setCookie } from 'nookies';
 
-import { Authentication } from '@services/user/auth';
+import { Authentication } from '@services/user/auth/common.types';
 
 import {
   ACCESS_TOKEN_COOKIE_KEY,

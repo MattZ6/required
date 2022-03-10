@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { setAuthCookies } from '@utils/auth-cookies';
 
-import { Authentication } from './user/auth';
+import { Authentication } from './user/auth/common.types';
 
 export function makeApiClient(context?: any) {
   const api = axios.create({

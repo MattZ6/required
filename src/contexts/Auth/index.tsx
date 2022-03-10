@@ -20,6 +20,7 @@ import {
 } from '@utils/auth-cookies';
 
 type AuthContextData = {
+  isAuthenticated: boolean;
   signIn: (data: SignInService.Request) => Promise<void>;
   signOut: () => void;
   removePreviousAuth: () => void;
@@ -37,12 +38,6 @@ function removePreviousAuth() {
   Router.replace('/sign/in');
 }
 
-function signOut() {
-  removeRefreshTokenFromCookies();
-
-  Router.replace('/welcome-back');
-}
-
 export function AuthProvider({ children }: Props) {
   const [auth, setAuth] = useState<Authentication | undefined>();
 
@@ -52,16 +47,25 @@ export function AuthProvider({ children }: Props) {
     setAuth(response);
     saveAuthOnCookies(response);
 
-    Router.replace('/profile', '/profile');
+    Router.replace('/profile');
   }, []);
+
+  const signOut = () => {
+    removeRefreshTokenFromCookies();
+
+    setAuth(undefined);
+
+    Router.replace('/welcome-back');
+  };
 
   const data = useMemo<AuthContextData>(
     () => ({
       signIn,
       signOut,
       removePreviousAuth,
+      isAuthenticated: !!auth,
     }),
-    [signIn]
+    [signIn, auth]
   );
 
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;

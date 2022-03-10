@@ -10,7 +10,7 @@ import { useTranslation } from '@hooks/useTranslation';
 import { useCreateAccount } from '@services/user/auth';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
-import { setFocusOnInput } from '@utils/setFocusOnInput';
+import { parseRequestError } from '@utils/parseRequestError';
 
 import { FormField, PasswordFormField, FormButton } from '@components/form';
 
@@ -29,8 +29,8 @@ type SignUpFormData = {
 
 export function SignUpForm() {
   const t = useTranslation('sign-up');
-  const { isSuccess, mutateAsync } = useCreateAccount();
-  const { signIn } = useAuth();
+  const { mutateAsync } = useCreateAccount();
+  const { signIn, isAuthenticated } = useAuth();
 
   const schema = yup.object().shape({
     [nameFormFieldName]: yup
@@ -48,9 +48,10 @@ export function SignUpForm() {
       .min(6, t('errors.password.min', { count: 6 })),
   });
 
-  const { register, handleSubmit, formState } = useForm<SignUpFormData>({
-    resolver: yupResolver(schema),
-  });
+  const { register, handleSubmit, formState, setFocus } =
+    useForm<SignUpFormData>({
+      resolver: yupResolver(schema),
+    });
 
   const signUp: SubmitHandler<SignUpFormData> = async data => {
     try {
@@ -65,14 +66,18 @@ export function SignUpForm() {
         email: data.email,
         password: data.password,
       });
-    } catch (error) {
+    } catch (err) {
       // TODO: Tratar os erros
+
+      const error = parseRequestError(err);
+
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    setFocusOnInput(nameFormFieldName);
-  }, []);
+    setFocus('email');
+  }, [setFocus]);
 
   return (
     <Styles.Form onSubmit={handleSubmit(signUp, focusFirstInputWithError)}>
@@ -81,7 +86,7 @@ export function SignUpForm() {
         placeholder={t('form.name.placeholder')}
         icon={MdOutlineEmojiEmotions}
         error={formState.errors[nameFormFieldName]}
-        disabled={formState.isSubmitting || isSuccess}
+        disabled={formState.isSubmitting || isAuthenticated}
         {...register(nameFormFieldName)}
       />
 
@@ -91,7 +96,7 @@ export function SignUpForm() {
         type="email"
         icon={MdMailOutline}
         error={formState.errors[emailFormFieldName]}
-        disabled={formState.isSubmitting || isSuccess}
+        disabled={formState.isSubmitting || isAuthenticated}
         {...register(emailFormFieldName)}
       />
 
@@ -99,12 +104,18 @@ export function SignUpForm() {
         label={t('form.password.label')}
         placeholder={t('form.password.placeholder')}
         error={formState.errors[passwordFormFieldName]}
-        disabled={formState.isSubmitting}
+        disabled={formState.isSubmitting || isAuthenticated}
         {...register(passwordFormFieldName)}
       />
 
       <Styles.Actions>
-        <FormButton type="submit">{t('form.submit')}</FormButton>
+        <FormButton
+          type="submit"
+          disabled={formState.isSubmitting || isAuthenticated}
+          showLoading={formState.isSubmitting || isAuthenticated}
+        >
+          {t('form.submit')}
+        </FormButton>
       </Styles.Actions>
     </Styles.Form>
   );

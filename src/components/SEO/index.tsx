@@ -34,7 +34,13 @@ export function SEO({ title, description, image, icon }: Props) {
 
   const pageLocale = String(router.locale ?? 'pt-BR').replace('-', '_');
 
-  const pageImage = image ? `${router.basePath}${image}` : undefined;
+  const pageImage = image
+    ? `${process.env.NEXT_PUBLIC_SITE_URL}${image}`
+    : undefined;
+
+  const iconPath = icon?.path
+    ? `${process.env.NEXT_PUBLIC_SITE_URL}${icon.path}`
+    : undefined;
 
   return (
     <Head>
@@ -43,7 +49,7 @@ export function SEO({ title, description, image, icon }: Props) {
 
       <link
         rel="shortcut icon"
-        href={icon?.path ?? '/favicon.png'}
+        href={iconPath ?? '/favicon.png'}
         type={icon?.type ?? 'image/png'}
       />
 

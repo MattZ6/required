@@ -6,10 +6,16 @@ import {
 
 import { useTranslation } from '@hooks/useTranslation';
 
+import { GetProfileService } from '@services/user/profile/getProfile';
+
 import { PropertyLink } from './components';
 import { ProfileContentStyles as Styles } from './styles';
 
-export function ProfileContent() {
+type Props = {
+  profile: GetProfileService.Profile;
+};
+
+export function ProfileContent({ profile }: Props) {
   const t = useTranslation('profile');
 
   return (
@@ -17,14 +23,14 @@ export function ProfileContent() {
       <PropertyLink
         trailingIcon={MdOutlineEmojiEmotions}
         label={t('links.name.label')}
-        value="Matheus Felipe Zanin"
+        value={profile.name}
         to="/profile/name"
       />
 
       <PropertyLink
         trailingIcon={MdMailOutline}
         label={t('links.email.label')}
-        value="matt@email.com"
+        value={profile.email}
         to="/profile/email"
       />
 

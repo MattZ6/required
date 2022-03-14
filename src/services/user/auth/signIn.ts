@@ -13,7 +13,7 @@ export namespace SignInService {
 
 export async function signIn(data: SignInService.Request) {
   const response = await apiClient.post<SignInService.Response>(
-    '/v1/authentication/login',
+    '/v1/auth/sign/in',
     data
   );
 

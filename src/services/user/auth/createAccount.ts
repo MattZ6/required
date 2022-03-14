@@ -15,7 +15,7 @@ export namespace CreateAccountService {
 
 export async function createAccount(data: CreateAccountService.Request) {
   const response = await apiClient.post<CreateAccountService.Response>(
-    '/v1/authentication/account',
+    '/v1/auth/sign/up',
     data
   );
 

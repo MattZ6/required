@@ -4,12 +4,14 @@ const nextConfig = {
 
   i18n: {
     locales: ['en-US', 'pt-BR'],
-    defaultLocale: 'en-US'
+    defaultLocale: 'en-US',
   },
 
   images: {
-    domains: ["avatars.githubusercontent.com"],
-  }
-}
+    domains: ['avatars.githubusercontent.com'],
+  },
 
-module.exports = nextConfig
+  poweredByHeader: false,
+};
+
+module.exports = nextConfig;

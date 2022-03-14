@@ -42,6 +42,8 @@ export function SEO({ title, description, image, icon }: Props) {
     ? `${process.env.NEXT_PUBLIC_SITE_URL}${icon.path}`
     : undefined;
 
+  console.log(iconPath);
+
   return (
     <Head>
       <title>{pageTitle}</title>

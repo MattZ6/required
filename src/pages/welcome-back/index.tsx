@@ -5,24 +5,34 @@ import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 import { PageHeader } from '@components/pages/components';
 import { CommonPageStyles as Styles } from '@components/pages/styles';
 import { SignInLink, WelcomeBackForm } from '@components/pages/welcome-back';
+import { SEO } from '@components/SEO';
 import { Text } from '@components/Text';
 
 export default function WelcomeBackPage() {
   const t = useTranslation('welcome-back');
 
   return (
-    <Styles.Page>
-      <PageHeader
+    <>
+      <SEO
         title={t('title', { firstName: 'User' })}
         description={t('description')}
+        icon={{ path: '/welcome-back.png', type: 'image/png' }}
+        image="/assets/seo/pages/welcome-back.png"
       />
 
-      <WelcomeBackForm />
+      <Styles.Page>
+        <PageHeader
+          title={t('title', { firstName: 'User' })}
+          description={t('description')}
+        />
 
-      <Text>
-        <SignInLink />
-      </Text>
-    </Styles.Page>
+        <WelcomeBackForm />
+
+        <Text>
+          <SignInLink />
+        </Text>
+      </Styles.Page>
+    </>
   );
 }
 

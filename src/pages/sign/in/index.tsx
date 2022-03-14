@@ -20,8 +20,8 @@ export default function SignInPage() {
       <SEO
         title={t('title')}
         description={t('description')}
-        icon={{ path: '/favicon.png', type: 'image/png' }}
-        image="/assets/seo/pages/profile.png"
+        icon={{ path: '/sign-in.png', type: 'image/png' }}
+        image="/assets/seo/pages/sign-in.png"
       />
 
       <PageHeader title={t('title')} description={t('description')} />

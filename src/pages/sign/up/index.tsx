@@ -9,6 +9,7 @@ import {
 } from '@components/pages/components';
 import { SignInLink, SignUpForm } from '@components/pages/sign/up';
 import { CommonPageStyles as Styles } from '@components/pages/styles';
+import { SEO } from '@components/SEO';
 import { Text } from '@components/Text';
 
 export default function SignUpPage() {
@@ -16,6 +17,13 @@ export default function SignUpPage() {
 
   return (
     <Styles.Page>
+      <SEO
+        title={t('title')}
+        description={t('description')}
+        icon={{ path: '/sign-up.png', type: 'image/png' }}
+        image="/assets/seo/pages/sign-up.png"
+      />
+
       <PageHeader
         title={t('title')}
         description={t('description')}

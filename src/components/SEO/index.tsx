@@ -34,6 +34,8 @@ export function SEO({ title, description, image, icon }: Props) {
 
   const pageLocale = String(router.locale ?? 'pt-BR').replace('-', '_');
 
+  const pageImage = image ? `${router.basePath}${image}` : undefined;
+
   return (
     <Head>
       <title>{pageTitle}</title>
@@ -45,7 +47,7 @@ export function SEO({ title, description, image, icon }: Props) {
         type={icon?.type ?? 'image/png'}
       />
 
-      {image && <meta name="image" itemProp="image" content={image} />}
+      {pageImage && <meta name="image" itemProp="image" content={pageImage} />}
 
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />
@@ -60,10 +62,10 @@ export function SEO({ title, description, image, icon }: Props) {
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={pageTitle} />
 
-      {image && (
+      {pageImage && (
         <>
-          <meta property="og:image" content={image} />
-          <meta property="og:image:secure_url" content={image} />
+          <meta property="og:image" content={pageImage} />
+          <meta property="og:image:secure_url" content={pageImage} />
           <meta property="og:image:alt" content="Thumbnail" />
           <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="1200" />
@@ -76,10 +78,10 @@ export function SEO({ title, description, image, icon }: Props) {
       {/* <meta name="twitter:site" content="" /> */}
       {/* <meta name="twitter:creator" content="" /> */}
 
-      {image && (
+      {pageImage && (
         <>
-          <meta name="twitter:image" content={image} />
-          <meta name="twitter:image:src" content={image} />
+          <meta name="twitter:image" content={pageImage} />
+          <meta name="twitter:image:src" content={pageImage} />
           <meta name="twitter:image:alt" content="Thumbnail" />
           <meta name="twitter:image:width" content="1200" />
           <meta name="twitter:image:height" content="620" />

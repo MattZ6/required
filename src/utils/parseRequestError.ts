@@ -1,20 +1,37 @@
 import { AxiosError } from 'axios';
 
-type ParsedError = {
-  status?: number;
-  error: {
-    code?: string;
-    message: string;
-  };
+type ApplicationErrorCode = 'validation' | 'user.not.exists' | 'password.wrong';
+
+type ValidationErrorData = {
+  type: string;
+  field: string;
+  message: string;
 };
 
-export function parseRequestError(error: Error | any): ParsedError {
+type ApplicationError = {
+  code?: ApplicationErrorCode;
+  message: string;
+  validation?: ValidationErrorData;
+};
+
+type ParsedError = {
+  status?: number;
+  error: ApplicationError;
+};
+
+export function parseRequestError(
+  error: Error | AxiosError | any
+): ParsedError {
   if (error.isAxiosError) {
-    const axiosError = error as AxiosError;
+    const axiosError = error as AxiosError<ApplicationError>;
 
     return {
       status: axiosError.response?.status ?? undefined,
-      error: axiosError.response?.data ?? undefined,
+      error: {
+        code: axiosError.response?.data?.code,
+        message: axiosError.response?.data?.message ?? 'Unexpected error',
+        validation: axiosError.response?.data?.validation,
+      },
     };
   }
 

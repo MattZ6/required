@@ -40,11 +40,13 @@
     "errors": {
       "email": {
         "required": "O endereço de e-mail é obrigatório",
-        "invalid": "Você precisa informar um endereço de e-mail válido"
+        "invalid": "Você precisa informar um endereço de e-mail válido",
+        "not_exists": "Conta não encontrada"
       },
       "password": {
         "required": "A senha é obrigatória",
-        "min": "Pelo menos {count} caracteres"
+        "minlength": "Pelo menos {minlength} caracteres",
+        "wrong": "Senha incorreta"
       }
     },
     "footer": {

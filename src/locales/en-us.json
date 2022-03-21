@@ -40,11 +40,13 @@
     "errors": {
       "email": {
         "required": "The email is required",
-        "invalid": "You must enter a valid email address"
+        "invalid": "You must enter a valid email address",
+        "not_exists": "Account not found"
       },
       "password": {
         "required": "The password is required",
-        "min": "At least {count} characters"
+        "minlength": "At least {minlength} characters",
+        "wrong": "Wrong password"
       }
     },
     "footer": {

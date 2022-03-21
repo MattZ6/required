@@ -17,7 +17,9 @@ import { FormStyles as Styles } from './styles';
 const emailFormFieldName = 'email';
 const passwordFormFieldName = 'password';
 
-type SignInFormDate = {
+const PASSWORD_MIN_LENGTH = 6;
+
+type SignInFormData = {
   email: string;
   password: string;
 };
@@ -34,23 +36,57 @@ export function SignInForm() {
     [passwordFormFieldName]: yup
       .string()
       .required(t('errors.password.required'))
-      .min(6, t('errors.password.min', { count: 6 })),
+      .min(
+        6,
+        t('errors.password.minlength', { minlength: PASSWORD_MIN_LENGTH })
+      ),
   });
 
-  const { register, handleSubmit, formState, setFocus } =
-    useForm<SignInFormDate>({
+  const { register, handleSubmit, formState, setFocus, setError } =
+    useForm<SignInFormData>({
       resolver: yupResolver(schema),
     });
 
-  const submit: SubmitHandler<SignInFormDate> = async data => {
+  const submit: SubmitHandler<SignInFormData> = async data => {
     try {
       await signIn(data);
     } catch (err) {
-      // TODO: Tratar os erros
-
       const error = parseRequestError(err);
 
-      console.log(error);
+      if (error.error.validation) {
+        const { type } = error.error.validation;
+        const field = error.error.validation.field as keyof SignInFormData;
+
+        setError(field, {
+          message: t(`errors.${field}.${type}`, {
+            minlength: PASSWORD_MIN_LENGTH,
+          }),
+        });
+
+        setTimeout(() => {
+          setFocus(field);
+        }, 0);
+      }
+
+      if (error.error.code === 'user.not.exists') {
+        const field = emailFormFieldName;
+
+        setError(field, { message: t('errors.email.not_exists') });
+
+        setTimeout(() => {
+          setFocus(field);
+        }, 0);
+      }
+
+      if (error.error.code === 'password.wrong') {
+        const field = passwordFormFieldName;
+
+        setError(field, { message: t('errors.password.wrong') });
+
+        setTimeout(() => {
+          setFocus(field);
+        }, 0);
+      }
     }
   };
 

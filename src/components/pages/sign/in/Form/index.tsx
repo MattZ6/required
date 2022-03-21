@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdMailOutline } from 'react-icons/md';
 import * as yup from 'yup';
@@ -11,6 +11,7 @@ import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { parseRequestError } from '@utils/parseRequestError';
 
 import { FormField, PasswordFormField, FormButton } from '@components/form';
+import { AlertDialog } from '@components/AlertDialog';
 
 import { FormStyles as Styles } from './styles';
 
@@ -27,6 +28,7 @@ type SignInFormData = {
 export function SignInForm() {
   const { signIn, isAuthenticated } = useAuth();
   const t = useTranslation('sign-in');
+  const [hasError, setHasError] = useState(false);
 
   const schema = yup.object().shape({
     [emailFormFieldName]: yup
@@ -66,6 +68,8 @@ export function SignInForm() {
         setTimeout(() => {
           setFocus(field);
         }, 0);
+
+        return;
       }
 
       if (error.error.code === 'user.not.exists') {
@@ -76,6 +80,8 @@ export function SignInForm() {
         setTimeout(() => {
           setFocus(field);
         }, 0);
+
+        return;
       }
 
       if (error.error.code === 'password.wrong') {
@@ -86,43 +92,65 @@ export function SignInForm() {
         setTimeout(() => {
           setFocus(field);
         }, 0);
+
+        return;
       }
+
+      setHasError(true);
     }
   };
+
+  function onModalRequestClose() {
+    setHasError(false);
+
+    setTimeout(() => {
+      setFocus('email');
+    }, 0);
+  }
 
   useEffect(() => {
     setFocus('email');
   }, [setFocus]);
 
   return (
-    <Styles.Form onSubmit={handleSubmit(submit, focusFirstInputWithError)}>
-      <FormField
-        label={t('form.email.label')}
-        placeholder={t('form.email.placeholder')}
-        type="email"
-        icon={MdMailOutline}
-        error={formState.errors[emailFormFieldName]}
-        disabled={formState.isSubmitting || isAuthenticated}
-        {...register(emailFormFieldName)}
-      />
-
-      <PasswordFormField
-        label={t('form.password.label')}
-        placeholder={t('form.password.placeholder')}
-        error={formState.errors[passwordFormFieldName]}
-        disabled={formState.isSubmitting || isAuthenticated}
-        {...register(passwordFormFieldName)}
-      />
-
-      <Styles.Actions>
-        <FormButton
-          type="submit"
+    <>
+      <Styles.Form onSubmit={handleSubmit(submit, focusFirstInputWithError)}>
+        <FormField
+          label={t('form.email.label')}
+          placeholder={t('form.email.placeholder')}
+          type="email"
+          icon={MdMailOutline}
+          error={formState.errors[emailFormFieldName]}
           disabled={formState.isSubmitting || isAuthenticated}
-          showLoading={formState.isSubmitting || isAuthenticated}
-        >
-          {t('form.submit')}
-        </FormButton>
-      </Styles.Actions>
-    </Styles.Form>
+          {...register(emailFormFieldName)}
+        />
+
+        <PasswordFormField
+          label={t('form.password.label')}
+          placeholder={t('form.password.placeholder')}
+          error={formState.errors[passwordFormFieldName]}
+          disabled={formState.isSubmitting || isAuthenticated}
+          {...register(passwordFormFieldName)}
+        />
+
+        <Styles.Actions>
+          <FormButton
+            type="submit"
+            disabled={formState.isSubmitting || isAuthenticated}
+            showLoading={formState.isSubmitting || isAuthenticated}
+          >
+            {t('form.submit')}
+          </FormButton>
+        </Styles.Actions>
+      </Styles.Form>
+
+      <AlertDialog
+        title={t('errors.fallback.title')}
+        description={t('errors.fallback.description')}
+        buttonText={t('errors.fallback.button')}
+        isOpen={hasError}
+        onOpenChange={onModalRequestClose}
+      />
+    </>
   );
 }

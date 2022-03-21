@@ -47,6 +47,11 @@
         "required": "The password is required",
         "minlength": "At least {minlength} characters",
         "wrong": "Wrong password"
+      },
+      "fallback": {
+        "title": "Something went wrong",
+        "description": "You are unable to login at this time. Please try again later.",
+        "button": "Ok"
       }
     },
     "footer": {

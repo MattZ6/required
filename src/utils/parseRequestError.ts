@@ -14,7 +14,7 @@ type ApplicationError = {
   validation?: ValidationErrorData;
 };
 
-type ParsedError = {
+export type ParsedError = {
   status?: number;
   error: ApplicationError;
 };

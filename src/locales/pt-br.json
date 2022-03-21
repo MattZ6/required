@@ -47,6 +47,11 @@
         "required": "A senha é obrigatória",
         "minlength": "Pelo menos {minlength} caracteres",
         "wrong": "Senha incorreta"
+      },
+      "fallback": {
+        "title": "Algo deu errado",
+        "description": "Não foi possível fazer seu login no momento. Por favor, tente novamente mais tarde.",
+        "button": "Ok"
       }
     },
     "footer": {

@@ -4,6 +4,7 @@ import { ReactElement } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { AuthProvider } from '@contexts/Auth';
+import { ToastProvider } from '@contexts/Toast';
 
 import { darkTheme } from '@styles/stitches.config';
 
@@ -23,9 +24,11 @@ export function Provider({ children, messages }: ProviderProps) {
       defaultTheme="system"
     >
       <NextIntlProvider messages={messages}>
-        <QueryClientProvider client={queryClient}>
-          <AuthProvider>{children}</AuthProvider>
-        </QueryClientProvider>
+        <ToastProvider>
+          <QueryClientProvider client={queryClient}>
+            <AuthProvider>{children}</AuthProvider>
+          </QueryClientProvider>
+        </ToastProvider>
       </NextIntlProvider>
     </ThemeProvider>
   );

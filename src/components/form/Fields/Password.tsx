@@ -30,14 +30,14 @@ const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> = (
           aria-invalid={!props.disabled && !!error}
           withTrailing
           {...props}
-          type={isVisible ? 'text' : 'password'}
+          type={isVisible && !props.disabled ? 'text' : 'password'}
         />
 
         <Label label={label} />
 
         <ToggleButton
           disabled={props.disabled}
-          isVisible={isVisible}
+          isVisible={isVisible && !props.disabled}
           onToggle={() => setIsVisible(state => !state)}
         />
       </Styles.Field>

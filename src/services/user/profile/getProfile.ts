@@ -21,5 +21,7 @@ export async function getProfile() {
 }
 
 export function useProfile() {
-  return useQuery('profile', getProfile, { refetchOnWindowFocus: false });
+  return useQuery('profile', getProfile, {
+    staleTime: 5 * 60 * 60 * 1000, // 👈 5 hours
+  });
 }

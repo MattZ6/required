@@ -1,6 +1,8 @@
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
 import { apiClient } from '@services/apiClient';
+
+import { GetProfileService } from './getProfile';
 
 export namespace UpdateProfileNameService {
   export type Request = {
@@ -18,5 +20,16 @@ export async function updateName(data: UpdateProfileNameService.Request) {
 }
 
 export function useUpdateName() {
-  return useMutation(updateName);
+  const queryClient = useQueryClient();
+
+  return useMutation(updateName, {
+    onSuccess: (_, variables) => {
+      const profile =
+        queryClient.getQueryData<GetProfileService.Response>('profile');
+
+      if (profile) {
+        profile.name = variables.name;
+      }
+    },
+  });
 }

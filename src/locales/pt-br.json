@@ -13,7 +13,7 @@
       "pt-BR": "Português"
     },
     "project": {
-      "description": "O projeto foi criado no intuito de validar o processo de persitência da autenticação do usuário em projetos Nextjs que utilizam Server Side Rendering (SSR) e Static Site Generation (SSG)."
+      "description": "O projeto foi criado no intuito de validar o processo de persistência da autenticação do usuário em projetos Nextjs que utilizam Server Side Rendering (SSR) e Static Site Generation (SSG)."
     },
     "errors": {
       "min": "Pelo menos {count} caracteres"

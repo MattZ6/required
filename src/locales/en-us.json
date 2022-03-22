@@ -75,20 +75,35 @@
         "label": "Enter a password",
         "placeholder": "It will be our little secret 😉"
       },
+      "password_confirmation": {
+        "label": "Confirm your password",
+        "placeholder": "Passwords must be the same"
+      },
       "submit": "Create account"
     },
     "errors": {
       "name": {
         "required": "The name is required",
-        "min": "At least {count} characters"
+        "minlength": "At least {minlength} characters"
       },
       "email": {
         "required": "The email is required",
-        "invalid": "You must enter a valid email address"
+        "invalid": "You must enter a valid email address",
+        "already_exists": "This email is already in use"
       },
       "password": {
         "required": "The password is required",
-        "min": "At least {count} characters"
+        "minlength": "At least {minlength} characters"
+      },
+      "password_confirmation": {
+        "required": "The password confirmation is required",
+        "minlength": "At least {minlength} characters",
+        "divergent": "Passwords must be the same"
+      },
+      "fallback": {
+        "title": "Something went wrong",
+        "description": "It is currently not possible to create an account. Please try again later.",
+        "button": "Ok"
       }
     },
     "footer": {

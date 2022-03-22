@@ -1,6 +1,6 @@
 import { AxiosError } from 'axios';
 
-type ApplicationErrorCode = 'validation' | 'user.not.exists' | 'password.wrong';
+type ApplicationErrorCode = 'validation' | 'user.not.exists' | 'user.exists' | 'password.wrong';
 
 type ValidationErrorData = {
   type: string;

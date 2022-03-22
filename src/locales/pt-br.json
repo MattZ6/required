@@ -75,20 +75,35 @@
         "label": "Informe uma senha",
         "placeholder": "Esse vai ser nosso segredinho 😉"
       },
+      "password_confirmation": {
+        "label": "Confirme sua senha",
+        "placeholder": "As senhas devem ser iguais"
+      },
       "submit": "Criar conta"
     },
     "errors": {
       "name": {
         "required": "O nome é obrigatório",
-        "min": "Pelo menos {count} caracteres"
+        "minlength": "Pelo menos {minlength} caracteres"
       },
       "email": {
         "required": "O endereço de e-mail é obrigatório",
-        "invalid": "Você precisa informar um endereço de e-mail válido"
+        "invalid": "Você precisa informar um endereço de e-mail válido",
+        "already_exists": "Este e-mail já está sendo utilizado"
       },
       "password": {
         "required": "A senha é obrigatória",
-        "min": "Pelo menos {count} caracteres"
+        "minlength": "Pelo menos {minlength} caracteres"
+      },
+      "password_confirmation": {
+        "required": "A confirmação de senha é obrigatória",
+        "minlength": "Pelo menos {minlength} caracteres",
+        "divergent": "As senhas devem ser iguais"
+      },
+      "fallback": {
+        "title": "Algo deu errado",
+        "description": "Não foi possível criar sua conta no momento. Por favor, tente novamente mais tarde.",
+        "button": "Ok"
       }
     },
     "footer": {

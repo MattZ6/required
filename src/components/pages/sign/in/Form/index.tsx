@@ -14,11 +14,10 @@ import { FormField, PasswordFormField, FormButton } from '@components/form';
 import { AlertDialog } from '@components/AlertDialog';
 
 import { FormStyles as Styles } from './styles';
+import { PASSWORD_MIN_LENGTH } from '@utils/constants';
 
 const emailFormFieldName = 'email';
 const passwordFormFieldName = 'password';
-
-const PASSWORD_MIN_LENGTH = 6;
 
 type SignInFormData = {
   email: string;

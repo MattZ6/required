@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdOutlineEmojiEmotions } from 'react-icons/md';
@@ -26,6 +27,7 @@ const nameFieldName = 'name';
 export function UpdateProfileNameForm() {
   const t = useTranslation('update-profile-name');
   const [hasError, setHasError] = useState(false);
+  const router = useRouter();
 
   const { isLoading, data: profile } = useProfile();
   const { mutateAsync } = useUpdateName();
@@ -41,14 +43,15 @@ export function UpdateProfileNameForm() {
       ),
   });
 
-  const { register, handleSubmit, formState, setFocus, setValue, setError } =
-    useForm<UpdateNameFormData>({
-      resolver: yupResolver(schema),
-    });
+  const form = useForm<UpdateNameFormData>({
+    resolver: yupResolver(schema),
+  });
 
-  const signIn: SubmitHandler<UpdateNameFormData> = async data => {
+  const updateName: SubmitHandler<UpdateNameFormData> = async data => {
     try {
       await mutateAsync({ name: data.name.trim() });
+
+      await router.push('/profile');
     } catch (err) {
       const error = parseRequestError(err);
 
@@ -56,14 +59,14 @@ export function UpdateProfileNameForm() {
         const { type } = error.error.validation;
         const field = error.error.validation.field as keyof UpdateNameFormData;
 
-        setError(field, {
+        form.setError(field, {
           message: t(`errors.${field}.${type}`, {
             minlength: NAME_MIN_LENGTH,
           }),
         });
 
         setTimeout(() => {
-          setFocus(field);
+          form.setFocus(field);
         }, 0);
 
         return;
@@ -77,37 +80,39 @@ export function UpdateProfileNameForm() {
     setHasError(false);
 
     setTimeout(() => {
-      setFocus('name');
+      form.setFocus('name');
     }, 0);
   }
 
   useEffect(() => {
     if (profile) {
-      setValue('name', profile.name);
+      form.setValue('name', profile.name);
 
       setTimeout(() => {
-        setFocus('name');
+        form.setFocus('name');
       }, 0);
     }
-  }, [profile, setValue, setFocus]);
+  }, [profile, form]);
 
   return (
     <>
-      <Styles.Form onSubmit={handleSubmit(signIn, focusFirstInputWithError)}>
+      <Styles.Form
+        onSubmit={form.handleSubmit(updateName, focusFirstInputWithError)}
+      >
         <FormField
           label={t('form.name.label')}
           placeholder={t('form.name.placeholder')}
           icon={MdOutlineEmojiEmotions}
-          error={formState.errors[nameFieldName]}
-          disabled={isLoading || formState.isSubmitting}
-          {...register(nameFieldName)}
+          error={form.formState.errors[nameFieldName]}
+          disabled={isLoading || form.formState.isSubmitting}
+          {...form.register(nameFieldName)}
         />
 
         <Styles.Actions>
           <FormButton
             type="submit"
-            disabled={isLoading || formState.isSubmitting}
-            showLoading={formState.isSubmitting}
+            disabled={isLoading || form.formState.isSubmitting}
+            showLoading={form.formState.isSubmitting}
           >
             {t('form.submit')}
           </FormButton>

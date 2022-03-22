@@ -4,7 +4,8 @@ type ApplicationErrorCode =
   | 'validation'
   | 'user.not.exists'
   | 'user.exists'
-  | 'password.wrong';
+  | 'password.wrong'
+  | 'token.expired';
 
 type ValidationErrorData = {
   type: string;

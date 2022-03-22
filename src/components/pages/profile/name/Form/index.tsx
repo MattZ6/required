@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdOutlineEmojiEmotions } from 'react-icons/md';
 import * as yup from 'yup';
 
+import { useToast } from '@hooks/useToast';
 import { useTranslation } from '@hooks/useTranslation';
 
 import { useProfile, useUpdateName } from '@services/user/profile';
@@ -25,6 +26,8 @@ type UpdateNameFormData = {
 const nameFieldName = 'name';
 
 export function UpdateProfileNameForm() {
+  const { addMessage } = useToast();
+
   const t = useTranslation('update-profile-name');
   const [hasError, setHasError] = useState(false);
   const router = useRouter();
@@ -50,6 +53,12 @@ export function UpdateProfileNameForm() {
   const updateName: SubmitHandler<UpdateNameFormData> = async data => {
     try {
       await mutateAsync({ name: data.name.trim() });
+
+      addMessage({
+        variant: 'success',
+        title: t('messages.success.title'),
+        content: t('messages.success.description'),
+      });
 
       await router.push('/profile');
     } catch (err) {

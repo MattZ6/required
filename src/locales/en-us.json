@@ -151,6 +151,12 @@
         "description": "It is currently not possible to update your name. Please try again later.",
         "button": "Ok"
       }
+    },
+    "messages": {
+      "success": {
+        "title": "Done!",
+        "description": "Name changed successfully"
+      }
     }
   },
   "update-profile-email": {

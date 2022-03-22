@@ -151,6 +151,12 @@
         "description": "Não foi possível alterar seu nome no momento. Por favor, tente novamente mais tarde.",
         "button": "Ok"
       }
+    },
+    "messages": {
+      "success": {
+        "title": "Prontinho!",
+        "description": "Nome alterado com sucesso"
+      }
     }
   },
   "update-profile-email": {

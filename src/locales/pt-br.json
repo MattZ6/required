@@ -143,7 +143,13 @@
     },
     "errors": {
       "name": {
-        "required": "O nome é obrigatório"
+        "required": "O nome é obrigatório",
+        "minlength": "Pelo menos {minlength} caracteres"
+      },
+      "fallback": {
+        "title": "Algo deu errado",
+        "description": "Não foi possível alterar seu nome no momento. Por favor, tente novamente mais tarde.",
+        "button": "Ok"
       }
     }
   },

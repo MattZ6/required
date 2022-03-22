@@ -143,7 +143,13 @@
     },
     "errors": {
       "name": {
-        "required": "The name is required"
+        "required": "The name is required",
+        "minlength": "At least {minlength} characters"
+      },
+      "fallback": {
+        "title": "Something went wrong",
+        "description": "It is currently not possible to update your name. Please try again later.",
+        "button": "Ok"
       }
     }
   },

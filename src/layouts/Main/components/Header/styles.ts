@@ -9,6 +9,10 @@ export namespace MainLayoutHeader {
     borderBottomWidth: 1,
     borderBottomStyle: 'solid',
     borderBottomColor: '$divider',
+
+    position: 'sticky',
+    top: 0,
+    backdropFilter: 'blur(8px)',
   });
 
   export const Content = styled(CenterContent, {

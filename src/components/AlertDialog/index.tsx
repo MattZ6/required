@@ -14,14 +14,14 @@ type Props = {
   buttonText: string;
   isOpen: boolean;
   onOpenChange: () => void;
-}
+};
 
 export function AlertDialog({
   title,
   description,
   buttonText,
   isOpen,
-  onOpenChange
+  onOpenChange,
 }: Props) {
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>

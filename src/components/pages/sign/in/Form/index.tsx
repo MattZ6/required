@@ -7,14 +7,14 @@ import * as yup from 'yup';
 import { useAuth } from '@hooks/useAuth';
 import { useTranslation } from '@hooks/useTranslation';
 
+import { PASSWORD_MIN_LENGTH } from '@utils/constants';
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { parseRequestError } from '@utils/parseRequestError';
 
-import { FormField, PasswordFormField, FormButton } from '@components/form';
 import { AlertDialog } from '@components/AlertDialog';
+import { FormField, PasswordFormField, FormButton } from '@components/form';
 
 import { FormStyles as Styles } from './styles';
-import { PASSWORD_MIN_LENGTH } from '@utils/constants';
 
 const emailFormFieldName = 'email';
 const passwordFormFieldName = 'password';
@@ -148,7 +148,7 @@ export function SignInForm() {
         description={t('errors.fallback.description')}
         buttonText={t('errors.fallback.button')}
         isOpen={hasError}
-        onOpenChange={onModalRequestClose}
+        onOpenChange={() => onModalRequestClose()}
       />
     </>
   );

@@ -6,7 +6,7 @@ import * as yup from 'yup';
 
 import { useTranslation } from '@hooks/useTranslation';
 
-import { useUpdateName } from '@services/user/profile';
+import { useProfile, useUpdateName } from '@services/user/profile';
 
 import { NAME_MIN_LENGTH } from '@utils/constants';
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
@@ -27,6 +27,7 @@ export function UpdateProfileNameForm() {
   const t = useTranslation('update-profile-name');
   const [hasError, setHasError] = useState(false);
 
+  const { isLoading, data: profile } = useProfile();
   const { mutateAsync } = useUpdateName();
 
   const schema = yup.object().shape({
@@ -40,7 +41,7 @@ export function UpdateProfileNameForm() {
       ),
   });
 
-  const { register, handleSubmit, formState, setFocus, setError } =
+  const { register, handleSubmit, formState, setFocus, setValue, setError } =
     useForm<UpdateNameFormData>({
       resolver: yupResolver(schema),
     });
@@ -81,8 +82,14 @@ export function UpdateProfileNameForm() {
   }
 
   useEffect(() => {
-    setFocus('name');
-  }, [setFocus]);
+    if (profile) {
+      setValue('name', profile.name);
+
+      setTimeout(() => {
+        setFocus('name');
+      }, 0);
+    }
+  }, [profile, setValue, setFocus]);
 
   return (
     <>
@@ -92,14 +99,14 @@ export function UpdateProfileNameForm() {
           placeholder={t('form.name.placeholder')}
           icon={MdOutlineEmojiEmotions}
           error={formState.errors[nameFieldName]}
-          disabled={formState.isSubmitting}
+          disabled={isLoading || formState.isSubmitting}
           {...register(nameFieldName)}
         />
 
         <Styles.Actions>
           <FormButton
             type="submit"
-            disabled={formState.isSubmitting}
+            disabled={isLoading || formState.isSubmitting}
             showLoading={formState.isSubmitting}
           >
             {t('form.submit')}

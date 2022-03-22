@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 
-import { saveAuthOnCookies } from '@services/apiClient';
+import { saveAuthentication } from '@services/apiClient';
 import {
   Authentication,
   signIn as authenticateUser,
@@ -45,7 +45,7 @@ export function AuthProvider({ children }: Props) {
     const response = await authenticateUser(data);
 
     setAuth(response);
-    saveAuthOnCookies(response);
+    saveAuthentication(response);
 
     Router.replace('/profile');
   }, []);

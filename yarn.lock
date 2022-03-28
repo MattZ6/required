@@ -2023,12 +2023,12 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-intl@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-2.4.0.tgz#1b36f96cfa692c2584dae5f0fe717723c972f2a6"
-  integrity sha512-BSFpg43907MAYzWt+mQdaUKBSYtjy+46aGzAfoyVAFumTFdFlXQ6ORUYpxF7jc/g8OCCl+T0F+2hU9CCulaE+g==
+next-intl@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-2.4.1.tgz#fb8e0f6b2ba6651070772d92b6941a73f4c515a6"
+  integrity sha512-jqFPWZ0U2ENncsEx1PhvPt0U+gHv4kjjCqqrCvfPd3ZIRX8m+sTZAXtO4i1Cr9ud5qK2jJNwT8d+j/Em0zzOKQ==
   dependencies:
-    use-intl "^2.4.0"
+    use-intl "^2.4.1"
 
 next-themes@0.1.1:
   version "0.1.1"
@@ -2833,10 +2833,10 @@ use-callback-ref@^1.2.3:
   resolved "https://registry.yarnpkg.com/use-callback-ref/-/use-callback-ref-1.2.5.tgz#6115ed242cfbaed5915499c0a9842ca2912f38a5"
   integrity sha512-gN3vgMISAgacF7sqsLPByqoePooY3n2emTH59Ur5d/M8eg4WTWu1xp8i8DHjohftIyEx0S08RiYxbffr4j8Peg==
 
-use-intl@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-2.4.0.tgz#f0ed874dbb91fce0d6c37a9db7875eb09097aeba"
-  integrity sha512-okJxrUebOMkVp324Pgdd3nW8H0UWWDdwfry8mooumrG1NsnC9YxWa/M2RG44fK5GzqGEJR/3/Tmd3fbV1693Ew==
+use-intl@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-2.4.1.tgz#7d35f284530b48af52c1596ba095a382f5fc14e8"
+  integrity sha512-OtM5IpagGu440UBNosWf6uS5oVv7lST5IsAmDfYlUVv7oXH+fvHR1xyz5cc9os2N17KUq0y8o4BtSw5YpkF/PA==
   dependencies:
     intl-messageformat "^9.3.18"
 

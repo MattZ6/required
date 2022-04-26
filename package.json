@@ -32,7 +32,7 @@
     "react-dom": "18.0.0",
     "react-hook-form": "7.30.0",
     "react-icons": "4.3.1",
-    "react-query": "3.34.19",
+    "react-query": "3.38.0",
     "sharp": "0.30.4",
     "yup": "0.32.11"
   },

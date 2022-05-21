@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdMailOutline } from 'react-icons/md';
 import * as yup from 'yup';
 
 import { useAuth } from '@hooks/useAuth';
-import { useTranslation } from '@hooks/useTranslation';
 
 import { PASSWORD_MIN_LENGTH } from '@utils/constants';
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
@@ -26,7 +26,7 @@ type SignInFormData = {
 
 export function SignInForm() {
   const { signIn, isAuthenticated } = useAuth();
-  const t = useTranslation('sign-in');
+  const t = useTranslations('sign-in');
   const [hasError, setHasError] = useState(false);
 
   const schema = yup.object().shape({
@@ -59,7 +59,7 @@ export function SignInForm() {
         const field = error.error.validation.field as keyof SignInFormData;
 
         setError(field, {
-          message: t(`errors.${field}.${type}`, {
+          message: t(`errors.${field}.${type}` as any, {
             minlength: PASSWORD_MIN_LENGTH,
           }),
         });

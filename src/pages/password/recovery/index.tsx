@@ -1,4 +1,4 @@
-import { useTranslation } from '@hooks/useTranslation';
+import { useTranslations } from 'next-intl';
 
 import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
@@ -8,7 +8,7 @@ import { CommonPageStyles as Styles } from '@components/pages/styles';
 import { SEO } from '@components/SEO';
 
 export default function PasswordRecoveryPage() {
-  const t = useTranslation('password-recovery-page');
+  const t = useTranslations('password-recovery-page');
 
   return (
     <Styles.Page>

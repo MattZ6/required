@@ -1,8 +1,7 @@
+import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
-import { useTranslation } from '@hooks/useTranslation';
 
 import { theme, darkTheme } from '@styles/stitches.config';
 
@@ -21,7 +20,7 @@ type Props = {
 export function SEO({ title, description, image, icon }: Props) {
   const router = useRouter();
   const { theme: currentTheme } = useTheme();
-  const t = useTranslation('app');
+  const t = useTranslations('app');
 
   const suffix = t('title');
 

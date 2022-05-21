@@ -1,15 +1,16 @@
+import { useTranslations } from 'next-intl';
+
 import { useAuth } from '@hooks/useAuth';
-import { useTranslation } from '@hooks/useTranslation';
 
 import { FormButton } from '@components/form';
 
 export function ProfileSignOutButton() {
   const { signOut } = useAuth();
-  const t = useTranslation('profile');
+  const t = useTranslations('profile.actions');
 
   return (
     <FormButton clear onClick={() => signOut()}>
-      {t('actions.sign-out-button')}
+      {t('sign-out-button')}
     </FormButton>
   );
 }

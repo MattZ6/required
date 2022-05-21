@@ -1,9 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
-import { useTranslation } from '@hooks/useTranslation';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { setFocusOnInput } from '@utils/setFocusOnInput';
@@ -17,8 +16,8 @@ const newPasswordFieldName = 'new_password';
 const newPasswordConfirmationFieldName = 'new_password_confirmation';
 
 export function UpdateProfilePasswordForm() {
-  const commonT = useTranslation('common');
-  const t = useTranslation('update-profile-password');
+  const commonT = useTranslations('common');
+  const t = useTranslations('update-profile-password');
 
   const schema = yup.object().shape({
     [currentPasswordFieldName]: yup

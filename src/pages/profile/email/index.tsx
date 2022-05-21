@@ -1,4 +1,4 @@
-import { useTranslation } from '@hooks/useTranslation';
+import { useTranslations } from 'next-intl';
 
 import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
@@ -8,7 +8,7 @@ import { CommonPageStyles as Styles } from '@components/pages/styles';
 import { SEO } from '@components/SEO';
 
 export default function UpdateProfileEmailPage() {
-  const t = useTranslation('update-profile-email');
+  const t = useTranslations('update-profile-email');
 
   return (
     <Styles.Page>

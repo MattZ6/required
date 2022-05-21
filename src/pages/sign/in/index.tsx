@@ -1,4 +1,4 @@
-import { useTranslation } from '@hooks/useTranslation';
+import { useTranslations } from 'next-intl';
 
 import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
 
@@ -13,7 +13,7 @@ import { SEO } from '@components/SEO';
 import { Text } from '@components/Text';
 
 export default function SignInPage() {
-  const t = useTranslation('sign-in');
+  const t = useTranslations('sign-in');
 
   return (
     <Styles.Page>

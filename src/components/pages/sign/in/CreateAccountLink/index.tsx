@@ -1,17 +1,16 @@
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
-
-import { useTranslation } from '@hooks/useTranslation';
 
 import { TextLink } from '@components/Link';
 
 export function CreateAccountLink() {
   const { locale } = useRouter();
 
-  const t = useTranslation('sign-in');
+  const t = useTranslations('sign-in.footer');
 
   return (
     <TextLink to="/sign/up" locale={locale}>
-      {t('footer.create_account')}
+      {t('create_account')}
     </TextLink>
   );
 }

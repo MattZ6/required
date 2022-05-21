@@ -1,4 +1,4 @@
-import { useTranslation } from '@hooks/useTranslation';
+import { useTranslations } from 'next-intl';
 
 import { ThemeSwitcherOptionStyles as Styles } from './styles';
 
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function ThemeSwitcherOption({ theme }: Props) {
-  const t = useTranslation('common');
+  const t = useTranslations('common.themes');
 
   return (
     <Styles.Option value={theme}>
@@ -15,7 +15,7 @@ export function ThemeSwitcherOption({ theme }: Props) {
         <Styles.SelectionIndicator />
       </Styles.IndicatorContainer>
 
-      <Styles.Text>{t(`themes.${theme}`)}</Styles.Text>
+      <Styles.Text>{t(theme as any)}</Styles.Text>
     </Styles.Option>
   );
 }

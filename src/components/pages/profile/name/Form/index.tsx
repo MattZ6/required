@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -6,7 +7,6 @@ import { MdOutlineEmojiEmotions } from 'react-icons/md';
 import * as yup from 'yup';
 
 import { useToast } from '@hooks/useToast';
-import { useTranslation } from '@hooks/useTranslation';
 
 import { useProfile, useUpdateName } from '@services/user/profile';
 
@@ -28,7 +28,7 @@ const nameFieldName = 'name';
 export function UpdateProfileNameForm() {
   const { addMessage } = useToast();
 
-  const t = useTranslation('update-profile-name');
+  const t = useTranslations('update-profile-name');
   const [hasError, setHasError] = useState(false);
   const router = useRouter();
 
@@ -69,7 +69,7 @@ export function UpdateProfileNameForm() {
         const field = error.error.validation.field as keyof UpdateNameFormData;
 
         form.setError(field, {
-          message: t(`errors.${field}.${type}`, {
+          message: t(`errors.${field}.${type as 'required' | 'minlength'}`, {
             minlength: NAME_MIN_LENGTH,
           }),
         });

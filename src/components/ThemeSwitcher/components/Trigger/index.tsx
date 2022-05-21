@@ -11,7 +11,7 @@ export function ThemeSwitcherTrigger() {
 
   return (
     <Styles.Trigger>
-      <Icon theme={theme} />
+      <Icon theme={theme as 'light' | 'dark' | 'system'} />
 
       <span>{t(theme as any)}</span>
 

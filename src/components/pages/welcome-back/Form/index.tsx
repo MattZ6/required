@@ -1,9 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
-import { useTranslation } from '@hooks/useTranslation';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { setFocusOnInput } from '@utils/setFocusOnInput';
@@ -15,7 +14,7 @@ import { FormStyles as Styles } from './styles';
 const passwordFormFieldName = 'password';
 
 export function WelcomeBackForm() {
-  const t = useTranslation('welcome-back');
+  const t = useTranslations('welcome-back');
 
   const schema = yup.object().shape({
     [passwordFormFieldName]: yup

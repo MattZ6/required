@@ -1,11 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdMailOutline, MdOutlineEmojiEmotions } from 'react-icons/md';
 import * as yup from 'yup';
 
 import { useAuth } from '@hooks/useAuth';
-import { useTranslation } from '@hooks/useTranslation';
 
 import { useCreateAccount } from '@services/user/auth';
 
@@ -31,7 +31,7 @@ type SignUpFormData = {
 };
 
 export function SignUpForm() {
-  const t = useTranslation('sign-up');
+  const t = useTranslations('sign-up');
   const { mutateAsync } = useCreateAccount();
   const { signIn, isAuthenticated } = useAuth();
   const [hasError, setHasError] = useState(false);
@@ -97,7 +97,7 @@ export function SignUpForm() {
         const field = error.error.validation.field as keyof SignUpFormData;
 
         setError(field, {
-          message: t(`errors.${field}.${type}`, {
+          message: t(`errors.${field}.${type}` as any, {
             minlength: field === 'name' ? NAME_MIN_LENGTH : PASSWORD_MIN_LENGTH,
           }),
         });

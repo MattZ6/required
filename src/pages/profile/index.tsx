@@ -15,12 +15,12 @@ import { SEO } from '@components/SEO';
 function Body() {
   const { isLoading, isError, data } = useProfile();
 
-  if (isLoading) {
-    return <h1>Loading</h1>;
-  }
-
   if (isError) {
     return <h1>Error</h1>;
+  }
+
+  if (isLoading || !data) {
+    return <h1>Loading</h1>;
   }
 
   return (
@@ -29,7 +29,7 @@ function Body() {
 
       <Title />
 
-      <Content profile={data!} />
+      <Content profile={data} />
 
       <ProfileActions.Actions>
         <SignOutButton />

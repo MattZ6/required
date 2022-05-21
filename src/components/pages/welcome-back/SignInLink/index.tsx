@@ -1,14 +1,15 @@
+import { useTranslations } from 'next-intl';
+
 import { useAuth } from '@hooks/useAuth';
-import { useTranslation } from '@hooks/useTranslation';
 
 export function SignInLink() {
   const { removePreviousAuth } = useAuth();
 
-  const t = useTranslation('welcome-back');
+  const t = useTranslations('welcome-back.footer');
 
   return (
     <button type="button" onClick={removePreviousAuth}>
-      {t('footer.sign_in')}
+      {t('sign_in')}
     </button>
   );
 }

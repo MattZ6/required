@@ -1,10 +1,9 @@
+import { useTranslations } from 'next-intl';
 import {
   MdOutlineEmojiEmotions,
   MdMailOutline,
   MdVpnKey,
 } from 'react-icons/md';
-
-import { useTranslation } from '@hooks/useTranslation';
 
 import { GetProfileService } from '@services/user/profile/getProfile';
 
@@ -16,7 +15,7 @@ type Props = {
 };
 
 export function ProfileContent({ profile }: Props) {
-  const t = useTranslation('profile');
+  const t = useTranslations('profile');
 
   return (
     <Styles.Container>

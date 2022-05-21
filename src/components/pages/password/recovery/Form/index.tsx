@@ -1,10 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { MdMailOutline } from 'react-icons/md';
 import * as yup from 'yup';
-
-import { useTranslation } from '@hooks/useTranslation';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { setFocusOnInput } from '@utils/setFocusOnInput';
@@ -16,7 +15,7 @@ import { FormStyles as Styles } from './styles';
 const emailFieldName = 'email';
 
 export function PasswordRecoveryForm() {
-  const t = useTranslation('password-recovery-page');
+  const t = useTranslations('password-recovery-page');
 
   const schema = yup.object().shape({
     [emailFieldName]: yup

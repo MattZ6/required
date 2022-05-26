@@ -6,6 +6,7 @@ import {
   useMemo,
   useState,
 } from 'react';
+import { useQueryClient } from 'react-query';
 
 import { saveAuthentication } from '@services/apiClient';
 import {
@@ -39,6 +40,8 @@ function removePreviousAuth() {
 }
 
 export function AuthProvider({ children }: Props) {
+  const queryClient = useQueryClient();
+
   const [auth, setAuth] = useState<Authentication | undefined>();
 
   const signIn = useCallback(async (data: SignInService.Request) => {
@@ -50,23 +53,23 @@ export function AuthProvider({ children }: Props) {
     Router.replace('/profile');
   }, []);
 
-  const signOut = () => {
+  const signOut = useCallback(() => {
     removeRefreshTokenFromCookies();
 
     setAuth(undefined);
+    queryClient.invalidateQueries('profile');
 
     Router.replace('/welcome-back');
-  };
+  }, [queryClient]);
 
-  const data = useMemo<AuthContextData>(
-    () => ({
+  const data = useMemo<AuthContextData>(() => {
+    return {
       signIn,
       signOut,
       removePreviousAuth,
       isAuthenticated: !!auth,
-    }),
-    [signIn, auth]
-  );
+    };
+  }, [signIn, signOut, auth]);
 
   return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 }

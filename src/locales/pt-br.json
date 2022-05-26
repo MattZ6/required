@@ -172,7 +172,19 @@
     "errors": {
       "email": {
         "required": "O endereço de e-mail é obrigatório",
-        "invalid": "Você precisa informar um endereço de e-mail válido"
+        "invalid": "Você precisa informar um endereço de e-mail válido",
+        "already_exists": "Este e-mail já está sendo utilizado"
+      },
+      "fallback": {
+        "title": "Algo deu errado",
+        "description": "Não foi possível alterar seu endereço de e-mail no momento. Por favor, tente novamente mais tarde.",
+        "button": "Ok"
+      }
+    },
+    "messages": {
+      "success": {
+        "title": "Pronto!",
+        "description": "Endereço de e-mail alterado com sucesso"
       }
     }
   },

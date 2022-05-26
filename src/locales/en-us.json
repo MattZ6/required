@@ -172,7 +172,19 @@
     "errors": {
       "email": {
         "required": "The e-mail is required",
-        "invalid": "You must enter a valid email address"
+        "invalid": "You must enter a valid email address",
+        "already_exists": "This email is already in use"
+      },
+      "fallback": {
+        "title": "Something went wrong",
+        "description": "It is currently not possible to update your email address. Please try again later.",
+        "button": "Ok"
+      }
+    },
+    "messages": {
+      "success": {
+        "title": "Done!",
+        "description": "Email address changed successfully"
       }
     }
   },

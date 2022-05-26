@@ -192,7 +192,7 @@
     "title": "Alterar senha",
     "description": "Informe sua senha atual para efetuar a alteração",
     "form": {
-      "current_password": {
+      "old_password": {
         "label": "Senha atual",
         "placeholder": "Informe sua atual senha"
       },
@@ -207,15 +207,30 @@
       "submit": "Salvar"
     },
     "errors": {
-      "current_password": {
-        "required": "A senha atual é obrigatória"
+      "old_password": {
+        "required": "A senha atual é obrigatória",
+        "minlength": "Pelo menos {minlength} caracteres",
+        "wrong": "Wrong password"
       },
       "new_password": {
-        "required": "A nova senha é obrigatória"
+        "required": "A nova senha é obrigatória",
+        "minlength": "Pelo menos {minlength} caracteres"
       },
       "new_password_confirmation": {
         "required": "A confirmação da nova senha é obrigatória",
-        "match": "As senhas não condizem"
+        "minlength": "Pelo menos {minlength} caracteres",
+        "divergent": "As senhas não condizem"
+      },
+      "fallback": {
+        "title": "Algo deu errado",
+        "description": "Não foi possível alterar sua senha no momento. Por favor, tente novamente mais tarde.",
+        "button": "Ok"
+      }
+    },
+    "messages": {
+      "success": {
+        "title": "Pronto!",
+        "description": "Senha alterada com sucesso"
       }
     }
   },

@@ -192,7 +192,7 @@
     "title": "Change password",
     "description": "Enter your current password to make the change",
     "form": {
-      "current_password": {
+      "old_password": {
         "label": "Current password",
         "placeholder": "Type your current password"
       },
@@ -207,15 +207,30 @@
       "submit": "Save"
     },
     "errors": {
-      "current_password": {
-        "required": "The current password is required"
+      "old_password": {
+        "required": "The current password is required",
+        "minlength": "At least {minlength} characters",
+        "wrong": "Wrong password"
       },
       "new_password": {
-        "required": "The new password is required"
+        "required": "The new password is required",
+        "minlength": "At least {minlength} characters"
       },
       "new_password_confirmation": {
         "required": "The new password confirmation is required",
-        "match": "The passwords not match"
+        "minlength": "At least {minlength} characters",
+        "divergent": "The passwords not match"
+      },
+      "fallback": {
+        "title": "Something went wrong",
+        "description": "It is currently not possible to update your password. Please try again later.",
+        "button": "Ok"
+      }
+    },
+    "messages": {
+      "success": {
+        "title": "Done!",
+        "description": "Password changed successfully"
       }
     }
   },

@@ -10,6 +10,7 @@ type ApplicationErrorCode =
 type ValidationErrorData = {
   type: string;
   field: string;
+  value: string;
   message: string;
 };
 

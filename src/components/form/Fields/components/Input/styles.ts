@@ -8,9 +8,9 @@ export namespace FormFieldInputStyles {
     lineHeight: '$normal',
     color: '$highContrast',
 
-    caretColor: '$primarySolid',
+    caretColor: '$solid',
 
-    backgroundColor: '$elementBackground',
+    backgroundColor: '$subtleBackground',
 
     outlineColor: 'transparent',
     outlineWidth: 0,
@@ -37,7 +37,7 @@ export namespace FormFieldInputStyles {
     },
 
     '&:focus': {
-      borderColor: '$primaryHoveredElementBorder',
+      borderColor: '$solid',
     },
 
     '&:disabled': {

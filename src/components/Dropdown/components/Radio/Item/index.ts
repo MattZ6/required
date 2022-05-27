@@ -22,24 +22,22 @@ export const DropdownRadioItem = styled(RadixDropdownMenu.RadioItem, {
   transitionAnimation: 'background-color, color',
 
   '&:hover': {
-    color: '$primaryHoveredSolid',
-    backgroundColor: '$primaryHoveredElementBackground',
+    backgroundColor: '$hoveredElementBackground',
   },
 
   '&:focus-visible': {
-    color: '$primaryHoveredSolid',
-    backgroundColor: '$primaryHoveredElementBackground',
+    backgroundColor: '$activeElementBackground',
   },
 
   '&[aria-checked="true"]': {
-    color: '$primarySolid',
+    color: '$highContrast',
 
     '&:hover': {
-      color: '$primaryHoveredSolid',
+      color: '$highContrast',
     },
 
     '&:focus-visible': {
-      color: '$primaryHoveredSolid',
+      color: '$highContrast',
     },
   },
 });

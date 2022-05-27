@@ -22,7 +22,7 @@ export namespace LoadingSpinnerStyles {
   });
 
   export const Circle = styled('circle', {
-    stroke: '$primarySolid',
+    stroke: '$lowContrast',
     strokeLinecap: 'round',
 
     animationDuration: '1.5s',

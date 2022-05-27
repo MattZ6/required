@@ -20,10 +20,10 @@ export namespace PasswordFormFieldVisibilityToggleButtonStyles {
     transitionAnimation: 'color, background-color',
 
     '&:hover': {
-      backgroundColor: '$primaryHoveredElementBackground',
+      backgroundColor: '$hoveredElementBackground',
 
       '> svg': {
-        color: '$primaryHoveredSolid',
+        color: '$hoveredSolid',
       },
     },
 
@@ -32,7 +32,7 @@ export namespace PasswordFormFieldVisibilityToggleButtonStyles {
       cursor: 'not-allowed',
 
       '> svg': {
-        color: '$lowContrast',
+        color: '$solid',
       },
     },
 

@@ -2,7 +2,7 @@ import { styled } from '@styles/stitches.config';
 
 export namespace LinkStyles {
   export const Link = styled('a', {
-    color: '$primarySolid',
+    color: '$highContrast',
 
     paddingHorizontal: '$smaller',
     borderRadius: '$small',
@@ -13,17 +13,18 @@ export namespace LinkStyles {
     outlineStyle: 'solid',
     outlineColor: 'transparent',
 
+    textUnderlinePosition: 'under',
+    textDecorationThickness: 1,
+
     transitionAnimation: 'color, background-color, outline-color',
 
     '&:hover': {
-      backgroundColor: '$primaryHoveredElementBackground',
-      color: '$primaryHoveredSolid',
+      backgroundColor: '$hoveredElementBackground',
     },
 
     '&:focus-visible': {
-      backgroundColor: '$primaryHoveredElementBackground',
-      color: '$primaryHoveredSolid',
-      outlineColor: '$primaryElementBorder',
+      backgroundColor: '$hoveredElementBackground',
+      outlineColor: '$hoveredElementBorder',
     },
   });
 }

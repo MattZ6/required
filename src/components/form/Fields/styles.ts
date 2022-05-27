@@ -28,6 +28,7 @@ export namespace FormFieldStyles {
     '> input': {
       '&::placeholder': {
         opacity: '0',
+        color: '$solid',
 
         transitionAnimation: 'opacity',
       },
@@ -41,7 +42,7 @@ export namespace FormFieldStyles {
     },
 
     svg: {
-      color: '$lowContrast',
+      color: '$solid',
       transitionAnimation: 'color',
     },
 
@@ -52,11 +53,11 @@ export namespace FormFieldStyles {
 
         top: '4px',
 
-        color: '$primarySolid',
+        // color: '$solid',
       },
 
       '> input': {
-        borderColor: '$primaryHoveredElementBorder',
+        borderColor: '$hoveredElementBorder',
 
         '&::placeholder': {
           opacity: '1',
@@ -64,7 +65,7 @@ export namespace FormFieldStyles {
       },
 
       svg: {
-        color: '$primarySolid',
+        color: '$lowContrast',
       },
     },
 

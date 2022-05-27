@@ -1,29 +1,24 @@
+import Link from 'next/link';
+
 import { ProjectAuthorGithubUserStyles as Styles } from './styles';
 
-type User = {
-  html_url: string;
-  avatar_url: string;
-  name: string;
-  login: string;
-};
+const IMAGE_SIZE = 28;
 
-type Props = {
-  user: User;
-};
-
-export function ProjectAuthorGithubUser({ user }: Props) {
+export function ProjectAuthorGithubUser() {
   return (
-    <Styles.Container>
-      <Styles.Avatar>
-        <Styles.AvatarImage
-          src={user.avatar_url}
-          alt={user.name}
-          width={28}
-          height={28}
-        />
-      </Styles.Avatar>
+    <Link href="https://github.com/mattz6" passHref>
+      <Styles.Container>
+        <Styles.Avatar>
+          <Styles.AvatarImage
+            src={`https://avatars.githubusercontent.com/u/30813457?v=4&size=${IMAGE_SIZE}`}
+            alt="Matt's profile picture"
+            width={IMAGE_SIZE}
+            height={IMAGE_SIZE}
+          />
+        </Styles.Avatar>
 
-      <Styles.Name>{user.name}</Styles.Name>
-    </Styles.Container>
+        <Styles.Name>Matheus Felipe Zanin</Styles.Name>
+      </Styles.Container>
+    </Link>
   );
 }

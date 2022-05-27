@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { styled } from '@styles/stitches.config';
 
 export namespace ProjectAuthorGithubUserStyles {
-  export const Container = styled('div', {
+  export const Container = styled('a', {
     display: 'flex',
     alignItems: 'center',
     gap: '$small',
@@ -13,6 +13,27 @@ export namespace ProjectAuthorGithubUserStyles {
     paddingHorizontal: '$small',
 
     backgroundColor: '$elementBackground',
+
+    color: '$lowContrast',
+    textDecoration: 'none',
+
+    outlineWidth: 2,
+    outlineStyle: 'solid',
+    outlineColor: 'transparent',
+    outlineOffset: 4,
+
+    transitionAnimation: 'background-color, outline-color, color',
+
+    '&:hover': {
+      backgroundColor: '$hoveredElementBackground',
+      color: '$highContrast',
+    },
+
+    '&:focus-visible': {
+      backgroundColor: '$hoveredElementBackground',
+      outlineColor: '$hoveredElementBorder',
+      color: '$highContrast',
+    },
   });
 
   export const Avatar = styled('div', {

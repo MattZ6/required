@@ -8,5 +8,5 @@ export const DropdownItemIndicator = styled(RadixDropdownMenu.ItemIndicator, {
   size: '$$size',
   borderRadius: '$$size',
 
-  backgroundColor: '$primarySolid',
+  backgroundColor: '$highContrast',
 });

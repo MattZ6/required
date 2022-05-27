@@ -23,8 +23,8 @@ export namespace FormButtonStyles {
 
     cursor: 'pointer',
 
-    backgroundColor: '$primaryElementBackground',
-    color: '$primarySolid',
+    backgroundColor: '$elementBackground',
+    color: '$highContrast',
 
     outlineWidth: 2,
     outlineStyle: 'solid',
@@ -33,19 +33,17 @@ export namespace FormButtonStyles {
     transitionAnimation: 'color, background-color, outline-color',
 
     '&:hover': {
-      backgroundColor: '$primaryHoveredElementBackground',
-      color: '$primaryHoveredSolid',
+      backgroundColor: '$hoveredElementBackground',
     },
 
     '&:focus-visible': {
-      backgroundColor: '$primaryHoveredElementBackground',
-      color: '$primaryHoveredSolid',
-      outlineColor: '$primaryHoveredElementBorder',
+      backgroundColor: '$hoveredElementBackground',
+      outlineColor: '$hoveredElementBorder',
     },
 
     '&:disabled': {
       cursor: 'not-allowed',
-      backgroundColor: '$primaryElementBackground',
+      backgroundColor: '$elementBackground',
       color: '$lowContrast',
     },
 

@@ -1,11 +1,4 @@
-import {
-  mauve,
-  mauveDark,
-  violet,
-  violetDark,
-  red,
-  redDark,
-} from '@radix-ui/colors';
+import { mauve, mauveDark, red, redDark } from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 
 export const {
@@ -53,36 +46,6 @@ export const {
 
       lowContrast: mauve.mauve11,
       highContrast: mauve.mauve12,
-
-      /** Primary backgrounds */
-
-      primaryAppBackground: violet.violet1,
-      primarySubtleBackground: violet.violet2,
-
-      /** Primary elements */
-
-      primaryElementBackground: violet.violet3,
-      primaryHoveredElementBackground: violet.violet4,
-      primaryActiveElementBackground: violet.violet5,
-
-      /** Primary separators */
-
-      primaryDivider: violet.violet6,
-
-      /** Primary borders */
-
-      primaryElementBorder: violet.violet7,
-      primaryHoveredElementBorder: violet.violet8,
-
-      /** Primary main color */
-
-      primarySolid: violet.violet9,
-      primaryHoveredSolid: violet.violet10,
-
-      /** Primary texts */
-
-      primaryLowContrast: violet.violet11,
-      primaryHighContrast: violet.violet12,
     },
     space: {
       smallest: '2px',
@@ -186,36 +149,6 @@ export const darkTheme = createTheme('dark-theme', {
 
     lowContrast: mauveDark.mauve11,
     highContrast: mauveDark.mauve12,
-
-    /** Primary backgrounds */
-
-    primaryAppBackground: violetDark.violet1,
-    primarySubtleBackground: violetDark.violet2,
-
-    /** Primary elements */
-
-    primaryElementBackground: violetDark.violet3,
-    primaryHoveredElementBackground: violetDark.violet4,
-    primaryActiveElementBackground: violetDark.violet5,
-
-    /** Primary separators */
-
-    primaryDivider: violetDark.violet6,
-
-    /** Primary borders */
-
-    primaryElementBorder: violetDark.violet7,
-    primaryHoveredElementBorder: violetDark.violet8,
-
-    /** Primary main color */
-
-    primarySolid: violetDark.violet9,
-    primaryHoveredSolid: violetDark.violet10,
-
-    /** Primary texts */
-
-    primaryLowContrast: violetDark.violet11,
-    primaryHighContrast: violetDark.violet12,
   },
 });
 

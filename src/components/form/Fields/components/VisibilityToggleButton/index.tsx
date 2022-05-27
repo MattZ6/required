@@ -20,9 +20,14 @@ export function PasswordFormFieldVisibilityToggleButton({
         {...props}
         tabIndex={-1}
         type="button"
+        aria-label={isVisible ? 'Hide password' : 'Show password'}
         onClick={() => onToggle()}
       >
-        {isVisible ? <MdOutlineVisibilityOff /> : <MdOutlineVisibility />}
+        {isVisible ? (
+          <MdOutlineVisibilityOff aria-hidden />
+        ) : (
+          <MdOutlineVisibility aria-hidden />
+        )}
       </Styles.Button>
     </Slot>
   );

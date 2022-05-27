@@ -11,6 +11,14 @@ export namespace ProjectStyles {
     width: '480px',
 
     paddingHorizontal: '$normal',
+
+    '@media screen and (max-width: 1024px)': {
+      width: '360px',
+    },
+
+    '@media screen and (max-width: 760px)': {
+      width: 'unset',
+    },
   });
 
   export const Description = styled(Text, {});

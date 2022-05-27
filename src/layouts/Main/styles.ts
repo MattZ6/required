@@ -15,6 +15,10 @@ export namespace MainLayoutStyles {
     display: 'flex',
     paddingVertical: '$normal',
     gap: '$normal',
+
+    '@media screen and (max-width: 760px)': {
+      flexDirection: 'column',
+    },
   });
 
   export const Page = styled('section', {

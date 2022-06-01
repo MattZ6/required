@@ -1,34 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <h1>
+    🗝 Auth Flow Web
+  </h1>
 
-## Getting Started
+  > Simple authentication flow application.
 
-First, run the development server:
+  <strong>🚧 Under development... 🚧</strong>
+
+  [![license-image]][license-url]
+</div>
+
+<!-- TODO: Add project images -->
+<!-- TODO: Add features and proposal -->
+
+## 💡 You will need
+
+- First, a cup of coffee ☕;
+- [Node JS](https://nodejs.org) installed on your host;
+- The [Auth Flow API](https://github.com/MattZ6/auth-flow-api) running.
+
+## 🎉 Starting
+
+### Clone
+
+In order to clone the project (via HTTPS), run this command:
 
 ```bash
-npm run dev
-# or
+git clone https://github.com/MattZ6/auth-flow.git
+```
+
+> 💡 SSH URLs provide access to a Git repository via SSH, a secure protocol. If you have a SSH key registered in your Github account, clone the project using this command: `git clone git@github.com:MattZ6/auth-flow.git`
+
+Go to project folder:
+
+```bash
+cd auth-flow
+```
+
+### Dependencies
+
+Install the project dependencies:
+
+```bash
+yarn
+```
+
+### Environment variables
+
+> The project has some environment variables so that we can have dynamic settings based on the context in which it is running.
+
+First, create a copy of `.env.example`:
+
+```bash
+cp .env.example .env.local
+```
+
+Then fill in the missing values in the variables.
+
+## 🔥 Running
+
+### Start
+
+To run the development server:
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🤝 Contributing
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+> Contributions, issues and new features are **always welcome**! You can explore them [here](https://github.com/MattZ6/auth-flow/issues).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Feel free to submit a new issue with a respective title and description on the the Auth Flow repository. If you already found a solution to your problem, i would love to review your pull request! Have a look at our [contribution guidelines](.github/CONTRIBUTING.md) to find out about the coding standards.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 📜 License
 
-## Learn More
+Released in 2022 © This project is under [MIT License](LICENSE.md).
 
-To learn more about Next.js, take a look at the following resources:
+## 👨‍🎤 Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Made with ❤ by [Matheus Felipe Zanin](https://github.com/MattZ6).<br/>
+[Get it touch](https://www.linkedin.com/in/mattz6)!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[license-url]: LICENSE.md
+[license-image]: https://img.shields.io/github/license/MattZ6/auth-flow?color=303030&labelColor=232320&style=for-the-badge

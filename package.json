@@ -17,7 +17,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hookform/resolvers": "2.8.10",
+    "@hookform/resolvers": "2.9.0",
     "@radix-ui/colors": "0.1.8",
     "@radix-ui/react-alert-dialog": "0.1.7",
     "@radix-ui/react-dropdown-menu": "0.1.6",

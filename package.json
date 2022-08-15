@@ -39,8 +39,8 @@
   "devDependencies": {
     "@types/node": "17.0.19",
     "@types/react": "18.0.17",
-    "@typescript-eslint/eslint-plugin": "5.31.0",
-    "@typescript-eslint/parser": "5.31.0",
+    "@typescript-eslint/eslint-plugin": "5.33.0",
+    "@typescript-eslint/parser": "5.33.0",
     "eslint": "8.21.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-next": "12.1.6",

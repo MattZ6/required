@@ -2259,12 +2259,12 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-intl@2.7.4:
-  version "2.7.4"
-  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-2.7.4.tgz#67d3ea0b385678c7522c0e083c579ae183ed59ef"
-  integrity sha512-fspmOzhInd/m+cV3Qj6FzjfDIjEtNTS6Vi4Xv+/59ReZvcW9uGmn/py0NkltQnf5Oefl0RUZGdjbd+t6+G+PMw==
+next-intl@2.7.6:
+  version "2.7.6"
+  resolved "https://registry.yarnpkg.com/next-intl/-/next-intl-2.7.6.tgz#26218a20c8a7ff4cb2bbbb0a02e522c207edcf14"
+  integrity sha512-tPhWWNAma+uqOjahwkugRiJ7UzNTw1tyW+9v5HsplTC04ORjkNQIju9MgDPPHwPU8vI9tyYfyx0IT9h3dbs+cw==
   dependencies:
-    use-intl "^2.7.4"
+    use-intl "^2.7.6"
 
 next-themes@0.2.0:
   version "0.2.0"
@@ -3107,10 +3107,10 @@ use-callback-ref@^1.3.0:
   dependencies:
     tslib "^2.0.0"
 
-use-intl@^2.7.4:
-  version "2.7.4"
-  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-2.7.4.tgz#056ff6a73b125d2efe6f8d4bd174e5ce3d1dcd58"
-  integrity sha512-Ivo2dIUFTyLCj6YJ+fA4jsDggDQhUQSLT1OoXP7qurCAueOWFX6QaN/pL3cDR6z9gM7nVQH83piRvuBJTHjQzg==
+use-intl@^2.7.6:
+  version "2.7.6"
+  resolved "https://registry.yarnpkg.com/use-intl/-/use-intl-2.7.6.tgz#1e8c50af33a159b2b17bc23fe1cc94f112642e34"
+  integrity sha512-lmIqsByslV01XM2xG1Gvo3mT+rEqIfKTtrDgL39gmWqC3v6wQw4/nvXiChDe4eLPduI6ELGpwWSyIraMk8y8gQ==
   dependencies:
     "@formatjs/ecma402-abstract" "^1.11.4"
     intl-messageformat "^9.3.18"

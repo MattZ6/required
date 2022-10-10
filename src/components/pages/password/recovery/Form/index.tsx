@@ -12,19 +12,17 @@ import { FormField, FormButton } from '@components/form';
 
 import { FormStyles as Styles } from './styles';
 
-const emailFieldName = 'email';
-
 export function PasswordRecoveryForm() {
   const t = useTranslations('password-recovery-page');
 
   const schema = yup.object().shape({
-    [emailFieldName]: yup
+    email: yup
       .string()
       .required(t('errors.email.required'))
       .email(t('errors.email.invalid')),
   });
 
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm<{ email: string }>({
     resolver: yupResolver(schema),
   });
 
@@ -33,7 +31,7 @@ export function PasswordRecoveryForm() {
   };
 
   useEffect(() => {
-    setFocusOnInput(emailFieldName);
+    setFocusOnInput('email');
   }, []);
 
   return (
@@ -44,9 +42,9 @@ export function PasswordRecoveryForm() {
         label={t('form.email.label')}
         placeholder={t('form.email.placeholder')}
         icon={MdMailOutline}
-        error={formState.errors[emailFieldName]}
+        error={formState.errors.email}
         disabled={formState.isSubmitting}
-        {...register(emailFieldName)}
+        {...register('email')}
       />
 
       <Styles.Actions>

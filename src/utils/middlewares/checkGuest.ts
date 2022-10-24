@@ -1,11 +1,10 @@
-/* eslint-disable @next/next/no-server-import-in-page */
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import { getAuthCookiesFromCookies } from '@utils/auth-cookies';
 
 export function checkGuest(req: NextRequest) {
-  const cookies = getAuthCookiesFromCookies(req.cookies);
+  const cookies = getAuthCookiesFromCookies(req.cookies as any);
 
   if (!cookies.refresh_token && !cookies.access_token) {
     return NextResponse.next();

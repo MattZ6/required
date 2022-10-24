@@ -17,8 +17,7 @@ const queryClient = new QueryClient();
 
 function onError(error: IntlError) {
   if (error.code === IntlErrorCode.MISSING_MESSAGE) {
-    // Missing translations are expected and should only log an error
-    console.error(error);
+    // Do something?
   }
 }
 

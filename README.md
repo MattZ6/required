@@ -42,7 +42,7 @@ cd auth-flow
 Install the project dependencies:
 
 ```bash
-yarn
+pnpm i
 ```
 
 ### Environment variables
@@ -64,7 +64,7 @@ Then fill in the missing values in the variables.
 To run the development server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## 🤝 Contributing

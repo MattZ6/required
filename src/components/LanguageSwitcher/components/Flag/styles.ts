@@ -1,6 +1,6 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace LanguageSwitcherFlagImageStyles {
   export const Container = styled('div', {
@@ -10,7 +10,7 @@ export namespace LanguageSwitcherFlagImageStyles {
     overflow: 'hidden',
 
     backgroundColor: '$inputBackground',
-  });
+  })
 
   export const Flag = styled(Image, {
     widht: '100%',
@@ -19,5 +19,5 @@ export namespace LanguageSwitcherFlagImageStyles {
     objectFit: 'cover',
 
     borderRadius: 'inherit',
-  });
+  })
 }

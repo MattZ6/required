@@ -1,14 +1,14 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
-import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages'
 
-import { PageHeader } from '@components/pages/components';
-import { UpdateProfileNameForm } from '@components/pages/profile/name/Form';
-import { CommonPageStyles as Styles } from '@components/pages/styles';
-import { SEO } from '@components/SEO';
+import { PageHeader } from '@components/pages/components'
+import { UpdateProfileNameForm } from '@components/pages/profile/name/Form'
+import { CommonPageStyles as Styles } from '@components/pages/styles'
+import { SEO } from '@components/SEO'
 
 export default function UpdateProfileNamePage() {
-  const t = useTranslations('update-profile-name');
+  const t = useTranslations('update-profile-name')
 
   return (
     <Styles.Page>
@@ -27,11 +27,11 @@ export default function UpdateProfileNamePage() {
 
       <UpdateProfileNameForm />
     </Styles.Page>
-  );
+  )
 }
 
 export const getStaticProps = withLocaleMessages(async () => {
   return {
     props: {},
-  };
-});
+  }
+})

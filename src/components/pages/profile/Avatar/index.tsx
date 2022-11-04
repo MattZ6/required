@@ -1,5 +1,5 @@
-import { ProfileAvatarStyles as Styles } from './styles';
+import { ProfileAvatarStyles as Styles } from './styles'
 
 export function ProfileAvatar() {
-  return <Styles.Container />;
+  return <Styles.Container />
 }

@@ -1,35 +1,35 @@
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query'
 
-import { apiClient } from '@services/apiClient';
+import { apiClient } from '@services/apiClient'
 
-import { GetProfileService } from './getProfile';
+import { GetProfileService } from './getProfile'
 
 export namespace UpdateProfileEmailService {
   export type Request = {
-    email: string;
-  };
+    email: string
+  }
 
-  export type Response = void;
+  export type Response = void
 }
 
 export async function updateEmail(data: UpdateProfileEmailService.Request) {
   await apiClient.patch<UpdateProfileEmailService.Response>(
     '/v1/profile/email',
-    data
-  );
+    data,
+  )
 }
 
 export function useUpdateEmail() {
-  const queryClient = useQueryClient();
+  const queryClient = useQueryClient()
 
   return useMutation(updateEmail, {
     onSuccess: (_, variables) => {
       const profile =
-        queryClient.getQueryData<GetProfileService.Response>('profile');
+        queryClient.getQueryData<GetProfileService.Response>('profile')
 
       if (profile) {
-        profile.email = variables.email;
+        profile.email = variables.email
       }
     },
-  });
+  })
 }

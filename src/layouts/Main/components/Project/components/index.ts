@@ -1,1 +1,1 @@
-export { ProjectAuthor } from './ProjectAuthor';
+export { ProjectAuthor } from './ProjectAuthor'

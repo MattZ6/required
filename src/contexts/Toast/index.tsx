@@ -4,37 +4,37 @@ import {
   useCallback,
   useMemo,
   useState,
-} from 'react';
-import { MdCheck, MdErrorOutline } from 'react-icons/md';
+} from 'react'
+import { MdCheck, MdErrorOutline } from 'react-icons/md'
 
-import * as Toast from '@components/primitives/Toast';
+import * as Toast from '@components/primitives/Toast'
 
 type ToastMessage = {
-  id: string;
-  title?: string;
-  content: string;
-  type: 'background' | 'foreground';
-  duration?: number;
-  variant: 'success' | 'error';
-};
+  id: string
+  title?: string
+  content: string
+  type: 'background' | 'foreground'
+  duration?: number
+  variant: 'success' | 'error'
+}
 
 type AddMessagePayload = Pick<
   ToastMessage,
   'title' | 'content' | 'duration' | 'variant'
->;
+>
 
 type ToastContextData = {
-  addMessage: (data: AddMessagePayload) => void;
-};
+  addMessage: (data: AddMessagePayload) => void
+}
 
-const ToastContext = createContext({} as ToastContextData);
+const ToastContext = createContext({} as ToastContextData)
 
 type Props = {
-  children: ReactElement;
-};
+  children: ReactElement
+}
 
 function ToastProvider({ children }: Props) {
-  const [messages, setMessages] = useState<ToastMessage[]>([]);
+  const [messages, setMessages] = useState<ToastMessage[]>([])
 
   const addMessage = useCallback((data: AddMessagePayload) => {
     const message: ToastMessage = {
@@ -43,29 +43,29 @@ function ToastProvider({ children }: Props) {
       content: data.content,
       type: 'foreground',
       variant: data.variant,
-    };
+    }
 
-    setMessages(state => [...state, message]);
-  }, []);
+    setMessages((state) => [...state, message])
+  }, [])
 
   const onMessageDismissed = useCallback((id: string) => {
     setTimeout(() => {
-      setMessages(state => state.filter(message => message.id !== id));
-    }, 1000);
-  }, []);
+      setMessages((state) => state.filter((message) => message.id !== id))
+    }, 1000)
+  }, [])
 
   const contextData = useMemo<ToastContextData>(() => {
     return {
       addMessage,
-    };
-  }, [addMessage]);
+    }
+  }, [addMessage])
 
   return (
     <ToastContext.Provider value={contextData}>
       {children}
 
       <Toast.Provider>
-        {messages.map(message => (
+        {messages.map((message) => (
           <Toast.Message
             key={message.id}
             type="foreground"
@@ -83,7 +83,7 @@ function ToastProvider({ children }: Props) {
         <Toast.Viewport />
       </Toast.Provider>
     </ToastContext.Provider>
-  );
+  )
 }
 
-export { ToastContext, ToastProvider };
+export { ToastContext, ToastProvider }

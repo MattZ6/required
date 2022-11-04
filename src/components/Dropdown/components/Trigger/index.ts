@@ -1,6 +1,6 @@
-import * as RadixDropdown from '@radix-ui/react-dropdown-menu';
+import * as RadixDropdown from '@radix-ui/react-dropdown-menu'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const DropdownTrigger = styled(RadixDropdown.Trigger, {
   display: 'flex',
@@ -42,4 +42,4 @@ export const DropdownTrigger = styled(RadixDropdown.Trigger, {
   '&:focus': {
     outlineColor: '$hoveredElementBorder',
   },
-});
+})

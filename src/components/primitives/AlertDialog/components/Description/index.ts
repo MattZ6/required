@@ -1,6 +1,6 @@
-import * as RadixAlertDialog from '@radix-ui/react-alert-dialog';
+import * as RadixAlertDialog from '@radix-ui/react-alert-dialog'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const AlertDialogDescription = styled(RadixAlertDialog.Description, {
   fontSize: '$medium',
@@ -10,4 +10,4 @@ export const AlertDialogDescription = styled(RadixAlertDialog.Description, {
 
   marginTop: '$small',
   marginBottom: '$medium',
-});
+})

@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import { ProjectAuthorGithubUserStyles as Styles } from './styles';
+import { ProjectAuthorGithubUserStyles as Styles } from './styles'
 
-const IMAGE_SIZE = 28;
+const IMAGE_SIZE = 28
 
 export function ProjectAuthorGithubUser() {
   return (
@@ -20,5 +20,5 @@ export function ProjectAuthorGithubUser() {
         <Styles.Name>Matheus Felipe Zanin</Styles.Name>
       </Styles.Container>
     </Link>
-  );
+  )
 }

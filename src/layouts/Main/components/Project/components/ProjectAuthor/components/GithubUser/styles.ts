@@ -1,6 +1,6 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace ProjectAuthorGithubUserStyles {
   export const Container = styled('a', {
@@ -34,7 +34,7 @@ export namespace ProjectAuthorGithubUserStyles {
       outlineColor: '$hoveredElementBorder',
       color: '$highContrast',
     },
-  });
+  })
 
   export const Avatar = styled('div', {
     $$size: '28px',
@@ -43,7 +43,7 @@ export namespace ProjectAuthorGithubUserStyles {
     borderRadius: '$$size',
 
     backgroundColor: '$subtleBackground',
-  });
+  })
 
   export const AvatarImage = styled(Image, {
     $$size: 'inherit',
@@ -52,10 +52,10 @@ export namespace ProjectAuthorGithubUserStyles {
     borderRadius: '$$size',
 
     objectFit: 'cover',
-  });
+  })
 
   export const Name = styled('strong', {
     fontSize: '$normal',
     lineHeight: '$normal',
-  });
+  })
 }

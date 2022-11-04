@@ -1,8 +1,8 @@
-import { LanguageSwitcher } from '@components/LanguageSwitcher';
-import { ThemeSwitcher } from '@components/ThemeSwitcher';
+import { LanguageSwitcher } from '@components/LanguageSwitcher'
+import { ThemeSwitcher } from '@components/ThemeSwitcher'
 
-import { GithubRepositoryLink as RepoLink } from './components';
-import { MainLayoutFooterStyles as Styles } from './styles';
+import { GithubRepositoryLink as RepoLink } from './components'
+import { MainLayoutFooterStyles as Styles } from './styles'
 
 export function Footer() {
   return (
@@ -16,5 +16,5 @@ export function Footer() {
         </Styles.RightContainer>
       </Styles.Content>
     </Styles.Footer>
-  );
+  )
 }

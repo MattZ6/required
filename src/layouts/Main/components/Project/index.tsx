@@ -1,10 +1,10 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
-import { ProjectAuthor as Author } from './components';
-import { ProjectStyles as Styles } from './styles';
+import { ProjectAuthor as Author } from './components'
+import { ProjectStyles as Styles } from './styles'
 
 export function Project() {
-  const t = useTranslations('common.project');
+  const t = useTranslations('common.project')
 
   return (
     <Styles.Container>
@@ -12,5 +12,5 @@ export function Project() {
 
       <Author />
     </Styles.Container>
-  );
+  )
 }

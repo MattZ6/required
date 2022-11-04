@@ -1,1 +1,1 @@
-export { LanguageSwitcherOption } from './Option';
+export { LanguageSwitcherOption } from './Option'

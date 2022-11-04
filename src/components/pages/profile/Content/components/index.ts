@@ -1,1 +1,1 @@
-export { PropertyLink } from './PropertyLink';
+export { PropertyLink } from './PropertyLink'

@@ -6,15 +6,15 @@ import {
   AlertDialogTitle as Title,
   AlertDialogDescription as Description,
   AlertDialogCancel as Cancel,
-} from '@components/primitives/AlertDialog';
+} from '@components/primitives/AlertDialog'
 
 type Props = {
-  title: string;
-  description: string;
-  buttonText: string;
-  isOpen: boolean;
-  onOpenChange: () => void;
-};
+  title: string
+  description: string
+  buttonText: string
+  isOpen: boolean
+  onOpenChange: () => void
+}
 
 export function AlertDialog({
   title,
@@ -36,5 +36,5 @@ export function AlertDialog({
         </Content>
       </Portal>
     </Dialog>
-  );
+  )
 }

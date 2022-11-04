@@ -1,14 +1,14 @@
-import type { AppProps } from 'next/app';
+import type { AppProps } from 'next/app'
 
-import { MainLayout } from '@layouts/Main';
+import { MainLayout } from '@layouts/Main'
 
-import { Provider } from '@providers/Provider';
+import { Provider } from '@providers/Provider'
 
-import { SEO } from '@components/SEO';
+import { SEO } from '@components/SEO'
 
-import { globalStyles } from '@styles/stitches.config';
+import { globalStyles } from '@styles/stitches.config'
 
-globalStyles();
+globalStyles()
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -21,7 +21,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         </MainLayout>
       </>
     </Provider>
-  );
+  )
 }
 
-export default CustomApp;
+export default CustomApp

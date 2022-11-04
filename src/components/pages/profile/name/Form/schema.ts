@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
-import { NAME_MIN_LENGTH } from '@utils/constants';
+import { NAME_MIN_LENGTH } from '@utils/constants'
 
 export const updateNameSchema = z.object({
   name: z
@@ -10,6 +10,6 @@ export const updateNameSchema = z.object({
     .min(NAME_MIN_LENGTH, {
       message: 'update-profile-name.errors.name.minlength',
     }),
-});
+})
 
-export type UpdateNameFormType = z.infer<typeof updateNameSchema>;
+export type UpdateNameFormType = z.infer<typeof updateNameSchema>

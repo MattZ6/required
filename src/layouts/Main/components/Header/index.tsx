@@ -1,7 +1,7 @@
-import { ThemeSwitcher } from '@components/ThemeSwitcher';
+import { ThemeSwitcher } from '@components/ThemeSwitcher'
 
-import { HeaderTitle as Title } from './components';
-import { MainLayoutHeader as Styles } from './styles';
+import { HeaderTitle as Title } from './components'
+import { MainLayoutHeader as Styles } from './styles'
 
 export function Header() {
   return (
@@ -14,5 +14,5 @@ export function Header() {
         </Styles.Right>
       </Styles.Content>
     </Styles.Header>
-  );
+  )
 }

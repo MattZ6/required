@@ -1,15 +1,15 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
-import { LanguageSwitcherFlagImage as Flag } from '@components/LanguageSwitcher/components';
+import { LanguageSwitcherFlagImage as Flag } from '@components/LanguageSwitcher/components'
 
-import { LanguageSwitcherOptionSyles as Styles } from './styles';
+import { LanguageSwitcherOptionSyles as Styles } from './styles'
 
 type Props = {
-  locale: string;
-};
+  locale: string
+}
 
 export function LanguageSwitcherOption({ locale }: Props) {
-  const t = useTranslations('common.locales');
+  const t = useTranslations('common.locales')
 
   return (
     <Styles.Option value={locale}>
@@ -17,5 +17,5 @@ export function LanguageSwitcherOption({ locale }: Props) {
 
       <Styles.Text>{t(locale as any)}</Styles.Text>
     </Styles.Option>
-  );
+  )
 }

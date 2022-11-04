@@ -1,15 +1,15 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 
-import { PasswordFormField, FormButton } from '@components/form';
+import { PasswordFormField, FormButton } from '@components/form'
 
-import { PasswordResetFormType, passwordResetSchema } from './schema';
-import { FormStyles as Styles } from './styles';
+import { PasswordResetFormType, passwordResetSchema } from './schema'
+import { FormStyles as Styles } from './styles'
 
 export function PasswordResetForm() {
-  const t = useTranslations('password-reset-page');
+  const t = useTranslations('password-reset-page')
 
   const {
     register,
@@ -18,13 +18,13 @@ export function PasswordResetForm() {
     setFocus,
   } = useForm<PasswordResetFormType>({
     resolver: zodResolver(passwordResetSchema),
-  });
+  })
 
   async function updatePassword() {
     // TODO: update user password
   }
 
-  useEffect(() => setFocus('new_password'), [setFocus]);
+  useEffect(() => setFocus('new_password'), [setFocus])
 
   return (
     <Styles.Form onSubmit={handleSubmit(updatePassword)}>
@@ -48,5 +48,5 @@ export function PasswordResetForm() {
         <FormButton type="submit">{t('form.submit')}</FormButton>
       </Styles.Actions>
     </Styles.Form>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { styled, keyframes } from '@styles/stitches.config';
+import { styled, keyframes } from '@styles/stitches.config'
 
 export namespace FormFieldErrorStyles {
   export const Container = styled('div', {
@@ -7,12 +7,12 @@ export namespace FormFieldErrorStyles {
 
     paddingHorizontal: '$normal',
     minHeight: '$lineHeights$medium',
-  });
+  })
 
   const slideDown = keyframes({
     '0%': { opacity: 0, transform: 'translateY(-4px)' },
     '100%': { opacity: 1, transform: 'translateY(0)' },
-  });
+  })
 
   export const Error = styled('small', {
     fontSize: '$normal',
@@ -22,5 +22,5 @@ export namespace FormFieldErrorStyles {
     fontWeight: '600',
 
     animation: `${slideDown} 150ms ease-out`,
-  });
+  })
 }

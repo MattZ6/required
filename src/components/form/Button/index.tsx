@@ -1,14 +1,14 @@
-import { VariantProps } from '@stitches/react';
-import { ButtonHTMLAttributes } from 'react';
+import { VariantProps } from '@stitches/react'
+import { ButtonHTMLAttributes } from 'react'
 
-import { LoadingSpinner } from '@components/Spinner';
+import { LoadingSpinner } from '@components/Spinner'
 
-import { FormButtonStyles as Styles } from './styles';
+import { FormButtonStyles as Styles } from './styles'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof Styles.Button> & {
-    children: string;
-  };
+    children: string
+  }
 
 export function FormButton({
   children,
@@ -29,5 +29,5 @@ export function FormButton({
         </Styles.LoadingContainer>
       )}
     </Styles.Button>
-  );
+  )
 }

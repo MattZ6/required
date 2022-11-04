@@ -1,1 +1,1 @@
-export { ProjectAuthorGithubUser } from './GithubUser';
+export { ProjectAuthorGithubUser } from './GithubUser'

@@ -1,15 +1,15 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
-import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages'
 
-import { PageHeader } from '@components/pages/components';
-import { CommonPageStyles as Styles } from '@components/pages/styles';
-import { SignInLink, WelcomeBackForm } from '@components/pages/welcome-back';
-import { SEO } from '@components/SEO';
-import { Text } from '@components/Text';
+import { PageHeader } from '@components/pages/components'
+import { CommonPageStyles as Styles } from '@components/pages/styles'
+import { SignInLink, WelcomeBackForm } from '@components/pages/welcome-back'
+import { SEO } from '@components/SEO'
+import { Text } from '@components/Text'
 
 export default function WelcomeBackPage() {
-  const t = useTranslations('welcome-back');
+  const t = useTranslations('welcome-back')
 
   return (
     <>
@@ -33,11 +33,11 @@ export default function WelcomeBackPage() {
         </Text>
       </Styles.Page>
     </>
-  );
+  )
 }
 
 export const getStaticProps = withLocaleMessages(async () => {
   return {
     props: {},
-  };
-});
+  }
+})

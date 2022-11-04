@@ -1,11 +1,11 @@
-import { DropdownTrigger } from '@components/Dropdown';
+import { DropdownTrigger } from '@components/Dropdown'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace LanguageSwitcherTriggerStyles {
   export const Trigger = styled(DropdownTrigger, {
     width: 150,
-  });
+  })
 
   export const Label = styled('span', {
     flex: 1,
@@ -15,5 +15,5 @@ export namespace LanguageSwitcherTriggerStyles {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-  });
+  })
 }

@@ -1,6 +1,6 @@
-import { DropdownTrigger } from '@components/Dropdown';
+import { DropdownTrigger } from '@components/Dropdown'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace ThemeSwitcherTriggerStyles {
   export const Trigger = styled(DropdownTrigger, {
@@ -9,5 +9,5 @@ export namespace ThemeSwitcherTriggerStyles {
 
       userSelect: 'none',
     },
-  });
+  })
 }

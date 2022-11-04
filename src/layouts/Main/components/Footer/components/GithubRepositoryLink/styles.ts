@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace GithubRepositoryLinkStyles {
   export const Link = styled('a', {
@@ -34,5 +34,5 @@ export namespace GithubRepositoryLinkStyles {
     '> svg': {
       fontSize: '24px',
     },
-  });
+  })
 }

@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace ProfileAvatarStyles {
   export const Container = styled('div', {
@@ -8,5 +8,5 @@ export namespace ProfileAvatarStyles {
     borderRadius: '$$size',
 
     backgroundColor: '$elementBackground',
-  });
+  })
 }

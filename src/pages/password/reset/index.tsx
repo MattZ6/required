@@ -1,14 +1,14 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
-import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages'
 
-import { PageHeader } from '@components/pages/components';
-import { PasswordResetForm } from '@components/pages/password/reset/Form';
-import { CommonPageStyles as Styles } from '@components/pages/styles';
-import { SEO } from '@components/SEO';
+import { PageHeader } from '@components/pages/components'
+import { PasswordResetForm } from '@components/pages/password/reset/Form'
+import { CommonPageStyles as Styles } from '@components/pages/styles'
+import { SEO } from '@components/SEO'
 
 export default function PasswordResetPage() {
-  const t = useTranslations('password-reset-page');
+  const t = useTranslations('password-reset-page')
 
   return (
     <Styles.Page>
@@ -27,11 +27,11 @@ export default function PasswordResetPage() {
 
       <PasswordResetForm />
     </Styles.Page>
-  );
+  )
 }
 
 export const getStaticProps = withLocaleMessages(async () => {
   return {
     props: {},
-  };
-});
+  }
+})

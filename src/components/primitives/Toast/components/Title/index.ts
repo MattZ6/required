@@ -1,6 +1,6 @@
-import * as RadixToast from '@radix-ui/react-toast';
+import * as RadixToast from '@radix-ui/react-toast'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const Title = styled(RadixToast.ToastTitle, {
   gridArea: 'title',
@@ -9,4 +9,4 @@ export const Title = styled(RadixToast.ToastTitle, {
 
   color: '$highContrast',
   fontSize: '$medium',
-});
+})

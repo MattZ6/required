@@ -1,19 +1,20 @@
-import { IntlError, IntlErrorCode, NextIntlProvider } from 'next-intl';
-import { ThemeProvider } from 'next-themes';
-import { ReactElement } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { IntlError, IntlErrorCode, NextIntlProvider } from 'next-intl'
+import { ThemeProvider } from 'next-themes'
+import { ReactElement } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { AuthProvider } from '@contexts/Auth';
-import { ToastProvider } from '@contexts/Toast';
+import { AuthProvider } from '@contexts/Auth'
+import { ToastProvider } from '@contexts/Toast'
 
-import { darkTheme } from '@styles/stitches.config';
+import { darkTheme } from '@styles/stitches.config'
 
 type ProviderProps = {
-  children: ReactElement;
-  messages?: IntlMessages;
-};
+  children: ReactElement
+  // eslint-disable-next-line no-undef
+  messages?: IntlMessages
+}
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function onError(error: IntlError) {
   if (error.code === IntlErrorCode.MISSING_MESSAGE) {
@@ -26,17 +27,17 @@ function getMessageFallback({
   key,
   error,
 }: {
-  namespace?: string | undefined;
-  key: string;
-  error: IntlError;
+  namespace?: string | undefined
+  key: string
+  error: IntlError
 }) {
-  const path = [namespace, key].filter(part => part != null).join('.');
+  const path = [namespace, key].filter((part) => part != null).join('.')
 
   if (error.code === IntlErrorCode.MISSING_MESSAGE) {
-    return `${path} is not yet translated`;
+    return `${path} is not yet translated`
   }
 
-  return `Dear developer, please fix this message: ${path}`;
+  return `Dear developer, please fix this message: ${path}`
 }
 
 export function Provider({ children, messages }: ProviderProps) {
@@ -59,5 +60,5 @@ export function Provider({ children, messages }: ProviderProps) {
         </ToastProvider>
       </NextIntlProvider>
     </ThemeProvider>
-  );
+  )
 }

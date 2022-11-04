@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-import { Dropdown } from '@components/Dropdown';
+import { Dropdown } from '@components/Dropdown'
 
 import {
   ThemeSwitcherTrigger as Trigger,
   ThemeSwitcherOptions as Options,
-} from './components';
+} from './components'
 
 export function ThemeSwitcher() {
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
-  useEffect(() => setIsMounted(true), []);
+  useEffect(() => setIsMounted(true), [])
 
   if (!isMounted) {
-    return null;
+    return null
   }
 
   return (
@@ -22,5 +22,5 @@ export function ThemeSwitcher() {
 
       <Options />
     </Dropdown>
-  );
+  )
 }

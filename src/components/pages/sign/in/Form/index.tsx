@@ -1,23 +1,23 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { MdMailOutline } from 'react-icons/md';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { MdMailOutline } from 'react-icons/md'
 
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/useAuth'
 
-import { parseRequestError } from '@utils/parseRequestError';
+import { parseRequestError } from '@utils/parseRequestError'
 
-import { AlertDialog } from '@components/AlertDialog';
-import { FormField, PasswordFormField, FormButton } from '@components/form';
+import { AlertDialog } from '@components/AlertDialog'
+import { FormField, PasswordFormField, FormButton } from '@components/form'
 
-import { SignInFormType, signInSchema } from './schema';
-import { FormStyles as Styles } from './styles';
+import { SignInFormType, signInSchema } from './schema'
+import { FormStyles as Styles } from './styles'
 
 export function SignInForm() {
-  const { signIn } = useAuth();
-  const t = useTranslations('sign-in');
-  const [hasError, setHasError] = useState(false);
+  const { signIn } = useAuth()
+  const t = useTranslations('sign-in')
+  const [hasError, setHasError] = useState(false)
 
   const {
     register,
@@ -27,41 +27,41 @@ export function SignInForm() {
     setError,
   } = useForm<SignInFormType>({
     resolver: zodResolver(signInSchema),
-  });
+  })
 
   async function handleSignIn(input: SignInFormType) {
-    const { email, password } = input;
+    const { email, password } = input
 
     try {
-      await signIn({ email, password });
+      await signIn({ email, password })
     } catch (error) {
-      const parsedError = parseRequestError<SignInFormType>(error);
+      const parsedError = parseRequestError<SignInFormType>(error)
 
       if (parsedError.error.validation) {
-        const { field, message } = parsedError.error.validation;
-        setError(field, { message });
-        return;
+        const { field, message } = parsedError.error.validation
+        setError(field, { message })
+        return
       }
 
       if (parsedError.error.code === 'user.not.exists') {
-        setError('email', { message: 'sign-in.errors.email.not_exists' });
-        return;
+        setError('email', { message: 'sign-in.errors.email.not_exists' })
+        return
       }
 
       if (parsedError.error.code === 'password.wrong') {
-        setError('password', { message: 'sign-in.errors.password.wrong' });
+        setError('password', { message: 'sign-in.errors.password.wrong' })
       }
 
-      setHasError(true);
+      setHasError(true)
     }
   }
 
   function onModalRequestClose() {
-    setHasError(false);
-    setFocus('email');
+    setHasError(false)
+    setFocus('email')
   }
 
-  useEffect(() => setFocus('email'), [setFocus]);
+  useEffect(() => setFocus('email'), [setFocus])
 
   return (
     <>
@@ -103,5 +103,5 @@ export function SignInForm() {
         onOpenChange={() => onModalRequestClose()}
       />
     </>
-  );
+  )
 }

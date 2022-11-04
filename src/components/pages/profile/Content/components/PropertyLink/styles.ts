@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace PropertyLinkStyles {
   export const Button = styled('a', {
@@ -40,23 +40,23 @@ export namespace PropertyLinkStyles {
         fontSize: '22px',
       },
     },
-  });
+  })
 
   export const Content = styled('div', {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-  });
+  })
 
   export const Label = styled('small', {
     fontSize: '$small',
 
     color: '$lowContrast',
-  });
+  })
 
   export const Text = styled('strong', {
     fontSize: '$normal',
     lineHeight: '$normal',
     color: '$highContrast',
-  });
+  })
 }

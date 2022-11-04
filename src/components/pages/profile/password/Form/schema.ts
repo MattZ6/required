@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
-import { PASSWORD_MIN_LENGTH } from '@utils/constants';
+import { PASSWORD_MIN_LENGTH } from '@utils/constants'
 
 export const updatePasswordSchema = z.object({
   old_password: z
@@ -18,6 +18,6 @@ export const updatePasswordSchema = z.object({
         'update-profile-password.errors.new_password_confirmation.required',
     })
     .min(PASSWORD_MIN_LENGTH, { message: 'common.errors.min' }),
-});
+})
 
-export type UpdatePasswordFormType = z.infer<typeof updatePasswordSchema>;
+export type UpdatePasswordFormType = z.infer<typeof updatePasswordSchema>

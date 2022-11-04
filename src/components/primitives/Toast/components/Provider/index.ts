@@ -1,3 +1,3 @@
-import * as RadixToast from '@radix-ui/react-toast';
+import * as RadixToast from '@radix-ui/react-toast'
 
-export const { Provider } = RadixToast;
+export const { Provider } = RadixToast

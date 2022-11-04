@@ -1,16 +1,16 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { MdMailOutline } from 'react-icons/md';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { MdMailOutline } from 'react-icons/md'
 
-import { FormField, FormButton } from '@components/form';
+import { FormField, FormButton } from '@components/form'
 
-import { PasswordRecoveryFormType, passwordRecoverySchema } from './schema';
-import { FormStyles as Styles } from './styles';
+import { PasswordRecoveryFormType, passwordRecoverySchema } from './schema'
+import { FormStyles as Styles } from './styles'
 
 export function PasswordRecoveryForm() {
-  const t = useTranslations('password-recovery-page');
+  const t = useTranslations('password-recovery-page')
 
   const {
     register,
@@ -19,13 +19,13 @@ export function PasswordRecoveryForm() {
     setFocus,
   } = useForm<PasswordRecoveryFormType>({
     resolver: zodResolver(passwordRecoverySchema),
-  });
+  })
 
   async function forgotPassword() {
     // TODO:
   }
 
-  useEffect(() => setFocus('email'), [setFocus]);
+  useEffect(() => setFocus('email'), [setFocus])
 
   return (
     <Styles.Form onSubmit={handleSubmit(forgotPassword)}>
@@ -42,5 +42,5 @@ export function PasswordRecoveryForm() {
         <FormButton type="submit">{t('form.submit')}</FormButton>
       </Styles.Actions>
     </Styles.Form>
-  );
+  )
 }

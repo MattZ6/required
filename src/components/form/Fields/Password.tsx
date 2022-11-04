@@ -1,21 +1,21 @@
-import { forwardRef, ForwardRefRenderFunction, useState } from 'react';
+import { forwardRef, ForwardRefRenderFunction, useState } from 'react'
 
 import {
   FormFieldLabel as Label,
   FormFieldInput as Input,
   FormFieldError as Error,
   PasswordFormFieldVisibilityToggleButton as ToggleButton,
-} from './components';
-import { FormFieldStyles as Styles } from './styles';
-import { BaseProps } from './types';
+} from './components'
+import { FormFieldStyles as Styles } from './styles'
+import { BaseProps } from './types'
 
-type Props = Omit<BaseProps, 'type'>;
+type Props = Omit<BaseProps, 'type'>
 
 const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> = (
   { label, error, ...props },
-  ref
+  ref,
 ) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
 
   return (
     <Styles.Container>
@@ -38,13 +38,13 @@ const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> = (
         <ToggleButton
           disabled={props.disabled}
           isVisible={isVisible && !props.disabled}
-          onToggle={() => setIsVisible(state => !state)}
+          onToggle={() => setIsVisible((state) => !state)}
         />
       </Styles.Field>
 
       <Error error={error} />
     </Styles.Container>
-  );
-};
+  )
+}
 
-export const PasswordFormField = forwardRef(PrimitiveFormField);
+export const PasswordFormField = forwardRef(PrimitiveFormField)

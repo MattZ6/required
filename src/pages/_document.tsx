@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { getCssText } from '@styles/stitches.config';
+import { getCssText } from '@styles/stitches.config'
 
 export default class CustomDocument extends Document {
   render() {
@@ -30,6 +30,6 @@ export default class CustomDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }

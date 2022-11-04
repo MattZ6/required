@@ -1,9 +1,9 @@
-import { Dropdown } from '@components/Dropdown';
+import { Dropdown } from '@components/Dropdown'
 
 import {
   LanguageSwitcherTrigger as Trigger,
   LanguageSwitcherOptions as Options,
-} from './components';
+} from './components'
 
 export function LanguageSwitcher() {
   return (
@@ -12,5 +12,5 @@ export function LanguageSwitcher() {
 
       <Options />
     </Dropdown>
-  );
+  )
 }

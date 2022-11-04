@@ -1,7 +1,7 @@
-import * as RadixDropdown from '@radix-ui/react-dropdown-menu';
+import * as RadixDropdown from '@radix-ui/react-dropdown-menu'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
-export * from './components';
+export * from './components'
 
-export const Dropdown = styled(RadixDropdown.DropdownMenu);
+export const Dropdown = styled(RadixDropdown.DropdownMenu)

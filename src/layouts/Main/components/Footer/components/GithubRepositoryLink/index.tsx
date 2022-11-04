@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { FaGithub } from 'react-icons/fa';
+import Link from 'next/link'
+import { FaGithub } from 'react-icons/fa'
 
-import { GithubRepositoryLinkStyles as Styles } from './styles';
+import { GithubRepositoryLinkStyles as Styles } from './styles'
 
 export function GithubRepositoryLink() {
   return (
@@ -14,5 +14,5 @@ export function GithubRepositoryLink() {
         <FaGithub />
       </Styles.Link>
     </Link>
-  );
+  )
 }

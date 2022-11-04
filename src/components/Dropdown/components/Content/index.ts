@@ -1,16 +1,16 @@
-import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
+import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu'
 
-import { styled, keyframes } from '@styles/stitches.config';
+import { styled, keyframes } from '@styles/stitches.config'
 
 const slideUp = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-});
+})
 
 const slideDown = keyframes({
   '0%': { opacity: 0, transform: 'translateY(-2px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-});
+})
 
 export const DropdownContent = styled(RadixDropdownMenu.Content, {
   padding: '$small',
@@ -27,4 +27,4 @@ export const DropdownContent = styled(RadixDropdownMenu.Content, {
 
   '&[data-side="top"]': { animationName: slideUp },
   '&[data-side="bottom"]': { animationName: slideDown },
-});
+})

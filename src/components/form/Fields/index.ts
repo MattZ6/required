@@ -1,2 +1,2 @@
-export { FormField } from './Default';
-export { PasswordFormField } from './Password';
+export { FormField } from './Default'
+export { PasswordFormField } from './Password'

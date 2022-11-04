@@ -1,45 +1,45 @@
-import { useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl'
+import { useTheme } from 'next-themes'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-import { theme, darkTheme } from '@styles/stitches.config';
+import { theme, darkTheme } from '@styles/stitches.config'
 
 type IconProps = {
-  path: string;
-  type: string;
-};
+  path: string
+  type: string
+}
 
 type Props = {
-  title?: string;
-  description?: string;
-  icon?: IconProps;
-  image?: string;
-};
+  title?: string
+  description?: string
+  icon?: IconProps
+  image?: string
+}
 
 export function SEO({ title, description, image, icon }: Props) {
-  const router = useRouter();
-  const { theme: currentTheme } = useTheme();
-  const t = useTranslations('app');
+  const router = useRouter()
+  const { theme: currentTheme } = useTheme()
+  const t = useTranslations('app')
 
-  const suffix = t('title');
+  const suffix = t('title')
 
-  const pageTitle = title ? `${title} — ${suffix}` : suffix;
+  const pageTitle = title ? `${title} — ${suffix}` : suffix
 
   const color =
     currentTheme === 'dark'
       ? darkTheme.colors.appBackground.value
-      : theme.colors.appBackground.value;
+      : theme.colors.appBackground.value
 
-  const pageLocale = String(router.locale ?? 'pt-BR').replace('-', '_');
+  const pageLocale = String(router.locale ?? 'pt-BR').replace('-', '_')
 
   const pageImage = image
     ? `${process.env.NEXT_PUBLIC_SITE_URL}${image}`
-    : undefined;
+    : undefined
 
   const iconPath = icon?.path
     ? `${process.env.NEXT_PUBLIC_SITE_URL}${icon.path}`
-    : undefined;
+    : undefined
 
   return (
     <Head>
@@ -93,5 +93,5 @@ export function SEO({ title, description, image, icon }: Props) {
         </>
       )}
     </Head>
-  );
+  )
 }

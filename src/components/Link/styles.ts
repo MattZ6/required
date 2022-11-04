@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace LinkStyles {
   export const Link = styled('a', {
@@ -26,5 +26,5 @@ export namespace LinkStyles {
       backgroundColor: '$hoveredElementBackground',
       outlineColor: '$hoveredElementBorder',
     },
-  });
+  })
 }

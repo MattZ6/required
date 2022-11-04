@@ -1,14 +1,14 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
-import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages'
 
-import { PageHeader } from '@components/pages/components';
-import { UpdateProfilePasswordForm } from '@components/pages/profile/password/Form';
-import { CommonPageStyles as Styles } from '@components/pages/styles';
-import { SEO } from '@components/SEO';
+import { PageHeader } from '@components/pages/components'
+import { UpdateProfilePasswordForm } from '@components/pages/profile/password/Form'
+import { CommonPageStyles as Styles } from '@components/pages/styles'
+import { SEO } from '@components/SEO'
 
 export default function UpdateProfilePasswordPage() {
-  const t = useTranslations('update-profile-password');
+  const t = useTranslations('update-profile-password')
 
   return (
     <Styles.Page>
@@ -27,11 +27,11 @@ export default function UpdateProfilePasswordPage() {
 
       <UpdateProfilePasswordForm />
     </Styles.Page>
-  );
+  )
 }
 
 export const getStaticProps = withLocaleMessages(async () => {
   return {
     props: {},
-  };
-});
+  }
+})

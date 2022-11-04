@@ -1,27 +1,27 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
-import { useToast } from '@hooks/useToast';
+import { useToast } from '@hooks/useToast'
 
-import { useUpdatePassword } from '@services/user/profile';
+import { useUpdatePassword } from '@services/user/profile'
 
-import { parseRequestError } from '@utils/parseRequestError';
+import { parseRequestError } from '@utils/parseRequestError'
 
-import { AlertDialog } from '@components/AlertDialog';
-import { PasswordFormField, FormButton } from '@components/form';
+import { AlertDialog } from '@components/AlertDialog'
+import { PasswordFormField, FormButton } from '@components/form'
 
-import { UpdatePasswordFormType, updatePasswordSchema } from './schema';
-import { FormStyles as Styles } from './styles';
+import { UpdatePasswordFormType, updatePasswordSchema } from './schema'
+import { FormStyles as Styles } from './styles'
 
 export function UpdateProfilePasswordForm() {
-  const t = useTranslations('update-profile-password');
-  const { mutateAsync } = useUpdatePassword();
-  const [hasError, setHasError] = useState(false);
-  const { addMessage } = useToast();
-  const router = useRouter();
+  const t = useTranslations('update-profile-password')
+  const { mutateAsync } = useUpdatePassword()
+  const [hasError, setHasError] = useState(false)
+  const { addMessage } = useToast()
+  const router = useRouter()
 
   const {
     register,
@@ -31,45 +31,45 @@ export function UpdateProfilePasswordForm() {
     setError,
   } = useForm<UpdatePasswordFormType>({
     resolver: zodResolver(updatePasswordSchema),
-  });
+  })
 
   async function updatePassword(input: UpdatePasswordFormType) {
     try {
-      await mutateAsync(input);
+      await mutateAsync(input)
 
       addMessage({
         variant: 'success',
         title: t('messages.success.title'),
         content: t('messages.success.description'),
-      });
+      })
 
-      await router.push('/profile');
+      await router.push('/profile')
     } catch (error) {
-      const parsedError = parseRequestError<UpdatePasswordFormType>(error);
+      const parsedError = parseRequestError<UpdatePasswordFormType>(error)
 
       if (parsedError.error.validation) {
-        const { field, message } = parsedError.error.validation;
-        setError(field, { message });
-        return;
+        const { field, message } = parsedError.error.validation
+        setError(field, { message })
+        return
       }
 
       if (parsedError.error.code === 'password.wrong') {
         setError('old_password', {
           message: 'update-profile-password.errors.old_password.wrong',
-        });
-        return;
+        })
+        return
       }
 
-      setHasError(true);
+      setHasError(true)
     }
   }
 
   function onModalRequestClose() {
-    setHasError(false);
-    setFocus('old_password');
+    setHasError(false)
+    setFocus('old_password')
   }
 
-  useEffect(() => setFocus('old_password'), [setFocus]);
+  useEffect(() => setFocus('old_password'), [setFocus])
 
   return (
     <>
@@ -117,5 +117,5 @@ export function UpdateProfilePasswordForm() {
         onOpenChange={() => onModalRequestClose()}
       />
     </>
-  );
+  )
 }

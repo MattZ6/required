@@ -1,6 +1,6 @@
-import * as RadixAlertDialog from '@radix-ui/react-alert-dialog';
+import * as RadixAlertDialog from '@radix-ui/react-alert-dialog'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const AlertDialogCancel = styled(RadixAlertDialog.Cancel, {
   display: 'flex',
@@ -49,4 +49,4 @@ export const AlertDialogCancel = styled(RadixAlertDialog.Cancel, {
     backgroundColor: '$elementBackground',
     color: '$lowContrast',
   },
-});
+})

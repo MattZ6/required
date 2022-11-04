@@ -1,13 +1,13 @@
-import { ButtonHTMLAttributes } from 'react';
-import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md';
+import { ButtonHTMLAttributes } from 'react'
+import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
 
-import { FormFieldSlot as Slot } from '../Slot';
-import { PasswordFormFieldVisibilityToggleButtonStyles as Styles } from './styles';
+import { FormFieldSlot as Slot } from '../Slot'
+import { PasswordFormFieldVisibilityToggleButtonStyles as Styles } from './styles'
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  isVisible: boolean;
-  onToggle: () => void;
-};
+  isVisible: boolean
+  onToggle: () => void
+}
 
 export function PasswordFormFieldVisibilityToggleButton({
   isVisible,
@@ -30,5 +30,5 @@ export function PasswordFormFieldVisibilityToggleButton({
         )}
       </Styles.Button>
     </Slot>
-  );
+  )
 }

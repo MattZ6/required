@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace FormButtonStyles {
   export const Button = styled('button', {
@@ -70,10 +70,10 @@ export namespace FormButtonStyles {
       clear: false,
       showLoading: false,
     },
-  });
+  })
 
   export const LoadingContainer = styled('div', {
     position: 'absolute',
     height: '24px',
-  });
+  })
 }

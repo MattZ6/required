@@ -10,7 +10,7 @@ type WithMessages<P> = P & {
   messages?: any;
 };
 
-export function withLocaleMessages<P>(fn: GetStaticProps<P>) {
+export function withLocaleMessages<P = any>(fn: GetStaticProps<any>) {
   return async (context: GetStaticPropsContext) => {
     const { locale } = context;
 

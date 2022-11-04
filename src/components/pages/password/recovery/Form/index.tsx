@@ -1,49 +1,40 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { MdMailOutline } from 'react-icons/md';
-import * as yup from 'yup';
-
-import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
-import { setFocusOnInput } from '@utils/setFocusOnInput';
 
 import { FormField, FormButton } from '@components/form';
 
+import { PasswordRecoveryFormType, passwordRecoverySchema } from './schema';
 import { FormStyles as Styles } from './styles';
 
 export function PasswordRecoveryForm() {
   const t = useTranslations('password-recovery-page');
 
-  const schema = yup.object().shape({
-    email: yup
-      .string()
-      .required(t('errors.email.required'))
-      .email(t('errors.email.invalid')),
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setFocus,
+  } = useForm<PasswordRecoveryFormType>({
+    resolver: zodResolver(passwordRecoverySchema),
   });
 
-  const { register, handleSubmit, formState } = useForm<{ email: string }>({
-    resolver: yupResolver(schema),
-  });
-
-  const forgotPassword: SubmitHandler<any> = async () => {
+  async function forgotPassword() {
     // TODO:
-  };
+  }
 
-  useEffect(() => {
-    setFocusOnInput('email');
-  }, []);
+  useEffect(() => setFocus('email'), [setFocus]);
 
   return (
-    <Styles.Form
-      onSubmit={handleSubmit(forgotPassword, focusFirstInputWithError)}
-    >
+    <Styles.Form onSubmit={handleSubmit(forgotPassword)}>
       <FormField
         label={t('form.email.label')}
         placeholder={t('form.email.placeholder')}
         icon={MdMailOutline}
-        error={formState.errors.email}
-        disabled={formState.isSubmitting}
+        error={errors.email}
+        disabled={isSubmitting}
         {...register('email')}
       />
 

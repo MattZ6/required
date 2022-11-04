@@ -36,6 +36,7 @@ specifiers:
   sharp: 0.31.1
   typescript: 4.8.4
   yup: 0.32.11
+  zod: 3.19.1
 
 dependencies:
   '@hookform/resolvers': 2.9.10_react-hook-form@7.38.0
@@ -56,6 +57,7 @@ dependencies:
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   sharp: 0.31.1
   yup: 0.32.11
+  zod: 3.19.1
 
 devDependencies:
   '@types/node': 18.11.4
@@ -3364,4 +3366,8 @@ packages:
       nanoclone: 0.2.1
       property-expr: 2.0.5
       toposort: 2.0.2
+    dev: false
+
+  /zod/3.19.1:
+    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
     dev: false

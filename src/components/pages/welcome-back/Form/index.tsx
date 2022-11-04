@@ -3,8 +3,6 @@ import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
-
 import { PasswordFormField, FormButton } from '@components/form';
 
 import { WelcomeBackFormType, welcomeBackSchema } from './schema';
@@ -29,7 +27,7 @@ export function WelcomeBackForm() {
   useEffect(() => setFocus('password'), [setFocus]);
 
   return (
-    <Styles.Form onSubmit={handleSubmit(signIn, focusFirstInputWithError)}>
+    <Styles.Form onSubmit={handleSubmit(signIn)}>
       <PasswordFormField
         label={t('form.password.label')}
         placeholder={t('form.password.placeholder')}

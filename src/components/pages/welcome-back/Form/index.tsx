@@ -1,48 +1,41 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
 
 import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
-import { setFocusOnInput } from '@utils/setFocusOnInput';
 
 import { PasswordFormField, FormButton } from '@components/form';
 
+import { WelcomeBackFormType, welcomeBackSchema } from './schema';
 import { FormStyles as Styles } from './styles';
-
-const passwordFormFieldName = 'password';
 
 export function WelcomeBackForm() {
   const t = useTranslations('welcome-back');
 
-  const schema = yup.object().shape({
-    [passwordFormFieldName]: yup
-      .string()
-      .required(t('errors.password.required'))
-      .min(6, t('errors.password.min', { count: 6 })),
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setFocus,
+  } = useForm<WelcomeBackFormType>({
+    resolver: zodResolver(welcomeBackSchema),
   });
 
-  const { register, handleSubmit, formState } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const signIn: SubmitHandler<any> = async () => {
+  async function signIn() {
     // TODO:
-  };
+  }
 
-  useEffect(() => {
-    setFocusOnInput(passwordFormFieldName);
-  }, []);
+  useEffect(() => setFocus('password'), [setFocus]);
 
   return (
     <Styles.Form onSubmit={handleSubmit(signIn, focusFirstInputWithError)}>
       <PasswordFormField
         label={t('form.password.label')}
         placeholder={t('form.password.placeholder')}
-        error={formState.errors[passwordFormFieldName]}
-        disabled={formState.isSubmitting}
-        {...register(passwordFormFieldName)}
+        error={errors.password}
+        disabled={isSubmitting}
+        {...register('password')}
       />
 
       <Styles.Actions>

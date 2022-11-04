@@ -1,64 +1,47 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
-
-import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
-import { setFocusOnInput } from '@utils/setFocusOnInput';
+import { useForm } from 'react-hook-form';
 
 import { PasswordFormField, FormButton } from '@components/form';
 
+import { PasswordResetFormType, passwordResetSchema } from './schema';
 import { FormStyles as Styles } from './styles';
 
-const newPasswordFieldName = 'new_password';
-const newPasswordConfirmationFieldName = 'new_password_confirmation';
-
 export function PasswordResetForm() {
-  const commonT = useTranslations('common');
   const t = useTranslations('password-reset-page');
 
-  const schema = yup.object().shape({
-    [newPasswordFieldName]: yup
-      .string()
-      .required(t('errors.new_password.required'))
-      .min(6, commonT('errors.min', { count: 6 })),
-    [newPasswordConfirmationFieldName]: yup
-      .string()
-      .required(t('errors.new_password_confirmation.required'))
-      .min(6, commonT('errors.min', { count: 6 })),
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setFocus,
+  } = useForm<PasswordResetFormType>({
+    resolver: zodResolver(passwordResetSchema),
   });
 
-  const { register, handleSubmit, formState } = useForm({
-    resolver: yupResolver(schema),
-  });
+  async function updatePassword() {
+    // TODO: update user password
+  }
 
-  const updatePassword: SubmitHandler<any> = async () => {
-    // TODO:
-  };
-
-  useEffect(() => {
-    setFocusOnInput(newPasswordFieldName);
-  }, []);
+  useEffect(() => setFocus('new_password'), [setFocus]);
 
   return (
-    <Styles.Form
-      onSubmit={handleSubmit(updatePassword, focusFirstInputWithError)}
-    >
+    <Styles.Form onSubmit={handleSubmit(updatePassword)}>
       <PasswordFormField
         label={t('form.new_password.label')}
         placeholder={t('form.new_password.placeholder')}
-        error={formState.errors[newPasswordFieldName]}
-        disabled={formState.isSubmitting}
-        {...register(newPasswordFieldName)}
+        error={errors.new_password}
+        disabled={isSubmitting}
+        {...register('new_password')}
       />
 
       <PasswordFormField
         label={t('form.new_password_confirmation.label')}
         placeholder={t('form.new_password_confirmation.placeholder')}
-        error={formState.errors[newPasswordConfirmationFieldName]}
-        disabled={formState.isSubmitting}
-        {...register(newPasswordConfirmationFieldName)}
+        error={errors.new_password_confirmation}
+        disabled={isSubmitting}
+        {...register('new_password_confirmation')}
       />
 
       <Styles.Actions>

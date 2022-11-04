@@ -1,29 +1,21 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { MdOutlineEmojiEmotions } from 'react-icons/md';
-import * as yup from 'yup';
 
 import { useToast } from '@hooks/useToast';
 
 import { useProfile, useUpdateName } from '@services/user/profile';
 
-import { NAME_MIN_LENGTH } from '@utils/constants';
-import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { parseRequestError } from '@utils/parseRequestError';
 
 import { AlertDialog } from '@components/AlertDialog';
 import { FormField, FormButton } from '@components/form';
 
+import { UpdateNameFormType, updateNameSchema } from './schema';
 import { FormStyles as Styles } from './styles';
-
-type UpdateNameFormData = {
-  name: string;
-};
-
-const nameFieldName = 'name';
 
 export function UpdateProfileNameForm() {
   const { addMessage } = useToast();
@@ -35,24 +27,20 @@ export function UpdateProfileNameForm() {
   const { isLoading, data: profile } = useProfile();
   const { mutateAsync } = useUpdateName();
 
-  const schema = yup.object().shape({
-    [nameFieldName]: yup
-      .string()
-      .trim()
-      .required(t('errors.name.required'))
-      .min(
-        NAME_MIN_LENGTH,
-        t('errors.name.minlength', { minlength: NAME_MIN_LENGTH })
-      ),
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setFocus,
+    setError,
+  } = useForm<UpdateNameFormType>({
+    resolver: zodResolver(updateNameSchema),
+    defaultValues: { name: profile?.name },
   });
 
-  const form = useForm<UpdateNameFormData>({
-    resolver: yupResolver(schema),
-  });
-
-  const updateName: SubmitHandler<UpdateNameFormData> = async data => {
+  async function updateName(input: UpdateNameFormType) {
     try {
-      await mutateAsync({ name: data.name.trim() });
+      await mutateAsync({ name: input.name.trim() });
 
       addMessage({
         variant: 'success',
@@ -61,67 +49,43 @@ export function UpdateProfileNameForm() {
       });
 
       await router.push('/profile');
-    } catch (err) {
-      const error = parseRequestError(err);
+    } catch (error) {
+      const parsedError = parseRequestError<UpdateNameFormType>(error);
 
-      if (error.error.validation) {
-        const { type } = error.error.validation;
-        const field = error.error.validation.field as keyof UpdateNameFormData;
-
-        form.setError(field, {
-          message: t(`errors.${field}.${type as 'required' | 'minlength'}`, {
-            minlength: NAME_MIN_LENGTH,
-          }),
-        });
-
-        setTimeout(() => {
-          form.setFocus(field);
-        }, 0);
-
+      if (parsedError.error.validation) {
+        const { field, message } = parsedError.error.validation;
+        setError(field, { message });
         return;
       }
 
       setHasError(true);
     }
-  };
+  }
 
   function onModalRequestClose() {
     setHasError(false);
-
-    setTimeout(() => {
-      form.setFocus('name');
-    }, 0);
+    setFocus('name');
   }
 
-  useEffect(() => {
-    if (profile) {
-      form.setValue('name', profile.name);
-
-      setTimeout(() => {
-        form.setFocus('name');
-      }, 0);
-    }
-  }, [profile, form]);
+  useEffect(() => setFocus('name'), [setFocus]);
 
   return (
     <>
-      <Styles.Form
-        onSubmit={form.handleSubmit(updateName, focusFirstInputWithError)}
-      >
+      <Styles.Form onSubmit={handleSubmit(updateName)}>
         <FormField
           label={t('form.name.label')}
           placeholder={t('form.name.placeholder')}
           icon={MdOutlineEmojiEmotions}
-          error={form.formState.errors[nameFieldName]}
-          disabled={isLoading || form.formState.isSubmitting}
-          {...form.register(nameFieldName)}
+          error={errors.name}
+          disabled={isLoading || isSubmitting}
+          {...register('name')}
         />
 
         <Styles.Actions>
           <FormButton
             type="submit"
-            disabled={isLoading || form.formState.isSubmitting}
-            showLoading={form.formState.isSubmitting}
+            disabled={isLoading || isSubmitting}
+            showLoading={isSubmitting}
           >
             {t('form.submit')}
           </FormButton>

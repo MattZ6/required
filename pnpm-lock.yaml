@@ -24,7 +24,7 @@ specifiers:
   eslint-plugin-react: 7.31.10
   eslint-plugin-react-hooks: 4.6.0
   next: 12.3.1
-  next-intl: 2.8.0
+  next-intl: 2.9.1
   next-themes: 0.2.1
   nookies: 2.5.2
   prettier: 2.7.1
@@ -46,7 +46,7 @@ dependencies:
   '@stitches/react': 1.2.8_react@18.2.0
   axios: 1.1.3
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
-  next-intl: 2.8.0_next@12.3.1+react@18.2.0
+  next-intl: 2.9.1_next@12.3.1+react@18.2.0
   next-themes: 0.2.1_azq6kxkn3od7qdylwkyksrwopy
   nookies: 2.5.2
   react: 18.2.0
@@ -2444,16 +2444,16 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-intl/2.8.0_next@12.3.1+react@18.2.0:
-    resolution: {integrity: sha512-vNhqHpr6EtTZLdLC2rWnIJTTwcJ/oKM3TWAA4r9CXK6DZMdfrSDzqLVVjmpQDJ6ecTRsjLJFX7RBt74pX2HPOA==}
+  /next-intl/2.9.1_next@12.3.1+react@18.2.0:
+    resolution: {integrity: sha512-/OPaH5T+jOHXEZJfCzfl+ZkmjcNQOvb7DNR0SHSbtzYk/9IqjLFSLlxJvj4JPbW9xivzZbPCdgT5+yGzI2Uk0w==}
     engines: {node: '>=10'}
     peerDependencies:
-      next: ^10.0.0 || ^11.0.0 || ^12.0.0
+      next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       next: 12.3.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
-      use-intl: 2.8.0_react@18.2.0
+      use-intl: 2.9.1_react@18.2.0
     dev: false
 
   /next-themes/0.2.1_azq6kxkn3od7qdylwkyksrwopy:
@@ -3267,8 +3267,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /use-intl/2.8.0_react@18.2.0:
-    resolution: {integrity: sha512-RmrDFb6IetkIsfCxxxa8A9r8lGzlbgEkboe2LHXk1Lafczi39v8w4WUVA4NFUBDfKbCKmHcXXFib7SAGjI1npg==}
+  /use-intl/2.9.1_react@18.2.0:
+    resolution: {integrity: sha512-eAveKBEbFjzzS4BWx8ET3/reyvCN/fBQbFgYYd51fnIb2SlmfDA1B6c9DZPthnyvjzZLfSAXShn0+dN4cQAeIg==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0

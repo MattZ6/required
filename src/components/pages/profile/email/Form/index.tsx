@@ -1,28 +1,21 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { MdMailOutline } from 'react-icons/md';
-import * as yup from 'yup';
 
 import { useToast } from '@hooks/useToast';
 
 import { useProfile, useUpdateEmail } from '@services/user/profile';
 
-import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { parseRequestError } from '@utils/parseRequestError';
 
 import { AlertDialog } from '@components/AlertDialog';
 import { FormField, FormButton } from '@components/form';
 
+import { UpdateEmailFormType, updateEmailSchema } from './schema';
 import { FormStyles as Styles } from './styles';
-
-type UpdateEmailFormData = {
-  email: string;
-};
-
-const emailFieldName = 'email';
 
 export function UpdateProfileEmailForm() {
   const t = useTranslations('update-profile-email');
@@ -32,20 +25,22 @@ export function UpdateProfileEmailForm() {
   const { mutateAsync } = useUpdateEmail();
   const router = useRouter();
 
-  const schema = yup.object().shape({
-    [emailFieldName]: yup
-      .string()
-      .required(t('errors.email.required'))
-      .email(t('errors.email.invalid')),
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setFocus,
+    setError,
+  } = useForm<UpdateEmailFormType>({
+    resolver: zodResolver(updateEmailSchema),
+    defaultValues: {
+      email: profile?.email,
+    },
   });
 
-  const form = useForm<UpdateEmailFormData>({
-    resolver: yupResolver(schema),
-  });
-
-  const updateEmail: SubmitHandler<UpdateEmailFormData> = async data => {
+  async function updateEmail(input: UpdateEmailFormType) {
     try {
-      await mutateAsync({ email: data.email.trim() });
+      await mutateAsync({ email: input.email.trim() });
 
       addMessage({
         variant: 'success',
@@ -54,75 +49,50 @@ export function UpdateProfileEmailForm() {
       });
 
       await router.push('/profile');
-    } catch (err) {
-      const error = parseRequestError(err);
+    } catch (error) {
+      const parsedError = parseRequestError<UpdateEmailFormType>(error);
 
-      if (error.error.validation) {
-        const { type } = error.error.validation;
-        const field = error.error.validation.field as keyof UpdateEmailFormData;
-
-        form.setError(field, {
-          message: t(`errors.${field}.${type}` as any),
-        });
-
-        setTimeout(() => {
-          form.setFocus(field);
-        }, 0);
-
+      if (parsedError.error.validation) {
+        const { field, message } = parsedError.error.validation;
+        setError(field, { message });
         return;
       }
 
-      if (error.error.code === 'user.exists') {
-        form.setError('email', { message: t('errors.email.already_exists') });
-
-        setTimeout(() => {
-          form.setFocus('email');
-        }, 0);
-
+      if (parsedError.error.code === 'user.exists') {
+        setError('email', {
+          message: 'update-profile-email.errors.email.already_exists',
+        });
         return;
       }
 
       setHasError(true);
     }
-  };
+  }
 
   function onModalRequestClose() {
     setHasError(false);
-
-    setTimeout(() => {
-      form.setFocus('email');
-    }, 0);
+    setFocus('email');
   }
 
-  useEffect(() => {
-    if (profile) {
-      form.setValue('email', profile.email);
-
-      setTimeout(() => {
-        form.setFocus('email');
-      }, 0);
-    }
-  }, [profile, form]);
+  useEffect(() => setFocus('email'), [setFocus]);
 
   return (
     <>
-      <Styles.Form
-        onSubmit={form.handleSubmit(updateEmail, focusFirstInputWithError)}
-      >
+      <Styles.Form onSubmit={handleSubmit(updateEmail)}>
         <FormField
           label={t('form.email.label')}
           placeholder={t('form.email.placeholder')}
           icon={MdMailOutline}
-          error={form.formState.errors[emailFieldName]}
-          disabled={isLoading || form.formState.isSubmitting}
-          {...form.register(emailFieldName)}
+          error={errors.email}
+          disabled={isLoading || isSubmitting}
+          {...register('email')}
         />
 
         <Styles.Actions>
           <FormButton
             type="submit"
-            disabled={isLoading || form.formState.isSubmitting}
-            showLoading={form.formState.isSubmitting}
+            disabled={isLoading || isSubmitting}
+            showLoading={isSubmitting}
           >
             {t('form.submit')}
           </FormButton>

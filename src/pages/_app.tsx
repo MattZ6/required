@@ -8,11 +8,11 @@ import { SEO } from '@components/SEO';
 
 import { globalStyles } from '@styles/stitches.config';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles();
+globalStyles();
 
+function CustomApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider messages={pageProps.messages}>
+    <Provider messages={(pageProps as any).messages}>
       <>
         <SEO />
 
@@ -24,4 +24,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default CustomApp;

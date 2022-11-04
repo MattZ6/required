@@ -7,29 +7,29 @@ type ApplicationErrorCode =
   | 'password.wrong'
   | 'token.expired';
 
-type ValidationErrorData = {
+type ValidationErrorData<F = any> = {
   type: string;
-  field: string;
+  field: keyof F;
   value: string;
   message: string;
 };
 
-type ApplicationError = {
+type ApplicationError<F> = {
   code?: ApplicationErrorCode;
   message: string;
-  validation?: ValidationErrorData;
+  validation?: ValidationErrorData<F>;
 };
 
-export type ParsedError = {
+export type ParsedError<F = any> = {
   status?: number;
-  error: ApplicationError;
+  error: ApplicationError<F>;
 };
 
-export function parseRequestError(
+export function parseRequestError<F = any>(
   error: Error | AxiosError | any
-): ParsedError {
+): ParsedError<F> {
   if (error.isAxiosError) {
-    const axiosError = error as AxiosError<ApplicationError>;
+    const axiosError = error as AxiosError<ApplicationError<F>>;
 
     return {
       status: axiosError.response?.status ?? undefined,

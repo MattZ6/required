@@ -53,7 +53,7 @@ export function makeApiClient(context?: any) {
         if (parsedError.error?.code === 'token.expired') {
           const currentCookies = getAuthCookies(context);
 
-          const originalRequestConfig = error.config;
+          const originalRequestConfig = error.config!;
 
           if (!isRefreshing) {
             isRefreshing = true;

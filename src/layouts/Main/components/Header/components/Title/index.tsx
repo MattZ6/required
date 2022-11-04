@@ -1,12 +1,12 @@
-import { useTranslations } from 'next-intl';
-import { MdSecurity } from 'react-icons/md';
+import { useTranslations } from 'next-intl'
+import { MdSecurity } from 'react-icons/md'
 
-import { Title } from '@components/Title';
+import { Title } from '@components/Title'
 
-import { HeaderTitleStyles as Styles } from './styles';
+import { HeaderTitleStyles as Styles } from './styles'
 
 export function HeaderTitle() {
-  const t = useTranslations('app');
+  const t = useTranslations('app')
 
   return (
     <Styles.Container>
@@ -14,5 +14,5 @@ export function HeaderTitle() {
 
       <Title as="h6">{t('title')}</Title>
     </Styles.Container>
-  );
+  )
 }

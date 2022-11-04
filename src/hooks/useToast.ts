@@ -1,7 +1,7 @@
-import { useContext } from 'react';
+import { useContext } from 'react'
 
-import { ToastContext } from '@contexts/Toast';
+import { ToastContext } from '@contexts/Toast'
 
 export function useToast() {
-  return useContext(ToastContext);
+  return useContext(ToastContext)
 }

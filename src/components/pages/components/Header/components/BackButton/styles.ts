@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace BackButtonStyles {
   export const Button = styled('a', {
@@ -36,5 +36,5 @@ export namespace BackButtonStyles {
       outlineColor: '$hoveredElementBorder',
       backgroundColor: '$hoveredElementBackground',
     },
-  });
+  })
 }

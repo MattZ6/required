@@ -1,23 +1,23 @@
-import * as RadixToast from '@radix-ui/react-toast';
+import * as RadixToast from '@radix-ui/react-toast'
 
-import { styled, keyframes } from '@styles/stitches.config';
+import { styled, keyframes } from '@styles/stitches.config'
 
-const VIEWPORT_PADDING = 16;
+const VIEWPORT_PADDING = 16
 
 const hide = keyframes({
   '0%': { opacity: 1 },
   '100%': { opacity: 0 },
-});
+})
 
 const slideIn = keyframes({
   from: { transform: `translateX(calc(100% + ${VIEWPORT_PADDING}px))` },
   to: { transform: 'translateX(0)' },
-});
+})
 
 const swipeOut = keyframes({
   from: { transform: 'translateX(var(--radix-toast-swipe-end-x))' },
   to: { transform: `translateX(calc(100% + ${VIEWPORT_PADDING}px))` },
-});
+})
 
 export const Message = styled(RadixToast.Root, {
   display: 'grid',
@@ -62,4 +62,4 @@ export const Message = styled(RadixToast.Root, {
       animation: `${swipeOut} 100ms ease-out forwards`,
     },
   },
-});
+})

@@ -1,6 +1,6 @@
-import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
+import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const DropdownRadioItem = styled(RadixDropdownMenu.RadioItem, {
   display: 'flex',
@@ -40,4 +40,4 @@ export const DropdownRadioItem = styled(RadixDropdownMenu.RadioItem, {
       color: '$highContrast',
     },
   },
-});
+})

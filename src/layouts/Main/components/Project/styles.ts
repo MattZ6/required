@@ -1,6 +1,6 @@
-import { Text } from '@components/Text';
+import { Text } from '@components/Text'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace ProjectStyles {
   export const Container = styled('div', {
@@ -19,7 +19,7 @@ export namespace ProjectStyles {
     '@media screen and (max-width: 760px)': {
       width: 'unset',
     },
-  });
+  })
 
-  export const Description = styled(Text, {});
+  export const Description = styled(Text, {})
 }

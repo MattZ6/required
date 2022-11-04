@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace FormFieldInputStyles {
   export const Input = styled('input', {
@@ -52,5 +52,5 @@ export namespace FormFieldInputStyles {
         },
       },
     },
-  });
+  })
 }

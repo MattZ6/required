@@ -1,6 +1,6 @@
-import * as RadixToast from '@radix-ui/react-toast';
+import * as RadixToast from '@radix-ui/react-toast'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const Description = styled(RadixToast.ToastDescription, {
   gridArea: 'description',
@@ -8,4 +8,4 @@ export const Description = styled(RadixToast.ToastDescription, {
   color: '$lowContrast',
   fontSize: '$normal',
   lineHeight: '$normal',
-});
+})

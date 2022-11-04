@@ -1,1 +1,1 @@
-export { GithubRepositoryLink } from './GithubRepositoryLink';
+export { GithubRepositoryLink } from './GithubRepositoryLink'

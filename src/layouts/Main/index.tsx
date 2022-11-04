@@ -1,11 +1,11 @@
-import { ReactElement } from 'react';
+import { ReactElement } from 'react'
 
-import { Footer, Header, Project } from './components';
-import { MainLayoutStyles as Styles } from './styles';
+import { Footer, Header, Project } from './components'
+import { MainLayoutStyles as Styles } from './styles'
 
 type MainLayoutProps = {
-  children: ReactElement;
-};
+  children: ReactElement
+}
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (
@@ -20,5 +20,5 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       <Footer />
     </Styles.Container>
-  );
+  )
 }

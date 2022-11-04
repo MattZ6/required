@@ -1,26 +1,26 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { MdMailOutline, MdOutlineEmojiEmotions } from 'react-icons/md';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { MdMailOutline, MdOutlineEmojiEmotions } from 'react-icons/md'
 
-import { useAuth } from '@hooks/useAuth';
+import { useAuth } from '@hooks/useAuth'
 
-import { useCreateAccount } from '@services/user/auth';
+import { useCreateAccount } from '@services/user/auth'
 
-import { parseRequestError } from '@utils/parseRequestError';
+import { parseRequestError } from '@utils/parseRequestError'
 
-import { AlertDialog } from '@components/AlertDialog';
-import { FormField, PasswordFormField, FormButton } from '@components/form';
+import { AlertDialog } from '@components/AlertDialog'
+import { FormField, PasswordFormField, FormButton } from '@components/form'
 
-import { SignUpFormType, signUpSchema } from './schema';
-import { FormStyles as Styles } from './styles';
+import { SignUpFormType, signUpSchema } from './schema'
+import { FormStyles as Styles } from './styles'
 
 export function SignUpForm() {
-  const t = useTranslations('sign-up');
-  const { mutateAsync } = useCreateAccount();
-  const { signIn } = useAuth();
-  const [hasError, setHasError] = useState(false);
+  const t = useTranslations('sign-up')
+  const { mutateAsync } = useCreateAccount()
+  const { signIn } = useAuth()
+  const [hasError, setHasError] = useState(false)
 
   const {
     register,
@@ -30,7 +30,7 @@ export function SignUpForm() {
     setError,
   } = useForm<SignUpFormType>({
     resolver: zodResolver(signUpSchema),
-  });
+  })
 
   async function signUp(input: SignUpFormType) {
     try {
@@ -39,36 +39,36 @@ export function SignUpForm() {
         email: input.email,
         password: input.password,
         password_confirmation: input.password_confirmation,
-      });
+      })
 
       await signIn({
         email: input.email,
         password: input.password,
-      });
+      })
     } catch (error) {
-      const parsedError = parseRequestError<SignUpFormType>(error);
+      const parsedError = parseRequestError<SignUpFormType>(error)
 
       if (parsedError.error.validation) {
-        const { field, message } = parsedError.error.validation;
-        setError(field, { message });
-        return;
+        const { field, message } = parsedError.error.validation
+        setError(field, { message })
+        return
       }
 
       if (parsedError.error.code === 'user.exists') {
-        setError('email', { message: 'sign-up.errors.email.already_exists' });
-        return;
+        setError('email', { message: 'sign-up.errors.email.already_exists' })
+        return
       }
 
-      setHasError(true);
+      setHasError(true)
     }
   }
 
   function onModalRequestClose() {
-    setHasError(false);
-    setFocus('name');
+    setHasError(false)
+    setFocus('name')
   }
 
-  useEffect(() => setFocus('name'), [setFocus]);
+  useEffect(() => setFocus('name'), [setFocus])
 
   return (
     <>
@@ -127,5 +127,5 @@ export function SignUpForm() {
         onOpenChange={() => onModalRequestClose()}
       />
     </>
-  );
+  )
 }

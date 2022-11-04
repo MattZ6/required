@@ -1,6 +1,6 @@
-import * as RadixAlertDialog from '@radix-ui/react-alert-dialog';
+import * as RadixAlertDialog from '@radix-ui/react-alert-dialog'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const AlertDialogOverlay = styled(RadixAlertDialog.Overlay, {
   width: '100vw',
@@ -13,4 +13,4 @@ export const AlertDialogOverlay = styled(RadixAlertDialog.Overlay, {
   bottom: 0,
 
   backgroundColor: 'rgba(0, 0, 0, 0.45)',
-});
+})

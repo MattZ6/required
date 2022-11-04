@@ -1,9 +1,9 @@
-import { FormFieldLabelStyles as Styles } from './styles';
+import { FormFieldLabelStyles as Styles } from './styles'
 
 type Props = {
-  label: string;
-};
+  label: string
+}
 
 export function FormFieldLabel({ label }: Props) {
-  return <Styles.Label>{label}</Styles.Label>;
+  return <Styles.Label>{label}</Styles.Label>
 }

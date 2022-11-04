@@ -1,10 +1,10 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace FormFieldStyles {
   export const Container = styled('div', {
     display: 'flex',
     flexDirection: 'column',
-  });
+  })
 
   export const Field = styled('label', {
     display: 'flex',
@@ -96,5 +96,5 @@ export namespace FormFieldStyles {
         },
       },
     },
-  });
+  })
 }

@@ -1,1 +1,1 @@
-export { ThemeSwitcherTriggerIcon } from './TriggerIcon';
+export { ThemeSwitcherTriggerIcon } from './TriggerIcon'

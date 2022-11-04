@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const CenterContent = styled('div', {
   marginVertical: 0,
@@ -8,4 +8,4 @@ export const CenterContent = styled('div', {
 
   maxWidth: '1024px',
   width: '100%',
-});
+})

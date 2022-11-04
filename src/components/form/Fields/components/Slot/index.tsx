@@ -1,12 +1,12 @@
-import { VariantProps } from '@stitches/react';
-import { ReactElement } from 'react';
+import { VariantProps } from '@stitches/react'
+import { ReactElement } from 'react'
 
-import { FormFieldSlotStyles as Styles } from './styles';
+import { FormFieldSlotStyles as Styles } from './styles'
 
 type Props = VariantProps<typeof Styles.Slot> & {
-  children: ReactElement;
-};
+  children: ReactElement
+}
 
 export function FormFieldSlot({ children, ...props }: Props) {
-  return <Styles.Slot {...props}>{children}</Styles.Slot>;
+  return <Styles.Slot {...props}>{children}</Styles.Slot>
 }

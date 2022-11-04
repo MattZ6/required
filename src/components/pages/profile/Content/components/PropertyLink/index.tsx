@@ -1,19 +1,19 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { IconType } from 'react-icons';
-import { MdEdit } from 'react-icons/md';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { IconType } from 'react-icons'
+import { MdEdit } from 'react-icons/md'
 
-import { PropertyLinkStyles as Styles } from './styles';
+import { PropertyLinkStyles as Styles } from './styles'
 
 type Props = {
-  trailingIcon: IconType;
-  label: string;
-  value: string;
-  to: string;
-};
+  trailingIcon: IconType
+  label: string
+  value: string
+  to: string
+}
 
 export function PropertyLink({ trailingIcon: Icon, label, value, to }: Props) {
-  const { locale } = useRouter();
+  const { locale } = useRouter()
 
   return (
     <Link href={to} passHref locale={locale}>
@@ -28,5 +28,5 @@ export function PropertyLink({ trailingIcon: Icon, label, value, to }: Props) {
         <MdEdit />
       </Styles.Button>
     </Link>
-  );
+  )
 }

@@ -1,22 +1,22 @@
-import { forwardRef, ForwardRefRenderFunction } from 'react';
-import { IconType } from 'react-icons';
+import { forwardRef, ForwardRefRenderFunction } from 'react'
+import { IconType } from 'react-icons'
 
 import {
   FormFieldLabel as Label,
   FormFieldInput as Input,
   FormFieldError as Error,
   FormFieldIcon as Icon,
-} from './components';
-import { FormFieldStyles as Styles } from './styles';
-import { BaseProps } from './types';
+} from './components'
+import { FormFieldStyles as Styles } from './styles'
+import { BaseProps } from './types'
 
 type Props = BaseProps & {
-  icon?: IconType;
-};
+  icon?: IconType
+}
 
 const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> = (
   { label, icon, error, ...props },
-  ref
+  ref,
 ) => (
   <Styles.Container>
     <Styles.Field
@@ -39,6 +39,6 @@ const PrimitiveFormField: ForwardRefRenderFunction<HTMLInputElement, Props> = (
 
     <Error error={error} />
   </Styles.Container>
-);
+)
 
-export const FormField = forwardRef(PrimitiveFormField);
+export const FormField = forwardRef(PrimitiveFormField)

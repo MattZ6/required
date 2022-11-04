@@ -1,6 +1,6 @@
-import { useProfile } from '@services/user/profile/getProfile';
+import { useProfile } from '@services/user/profile/getProfile'
 
-import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages'
 
 import {
   ProfileActions,
@@ -8,19 +8,19 @@ import {
   ProfileContent as Content,
   ProfileSignOutButton as SignOutButton,
   ProfileTitle as Title,
-} from '@components/pages/profile';
-import { CommonPageStyles as Styles } from '@components/pages/styles';
-import { SEO } from '@components/SEO';
+} from '@components/pages/profile'
+import { CommonPageStyles as Styles } from '@components/pages/styles'
+import { SEO } from '@components/SEO'
 
 function Body() {
-  const { isLoading, isError, data } = useProfile();
+  const { isLoading, isError, data } = useProfile()
 
   if (isError) {
-    return <h1>Error</h1>;
+    return <h1>Error</h1>
   }
 
   if (isLoading || !data) {
-    return <h1>Loading</h1>;
+    return <h1>Loading</h1>
   }
 
   return (
@@ -35,7 +35,7 @@ function Body() {
         <SignOutButton />
       </ProfileActions.Actions>
     </Styles.Page>
-  );
+  )
 }
 
 export default function ProfilePage() {
@@ -49,11 +49,11 @@ export default function ProfilePage() {
 
       <Body />
     </>
-  );
+  )
 }
 
 export const getStaticProps = withLocaleMessages(async () => {
   return {
     props: {},
-  };
-});
+  }
+})

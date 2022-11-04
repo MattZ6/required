@@ -1,3 +1,3 @@
-export * from './destroyAuthCookies';
-export * from './getAuthCookies';
-export * from './setAuthCookies';
+export * from './destroyAuthCookies'
+export * from './getAuthCookies'
+export * from './setAuthCookies'

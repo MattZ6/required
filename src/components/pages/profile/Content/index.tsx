@@ -1,21 +1,17 @@
-import { useTranslations } from 'next-intl';
-import {
-  MdOutlineEmojiEmotions,
-  MdMailOutline,
-  MdVpnKey,
-} from 'react-icons/md';
+import { useTranslations } from 'next-intl'
+import { MdOutlineEmojiEmotions, MdMailOutline, MdVpnKey } from 'react-icons/md'
 
-import { GetProfileService } from '@services/user/profile/getProfile';
+import { GetProfileService } from '@services/user/profile/getProfile'
 
-import { PropertyLink } from './components';
-import { ProfileContentStyles as Styles } from './styles';
+import { PropertyLink } from './components'
+import { ProfileContentStyles as Styles } from './styles'
 
 type Props = {
-  profile: GetProfileService.Profile;
-};
+  profile: GetProfileService.Profile
+}
 
 export function ProfileContent({ profile }: Props) {
-  const t = useTranslations('profile');
+  const t = useTranslations('profile')
 
   return (
     <Styles.Container>
@@ -40,5 +36,5 @@ export function ProfileContent({ profile }: Props) {
         to="/profile/password"
       />
     </Styles.Container>
-  );
+  )
 }

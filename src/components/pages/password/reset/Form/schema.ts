@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
-import { PASSWORD_MIN_LENGTH } from '@utils/constants';
+import { PASSWORD_MIN_LENGTH } from '@utils/constants'
 
 // TODO: add min lentgh messages
 
@@ -28,7 +28,7 @@ export const passwordResetSchema = z
     {
       message: 'password-reset-page.errors.new_password_confirmation.match',
       path: ['new_password_confirmation'],
-    }
-  );
+    },
+  )
 
-export type PasswordResetFormType = z.infer<typeof passwordResetSchema>;
+export type PasswordResetFormType = z.infer<typeof passwordResetSchema>

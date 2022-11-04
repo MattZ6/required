@@ -1,6 +1,6 @@
-import * as RadixToast from '@radix-ui/react-toast';
+import * as RadixToast from '@radix-ui/react-toast'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const Viewport = styled(RadixToast.Viewport, {
   display: 'flex',
@@ -19,4 +19,4 @@ export const Viewport = styled(RadixToast.Viewport, {
 
   listStyle: 'none',
   zIndex: 2147483647,
-});
+})

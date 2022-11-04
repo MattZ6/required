@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export const Title = styled('strong', {
   variants: {
@@ -29,4 +29,4 @@ export const Title = styled('strong', {
       },
     },
   },
-});
+})

@@ -1,19 +1,19 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl'
 
-import { withLocaleMessages } from '@utils/ssg/withLocaleMessages';
+import { withLocaleMessages } from '@utils/ssg/withLocaleMessages'
 
 import {
   ForgotPasswordLink,
   LinksContainer,
   PageHeader,
-} from '@components/pages/components';
-import { SignInLink, SignUpForm } from '@components/pages/sign/up';
-import { CommonPageStyles as Styles } from '@components/pages/styles';
-import { SEO } from '@components/SEO';
-import { Text } from '@components/Text';
+} from '@components/pages/components'
+import { SignInLink, SignUpForm } from '@components/pages/sign/up'
+import { CommonPageStyles as Styles } from '@components/pages/styles'
+import { SEO } from '@components/SEO'
+import { Text } from '@components/Text'
 
 export default function SignUpPage() {
-  const t = useTranslations('sign-up');
+  const t = useTranslations('sign-up')
 
   return (
     <Styles.Page>
@@ -42,11 +42,11 @@ export default function SignUpPage() {
         </Text>
       </LinksContainer>
     </Styles.Page>
-  );
+  )
 }
 
 export const getStaticProps = withLocaleMessages(async () => {
   return {
     props: {},
-  };
-});
+  }
+})

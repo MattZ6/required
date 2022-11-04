@@ -1,31 +1,31 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { MdOutlineEmojiEmotions } from 'react-icons/md';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { MdOutlineEmojiEmotions } from 'react-icons/md'
 
-import { useToast } from '@hooks/useToast';
+import { useToast } from '@hooks/useToast'
 
-import { useProfile, useUpdateName } from '@services/user/profile';
+import { useProfile, useUpdateName } from '@services/user/profile'
 
-import { parseRequestError } from '@utils/parseRequestError';
+import { parseRequestError } from '@utils/parseRequestError'
 
-import { AlertDialog } from '@components/AlertDialog';
-import { FormField, FormButton } from '@components/form';
+import { AlertDialog } from '@components/AlertDialog'
+import { FormField, FormButton } from '@components/form'
 
-import { UpdateNameFormType, updateNameSchema } from './schema';
-import { FormStyles as Styles } from './styles';
+import { UpdateNameFormType, updateNameSchema } from './schema'
+import { FormStyles as Styles } from './styles'
 
 export function UpdateProfileNameForm() {
-  const { addMessage } = useToast();
+  const { addMessage } = useToast()
 
-  const t = useTranslations('update-profile-name');
-  const [hasError, setHasError] = useState(false);
-  const router = useRouter();
+  const t = useTranslations('update-profile-name')
+  const [hasError, setHasError] = useState(false)
+  const router = useRouter()
 
-  const { isLoading, data: profile } = useProfile();
-  const { mutateAsync } = useUpdateName();
+  const { isLoading, data: profile } = useProfile()
+  const { mutateAsync } = useUpdateName()
 
   const {
     register,
@@ -36,38 +36,38 @@ export function UpdateProfileNameForm() {
   } = useForm<UpdateNameFormType>({
     resolver: zodResolver(updateNameSchema),
     defaultValues: { name: profile?.name },
-  });
+  })
 
   async function updateName(input: UpdateNameFormType) {
     try {
-      await mutateAsync({ name: input.name.trim() });
+      await mutateAsync({ name: input.name.trim() })
 
       addMessage({
         variant: 'success',
         title: t('messages.success.title'),
         content: t('messages.success.description'),
-      });
+      })
 
-      await router.push('/profile');
+      await router.push('/profile')
     } catch (error) {
-      const parsedError = parseRequestError<UpdateNameFormType>(error);
+      const parsedError = parseRequestError<UpdateNameFormType>(error)
 
       if (parsedError.error.validation) {
-        const { field, message } = parsedError.error.validation;
-        setError(field, { message });
-        return;
+        const { field, message } = parsedError.error.validation
+        setError(field, { message })
+        return
       }
 
-      setHasError(true);
+      setHasError(true)
     }
   }
 
   function onModalRequestClose() {
-    setHasError(false);
-    setFocus('name');
+    setHasError(false)
+    setFocus('name')
   }
 
-  useEffect(() => setFocus('name'), [setFocus]);
+  useEffect(() => setFocus('name'), [setFocus])
 
   return (
     <>
@@ -100,5 +100,5 @@ export function UpdateProfileNameForm() {
         onOpenChange={() => onModalRequestClose()}
       />
     </>
-  );
+  )
 }

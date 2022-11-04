@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from 'zod'
 
-import { NAME_MIN_LENGTH, PASSWORD_MIN_LENGTH } from '@utils/constants';
+import { NAME_MIN_LENGTH, PASSWORD_MIN_LENGTH } from '@utils/constants'
 
 export const signUpSchema = z
   .object({
@@ -32,7 +32,7 @@ export const signUpSchema = z
     {
       message: 'sign-up.errors.password_confirmation.divergent',
       path: ['password_confirmation'],
-    }
-  );
+    },
+  )
 
-export type SignUpFormType = z.infer<typeof signUpSchema>;
+export type SignUpFormType = z.infer<typeof signUpSchema>

@@ -1,5 +1,5 @@
-import { mauve, mauveDark, red, redDark } from '@radix-ui/colors';
-import { createStitches } from '@stitches/react';
+import { mauve, mauveDark, red, redDark } from '@radix-ui/colors'
+import { createStitches } from '@stitches/react'
 
 export const {
   config,
@@ -112,7 +112,7 @@ export const {
     }),
   },
   media: {},
-});
+})
 
 export const darkTheme = createTheme('dark-theme', {
   colors: {
@@ -150,7 +150,7 @@ export const darkTheme = createTheme('dark-theme', {
     lowContrast: mauveDark.mauve11,
     highContrast: mauveDark.mauve12,
   },
-});
+})
 
 export const globalStyles = globalCss({
   '*': {
@@ -165,4 +165,4 @@ export const globalStyles = globalCss({
 
     fontFamily: '$default',
   },
-});
+})

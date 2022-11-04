@@ -1,14 +1,14 @@
-import { Text } from '@components/Text';
-import { Title } from '@components/Title';
+import { Text } from '@components/Text'
+import { Title } from '@components/Title'
 
-import { BackButton } from './components';
-import { HeaderStyles as Styles } from './styles';
+import { BackButton } from './components'
+import { HeaderStyles as Styles } from './styles'
 
 type PageHeaderProps = {
-  title: string;
-  description: string;
-  backLinkUrl?: string;
-};
+  title: string
+  description: string
+  backLinkUrl?: string
+}
 
 export function PageHeader({
   title,
@@ -24,5 +24,5 @@ export function PageHeader({
       <Title as="h4">{title}</Title>
       <Text as="p">{description}</Text>
     </Styles.Container>
-  );
+  )
 }

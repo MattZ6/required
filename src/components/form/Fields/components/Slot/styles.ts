@@ -1,4 +1,4 @@
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace FormFieldSlotStyles {
   export const Slot = styled('div', {
@@ -28,5 +28,5 @@ export namespace FormFieldSlotStyles {
         },
       },
     },
-  });
+  })
 }

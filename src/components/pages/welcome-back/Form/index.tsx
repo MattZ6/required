@@ -1,15 +1,15 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 
-import { PasswordFormField, FormButton } from '@components/form';
+import { PasswordFormField, FormButton } from '@components/form'
 
-import { WelcomeBackFormType, welcomeBackSchema } from './schema';
-import { FormStyles as Styles } from './styles';
+import { WelcomeBackFormType, welcomeBackSchema } from './schema'
+import { FormStyles as Styles } from './styles'
 
 export function WelcomeBackForm() {
-  const t = useTranslations('welcome-back');
+  const t = useTranslations('welcome-back')
 
   const {
     register,
@@ -18,13 +18,13 @@ export function WelcomeBackForm() {
     setFocus,
   } = useForm<WelcomeBackFormType>({
     resolver: zodResolver(welcomeBackSchema),
-  });
+  })
 
   async function signIn() {
     // TODO:
   }
 
-  useEffect(() => setFocus('password'), [setFocus]);
+  useEffect(() => setFocus('password'), [setFocus])
 
   return (
     <Styles.Form onSubmit={handleSubmit(signIn)}>
@@ -40,5 +40,5 @@ export function WelcomeBackForm() {
         <FormButton type="submit">{t('form.submit')}</FormButton>
       </Styles.Actions>
     </Styles.Form>
-  );
+  )
 }

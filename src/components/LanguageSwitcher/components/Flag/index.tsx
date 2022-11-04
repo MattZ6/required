@@ -1,4 +1,4 @@
-import { LanguageSwitcherFlagImageStyles as Styles } from './styles';
+import { LanguageSwitcherFlagImageStyles as Styles } from './styles'
 
 const FLAGS_MAP = {
   'en-US': {
@@ -9,13 +9,13 @@ const FLAGS_MAP = {
     name: 'Brazilian flag',
     path: '/assets/icons/br.svg',
   },
-};
+}
 
 type Props = {
-  locale?: keyof typeof FLAGS_MAP;
-  width: number;
-  height: number;
-};
+  locale?: keyof typeof FLAGS_MAP
+  width: number
+  height: number
+}
 
 export function LanguageSwitcherFlagImage({ locale, width, height }: Props) {
   return (
@@ -29,5 +29,5 @@ export function LanguageSwitcherFlagImage({ locale, width, height }: Props) {
         />
       )}
     </Styles.Container>
-  );
+  )
 }

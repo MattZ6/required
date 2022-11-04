@@ -1,10 +1,10 @@
-import { useTheme } from 'next-themes';
+import { useTheme } from 'next-themes'
 
-import { ThemeSwitcherOption as Option } from './components';
-import { ThemeSwitcherOptionsStyles as Styles } from './styles';
+import { ThemeSwitcherOption as Option } from './components'
+import { ThemeSwitcherOptionsStyles as Styles } from './styles'
 
 export function ThemeSwitcherOptions() {
-  const { theme: currentTheme, themes, setTheme } = useTheme();
+  const { theme: currentTheme, themes, setTheme } = useTheme()
 
   return (
     <Styles.Container>
@@ -14,5 +14,5 @@ export function ThemeSwitcherOptions() {
         ))}
       </Styles.RadioGroup>
     </Styles.Container>
-  );
+  )
 }

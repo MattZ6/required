@@ -1,6 +1,6 @@
-import { CenterContent } from '@components/CenterContent';
+import { CenterContent } from '@components/CenterContent'
 
-import { styled } from '@styles/stitches.config';
+import { styled } from '@styles/stitches.config'
 
 export namespace MainLayoutHeader {
   export const Header = styled('header', {
@@ -13,13 +13,13 @@ export namespace MainLayoutHeader {
     position: 'sticky',
     top: 0,
     backdropFilter: 'blur(8px)',
-  });
+  })
 
   export const Content = styled(CenterContent, {
     display: 'flex',
     alignItems: 'center',
     gap: '$normal',
-  });
+  })
 
   export const Right = styled('div', {
     display: 'flex',
@@ -27,5 +27,5 @@ export namespace MainLayoutHeader {
     gap: '$small',
 
     marginLeft: 'auto',
-  });
+  })
 }

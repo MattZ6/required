@@ -1,2 +1,2 @@
-export { ThemeSwitcherTrigger } from './Trigger';
-export { ThemeSwitcherOptions } from './Options';
+export { ThemeSwitcherTrigger } from './Trigger'
+export { ThemeSwitcherOptions } from './Options'

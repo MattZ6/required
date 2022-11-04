@@ -1,142 +1,94 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { MdMailOutline } from 'react-icons/md';
-import * as yup from 'yup';
 
 import { useAuth } from '@hooks/useAuth';
 
-import { PASSWORD_MIN_LENGTH } from '@utils/constants';
-import { focusFirstInputWithError } from '@utils/focusFirstInputWithError';
 import { parseRequestError } from '@utils/parseRequestError';
 
 import { AlertDialog } from '@components/AlertDialog';
 import { FormField, PasswordFormField, FormButton } from '@components/form';
 
+import { SignInFormType, signInSchema } from './schema';
 import { FormStyles as Styles } from './styles';
 
-const emailFormFieldName = 'email';
-const passwordFormFieldName = 'password';
-
-type SignInFormData = {
-  email: string;
-  password: string;
-};
-
 export function SignInForm() {
-  const { signIn, isAuthenticated } = useAuth();
+  const { signIn } = useAuth();
   const t = useTranslations('sign-in');
   const [hasError, setHasError] = useState(false);
 
-  const schema = yup.object().shape({
-    [emailFormFieldName]: yup
-      .string()
-      .required(t('errors.email.required'))
-      .email(t('errors.email.invalid')),
-    [passwordFormFieldName]: yup
-      .string()
-      .required(t('errors.password.required'))
-      .min(
-        6,
-        t('errors.password.minlength', { minlength: PASSWORD_MIN_LENGTH })
-      ),
+  const {
+    register,
+    formState: { isSubmitting, errors },
+    handleSubmit,
+    setFocus,
+    setError,
+  } = useForm<SignInFormType>({
+    resolver: zodResolver(signInSchema),
   });
 
-  const { register, handleSubmit, formState, setFocus, setError } =
-    useForm<SignInFormData>({
-      resolver: yupResolver(schema),
-    });
+  async function handleSignIn(input: SignInFormType) {
+    const { email, password } = input;
 
-  const submit: SubmitHandler<SignInFormData> = async data => {
     try {
-      await signIn(data);
-    } catch (err) {
-      const error = parseRequestError(err);
+      await signIn({ email, password });
+    } catch (error) {
+      const parsedError = parseRequestError<SignInFormType>(error);
 
-      if (error.error.validation) {
-        const { type } = error.error.validation;
-        const field = error.error.validation.field as keyof SignInFormData;
-
-        setError(field, {
-          message: t(`errors.${field}.${type}` as any, {
-            minlength: PASSWORD_MIN_LENGTH,
-          }),
-        });
-
-        setTimeout(() => {
-          setFocus(field);
-        }, 0);
-
+      if (parsedError.error.validation) {
+        const { field, message } = parsedError.error.validation;
+        setError(field, { message });
         return;
       }
 
-      if (error.error.code === 'user.not.exists') {
-        const field = emailFormFieldName;
-
-        setError(field, { message: t('errors.email.not_exists') });
-
-        setTimeout(() => {
-          setFocus(field);
-        }, 0);
-
+      if (parsedError.error.code === 'user.not.exists') {
+        setError('email', { message: 'sign-in.errors.email.not_exists' });
         return;
       }
 
-      if (error.error.code === 'password.wrong') {
-        const field = passwordFormFieldName;
-
-        setError(field, { message: t('errors.password.wrong') });
-
-        setTimeout(() => {
-          setFocus(field);
-        }, 0);
-
-        return;
+      if (parsedError.error.code === 'password.wrong') {
+        setError('password', { message: 'sign-in.errors.password.wrong' });
       }
 
       setHasError(true);
     }
-  };
+  }
 
   function onModalRequestClose() {
     setHasError(false);
-
-    setTimeout(() => {
-      setFocus('email');
-    }, 0);
+    setFocus('email');
   }
 
-  useEffect(() => {
-    setFocus('email');
-  }, [setFocus]);
+  useEffect(() => setFocus('email'), [setFocus]);
 
   return (
     <>
-      <Styles.Form onSubmit={handleSubmit(submit, focusFirstInputWithError)}>
+      <Styles.Form onSubmit={handleSubmit(handleSignIn)} noValidate>
         <FormField
           label={t('form.email.label')}
           placeholder={t('form.email.placeholder')}
           type="email"
           icon={MdMailOutline}
-          error={formState.errors[emailFormFieldName]}
-          disabled={formState.isSubmitting || isAuthenticated}
-          {...register(emailFormFieldName)}
+          error={errors.email}
+          disabled={isSubmitting}
+          {...register('email')}
         />
 
         <PasswordFormField
           label={t('form.password.label')}
           placeholder={t('form.password.placeholder')}
-          error={formState.errors[passwordFormFieldName]}
-          disabled={formState.isSubmitting || isAuthenticated}
-          {...register(passwordFormFieldName)}
+          error={errors.password}
+          disabled={isSubmitting}
+          {...register('password')}
         />
 
         <Styles.Actions>
           <FormButton
             type="submit"
-            disabled={formState.isSubmitting || isAuthenticated}
-            showLoading={formState.isSubmitting || isAuthenticated}
+            disabled={isSubmitting}
+            showLoading={isSubmitting}
           >
             {t('form.submit')}
           </FormButton>

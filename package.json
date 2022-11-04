@@ -34,7 +34,6 @@
     "react-icons": "4.6.0",
     "react-query": "3.39.2",
     "sharp": "0.31.1",
-    "yup": "0.32.11",
     "zod": "3.19.1"
   },
   "devDependencies": {

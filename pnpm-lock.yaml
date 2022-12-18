@@ -15,7 +15,7 @@ specifiers:
   eslint-config-next: 13.0.6
   eslint-plugin-import-helpers: 1.3.1
   next: 13.0.6
-  next-intl: 2.9.1
+  next-intl: 2.10.2
   next-themes: 0.2.1
   nookies: 2.5.2
   react: 18.2.0
@@ -36,7 +36,7 @@ dependencies:
   '@stitches/react': 1.2.8_react@18.2.0
   axios: 1.2.1
   next: 13.0.6_biqbaboplfbrettd7655fr4n2y
-  next-intl: 2.9.1_next@13.0.6+react@18.2.0
+  next-intl: 2.10.2_next@13.0.6+react@18.2.0
   next-themes: 0.2.1_6jx7hpii6hgsrmhxgqrmo3277u
   nookies: 2.5.2
   react: 18.2.0
@@ -1011,6 +1011,10 @@ packages:
       '@typescript-eslint/types': 5.42.1
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /accept-language-parser/1.5.0:
+    resolution: {integrity: sha512-QhyTbMLYo0BBGg1aWbeMG4ekWtds/31BrEU+DONOg/7ax23vxpL03Pb7/zBmha2v7vdD3AyzZVWBVGEZxKOXWw==}
+    dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2513,16 +2517,17 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-intl/2.9.1_next@13.0.6+react@18.2.0:
-    resolution: {integrity: sha512-/OPaH5T+jOHXEZJfCzfl+ZkmjcNQOvb7DNR0SHSbtzYk/9IqjLFSLlxJvj4JPbW9xivzZbPCdgT5+yGzI2Uk0w==}
+  /next-intl/2.10.2_next@13.0.6+react@18.2.0:
+    resolution: {integrity: sha512-wMNNn8l/fwKprYhH6rLQb68GEBkZaACBl99tELL/Tw+AWkGKfvEmnfYEdkiqm5OBQbaJn+gH9gMzGMsJzs1MLA==}
     engines: {node: '>=10'}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
+      accept-language-parser: 1.5.0
       next: 13.0.6_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
-      use-intl: 2.9.1_react@18.2.0
+      use-intl: 2.10.2_react@18.2.0
     dev: false
 
   /next-themes/0.2.1_6jx7hpii6hgsrmhxgqrmo3277u:
@@ -3328,8 +3333,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /use-intl/2.9.1_react@18.2.0:
-    resolution: {integrity: sha512-eAveKBEbFjzzS4BWx8ET3/reyvCN/fBQbFgYYd51fnIb2SlmfDA1B6c9DZPthnyvjzZLfSAXShn0+dN4cQAeIg==}
+  /use-intl/2.10.2_react@18.2.0:
+    resolution: {integrity: sha512-4RT+Vc8Dkzw+I2e4DEa+hjLwZow5sj7nqJYVr+UttZ5LVkmOP6IuVMgEhnjHHperL+ywlA5nhrOTTetTVzMpBg==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0

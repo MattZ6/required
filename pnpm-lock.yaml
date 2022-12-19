@@ -25,7 +25,7 @@ specifiers:
   react-query: 3.39.2
   sharp: 0.31.2
   typescript: 4.9.4
-  zod: 3.19.1
+  zod: 3.20.2
 
 dependencies:
   '@hookform/resolvers': 2.9.10_react-hook-form@7.40.0
@@ -45,7 +45,7 @@ dependencies:
   react-icons: 4.7.1_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   sharp: 0.31.2
-  zod: 3.19.1
+  zod: 3.20.2
 
 devDependencies:
   '@rocketseat/eslint-config': 1.1.3_ha6vam6werchizxrnqvarmz2zu
@@ -3411,6 +3411,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod/3.19.1:
-    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+  /zod/3.20.2:
+    resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
     dev: false

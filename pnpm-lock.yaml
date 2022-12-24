@@ -23,7 +23,7 @@ specifiers:
   react-hook-form: 7.41.0
   react-icons: 4.7.1
   react-query: 3.39.2
-  sharp: 0.31.2
+  sharp: 0.31.3
   typescript: 4.9.4
   zod: 3.20.2
 
@@ -44,7 +44,7 @@ dependencies:
   react-hook-form: 7.41.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
-  sharp: 0.31.2
+  sharp: 0.31.3
   zod: 3.20.2
 
 devDependencies:
@@ -3041,8 +3041,8 @@ packages:
     resolution: {integrity: sha512-1jeBGaKNGdEq4FgIrORu/N570dwoPYio8lSoYLWmX7sQ//0JY08Xh9o5pBcgmHQ/MbsYp/aZnOe1s1lIsbLprQ==}
     dev: false
 
-  /sharp/0.31.2:
-    resolution: {integrity: sha512-DUdNVEXgS5A97cTagSLIIp8dUZ/lZtk78iNVZgHdHbx1qnQR7JAHY0BnXnwwH39Iw+VKhO08CTYhIg0p98vQ5Q==}
+  /sharp/0.31.3:
+    resolution: {integrity: sha512-XcR4+FCLBFKw1bdB+GEhnUNXNXvnt0tDo4WsBsraKymuo/IAuPuCBVAL2wIkUw2r/dwFW5Q5+g66Kwl2dgDFVg==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:

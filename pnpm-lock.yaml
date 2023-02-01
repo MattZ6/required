@@ -22,7 +22,7 @@ specifiers:
   react-dom: 18.2.0
   react-hook-form: 7.42.1
   react-icons: 4.7.1
-  react-query: 3.39.2
+  react-query: 3.39.3
   sharp: 0.31.3
   typescript: 4.9.4
   zod: 3.20.2
@@ -43,7 +43,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.42.1_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
-  react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
+  react-query: 3.39.3_biqbaboplfbrettd7655fr4n2y
   sharp: 0.31.3
   zod: 3.20.2
 
@@ -2860,8 +2860,8 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
 
-  /react-query/3.39.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-F6hYDKyNgDQfQOuR1Rsp3VRzJnWHx6aRnnIZHMNGGgbL3SBgpZTDg8MQwmxOgpCAoqZJA+JSNCydF1xGJqKOCA==}
+  /react-query/3.39.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-nLfLz7GiohKTJDuT4us4X3h/8unOh+00MLb2yJoGTPjxKs2bc1iDhkNx2bd5MKklXnOD3NrVZ+J2UXujA5In4g==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: '*'

@@ -20,7 +20,7 @@ specifiers:
   nookies: 2.5.2
   react: 18.2.0
   react-dom: 18.2.0
-  react-hook-form: 7.43.2
+  react-hook-form: 7.43.5
   react-icons: 4.7.1
   react-query: 3.39.3
   sharp: 0.31.3
@@ -28,7 +28,7 @@ specifiers:
   zod: 3.20.6
 
 dependencies:
-  '@hookform/resolvers': 2.9.11_react-hook-form@7.43.2
+  '@hookform/resolvers': 2.9.11_react-hook-form@7.43.5
   '@radix-ui/colors': 0.1.8
   '@radix-ui/react-alert-dialog': 1.0.2_zula6vjvt3wdocc4mwcxqa6nzi
   '@radix-ui/react-dropdown-menu': 2.0.3_zula6vjvt3wdocc4mwcxqa6nzi
@@ -41,7 +41,7 @@ dependencies:
   nookies: 2.5.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-hook-form: 7.43.2_react@18.2.0
+  react-hook-form: 7.43.5_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   react-query: 3.39.3_biqbaboplfbrettd7655fr4n2y
   sharp: 0.31.3
@@ -165,12 +165,12 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@hookform/resolvers/2.9.11_react-hook-form@7.43.2:
+  /@hookform/resolvers/2.9.11_react-hook-form@7.43.5:
     resolution: {integrity: sha512-bA3aZ79UgcHj7tFV7RlgThzwSSHZgvfbt2wprldRkYBcMopdMvHyO17Wwp/twcJasNFischFfS7oz8Katz8DdQ==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.43.2_react@18.2.0
+      react-hook-form: 7.43.5_react@18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -2828,8 +2828,8 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react-hook-form/7.43.2_react@18.2.0:
-    resolution: {integrity: sha512-NvD3Oe2Y9hhqo2R4I4iJigDzSLpdMnzUpNMxlnzTbdiT7NT3BW0GxWCzEtwPudZMUPbZhNcSy1EcGAygyhDORg==}
+  /react-hook-form/7.43.5_react@18.2.0:
+    resolution: {integrity: sha512-YcaXhuFHoOPipu5pC7ckxrLrialiOcU91pKu8P+isAcXZyMgByUK9PkI9j5fENO4+6XU5PwWXRGMIFlk9u9UBQ==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18

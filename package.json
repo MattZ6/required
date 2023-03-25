@@ -30,7 +30,7 @@
     "nookies": "2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "7.43.5",
+    "react-hook-form": "7.43.7",
     "react-icons": "4.8.0",
     "@tanstack/react-query": "4.0.5",
     "sharp": "0.31.3",

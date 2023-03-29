@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 
 import { apiClient } from '@services/apiClient'
 
@@ -21,7 +21,7 @@ export async function getProfile() {
 }
 
 export function useProfile() {
-  return useQuery('profile', getProfile, {
+  return useQuery(['profile'], getProfile, {
     staleTime: 5 * 60 * 60 * 1000, // 👈 5 hours
   })
 }

@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from 'react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { apiClient } from '@services/apiClient'
 
@@ -24,8 +24,9 @@ export function useUpdateName() {
 
   return useMutation(updateName, {
     onSuccess: (_, variables) => {
-      const profile =
-        queryClient.getQueryData<GetProfileService.Response>('profile')
+      const profile = queryClient.getQueryData<GetProfileService.Response>([
+        'profile',
+      ])
 
       if (profile) {
         profile.name = variables.name

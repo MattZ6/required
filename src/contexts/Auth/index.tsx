@@ -1,6 +1,6 @@
+import { useQueryClient } from '@tanstack/react-query'
 import Router from 'next/router'
 import { createContext, ReactNode, useCallback, useMemo, useState } from 'react'
-import { useQueryClient } from 'react-query'
 
 import { saveAuthentication } from '@services/apiClient'
 import {
@@ -51,7 +51,8 @@ export function AuthProvider({ children }: Props) {
     removeRefreshTokenFromCookies()
 
     setAuth(undefined)
-    queryClient.invalidateQueries('profile')
+
+    queryClient.invalidateQueries(['profile'])
 
     Router.replace('/welcome-back')
   }, [queryClient])

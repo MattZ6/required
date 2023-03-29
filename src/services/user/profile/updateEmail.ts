@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from 'react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { apiClient } from '@services/apiClient'
 
@@ -24,8 +24,9 @@ export function useUpdateEmail() {
 
   return useMutation(updateEmail, {
     onSuccess: (_, variables) => {
-      const profile =
-        queryClient.getQueryData<GetProfileService.Response>('profile')
+      const profile = queryClient.getQueryData<GetProfileService.Response>([
+        'profile',
+      ])
 
       if (profile) {
         profile.email = variables.email

@@ -1,7 +1,7 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { IntlError, IntlErrorCode, NextIntlProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
 import { ReactElement } from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { AuthProvider } from '@contexts/Auth'
 import { ToastProvider } from '@contexts/Toast'

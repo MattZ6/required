@@ -1,15 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+
   reactStrictMode: true,
 
-  i18n: {
-    locales: ['en-US', 'pt-BR'],
-    defaultLocale: 'en-US',
-  },
+  // i18n: {
+  //   locales: ['en-US', 'pt-BR'],
+  //   defaultLocale: 'en-US',
+  // },
 
-  images: {
-    domains: ['avatars.githubusercontent.com'],
-  },
+  // images: {
+  //   domains: ['avatars.githubusercontent.com'],
+  // },
 
   poweredByHeader: false,
 }

@@ -21,7 +21,6 @@
           "/^@locales/",
           "/^@providers/",
           "/^@utils/",
-          "/^@pages/",
           "/^@components/",
           "/^@styles/",
           ["parent", "sibling", "index"]

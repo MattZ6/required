@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     default: 'Auth Flow',
     template: '%s //  Auth Flow',
   },
+  authors: {
+    name: 'Matheus Felipe Zanin',
+    url: 'https://github.com/MattZ6',
+  },
+  creator: 'Matheus Felipe Zanin',
 }
 
 type Props = {

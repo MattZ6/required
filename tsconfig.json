@@ -19,6 +19,7 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./src",
     "paths": {
       "@components/*": ["./components/*"],
       "@contexts/*": ["./contexts/*"],
@@ -26,7 +27,6 @@
       "@services/*": ["./services/*"],
       "@layouts/*": ["./layouts/*"],
       "@locales/*": ["./locales/*"],
-      "@pages/*": ["./pages/*"],
       "@providers/*": ["./providers/*"],
       "@styles/*": ["./styles/*"],
       "@utils/*": ["./utils/*"],

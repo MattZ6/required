@@ -7,7 +7,7 @@
 
   <strong>🚧 Under development... 🚧</strong>
 
-  [![license-image]][license-url]
+  [![build-image]][build-url] [![license-image]][license-url]
 </div>
 
 <!-- TODO: Add project images -->
@@ -82,6 +82,9 @@ Released in 2022 © This project is under [MIT License](LICENSE.md).
 Made with ❤ by [Matheus Felipe Zanin](https://github.com/MattZ6).<br/>
 [Get it touch](https://www.linkedin.com/in/mattz6)!
 
+
+[build-url]: https://github.com/MattZ6/auth-flow/actions
+[build-image]: https://img.shields.io/github/actions/workflow/status/mattz6/auth-flow/ci.yml?labelColor=232320&style=for-the-badge
 
 [license-url]: LICENSE.md
 [license-image]: https://img.shields.io/github/license/MattZ6/auth-flow?color=303030&labelColor=232320&style=for-the-badge

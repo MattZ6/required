@@ -1,4 +1,9 @@
+import '@styles/global.scss'
+
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -14,7 +19,7 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html>
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

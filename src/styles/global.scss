@@ -55,6 +55,9 @@
   --colors-text-high-contrast: hsl(260, 25.0%, 11.0%);
 
   --colors-text-error: hsl(358, 75.0%, 59.0%);
+
+  --color-button-background: var(--colors-text-high-contrast);
+  --color-button-text: var(--colors-app-background);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -76,6 +79,9 @@
     --colors-text-high-contrast: hsl(256, 6.0%, 93.2%);
 
     --colors-text-error: hsl(358, 75.0%, 59.0%);
+
+    --color-button-background: var(--colors-text-high-contrast);
+    --color-button-text: var(--colors-app-background);
   }
 }
 

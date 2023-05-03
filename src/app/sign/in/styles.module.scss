@@ -1,0 +1,31 @@
+.page {
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+}
+
+.text {
+  font-size: var(--text-sm);
+  line-height: var(--line-height-sm);
+  color: var(--colors-text-low-contrast);
+
+  > a {
+    color: var(--colors-text-high-contrast);
+
+    padding: var(--space-xs);
+    border-radius: var(--radii-sm);
+
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+
+    &:focus-visible {
+      outline-color: var(--colors-element-border);
+    }
+
+    &:hover {
+      background-color: var(--colors-element-background-hover);
+    }
+  }
+}

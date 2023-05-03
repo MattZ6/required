@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    🗝 Auth Flow Web
+    ✳️ required
   </h1>
 
   > Simple authentication flow application.
@@ -17,7 +17,7 @@
 
 - First, a cup of coffee ☕;
 - [Node JS](https://nodejs.org) installed on your host;
-- The [Auth Flow API](https://github.com/MattZ6/auth-flow-api) running.
+- The [Required API](https://github.com/MattZ6/required-api) running.
 
 ## 🎉 Starting
 
@@ -26,15 +26,15 @@
 In order to clone the project (via HTTPS), run this command:
 
 ```bash
-git clone https://github.com/MattZ6/auth-flow.git
+git clone https://github.com/MattZ6/required.git
 ```
 
-> 💡 SSH URLs provide access to a Git repository via SSH, a secure protocol. If you have a SSH key registered in your Github account, clone the project using this command: `git clone git@github.com:MattZ6/auth-flow.git`
+> 💡 SSH URLs provide access to a Git repository via SSH, a secure protocol. If you have a SSH key registered in your Github account, clone the project using this command: `git clone git@github.com:MattZ6/required.git`
 
 Go to project folder:
 
 ```bash
-cd auth-flow
+cd required
 ```
 
 ### Dependencies
@@ -69,9 +69,9 @@ pnpm dev
 
 ## 🤝 Contributing
 
-> Contributions, issues and new features are **always welcome**! You can explore them [here](https://github.com/MattZ6/auth-flow/issues).
+> Contributions, issues and new features are **always welcome**! You can explore them [here](https://github.com/MattZ6/required/issues).
 
-Feel free to submit a new issue with a respective title and description on the the Auth Flow repository. If you already found a solution to your problem, i would love to review your pull request! Have a look at our [contribution guidelines](.github/CONTRIBUTING.md) to find out about the coding standards.
+Feel free to submit a new issue with a respective title and description on the the **Required** repository. If you already found a solution to your problem, i would love to review your pull request! Have a look at our [contribution guidelines](.github/CONTRIBUTING.md) to find out about the coding standards.
 
 ## 📜 License
 
@@ -83,8 +83,8 @@ Made with ❤ by [Matheus Felipe Zanin](https://github.com/MattZ6).<br/>
 [Get it touch](https://www.linkedin.com/in/mattz6)!
 
 
-[build-url]: https://github.com/MattZ6/auth-flow/actions
-[build-image]: https://img.shields.io/github/actions/workflow/status/mattz6/auth-flow/ci.yml?labelColor=232320&style=for-the-badge
+[build-url]: https://github.com/MattZ6/required/actions
+[build-image]: https://img.shields.io/github/actions/workflow/status/mattz6/required/ci.yml?labelColor=232320&style=for-the-badge
 
 [license-url]: LICENSE.md
-[license-image]: https://img.shields.io/github/license/MattZ6/auth-flow?color=303030&labelColor=232320&style=for-the-badge
+[license-image]: https://img.shields.io/github/license/MattZ6/required?color=303030&labelColor=232320&style=for-the-badge

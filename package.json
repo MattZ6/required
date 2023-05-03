@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "auth-flow",
+  "name": "required",
   "description": "Simple authentication flow application",
   "version": "0.1.0-beta",
   "license": "MIT",
@@ -9,8 +9,8 @@
     "email": "matt_z6@hotmail.com",
     "url": "https://github.com/MattZ6"
   },
-  "repository": "https://github.com/MattZ6/auth-flow",
-  "bugs": "https://github.com/MattZ6/auth-flow/issues",
+  "repository": "https://github.com/MattZ6/required",
+  "bugs": "https://github.com/MattZ6/required/issues",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

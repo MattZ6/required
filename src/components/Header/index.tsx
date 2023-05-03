@@ -8,7 +8,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={commonStyles.contentContainer}>
-        <strong>🛡️ AuthFlow</strong>
+        <strong>✳️ required</strong>
 
         {/* @todo - change routes based on user's authentication */}
 

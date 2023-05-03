@@ -5,7 +5,7 @@ import { GithubRepositoryLinkStyles as Styles } from './styles'
 
 export function GithubRepositoryLink() {
   return (
-    <Link href="https://github.com/MattZ6/auth-flow" passHref>
+    <Link href="https://github.com/MattZ6/required" passHref>
       <Styles.Link
         rel="noreferrer noopener nofollow"
         target="_blank"

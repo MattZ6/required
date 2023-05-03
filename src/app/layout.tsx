@@ -12,8 +12,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Auth Flow',
-    template: '%s //  Auth Flow',
+    default: 'required',
+    template: '%s //  required',
   },
   authors: {
     name: 'Matheus Felipe Zanin',

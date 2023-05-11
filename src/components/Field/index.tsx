@@ -18,7 +18,7 @@ const BaseField: ForwardRefRenderFunction<HTMLInputElement, Props> = (
   { label, leadingIcon, error, ...props },
   ref,
 ) => (
-  <div className={styles.field}>
+  <div className={`${styles.field} ${error ? styles.withError : ''}`}>
     {label && <label htmlFor={props.name}>{label}</label>}
 
     <div className={styles.inputContainer}>

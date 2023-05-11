@@ -66,12 +66,12 @@
       color: var(--colors-text-low-contrast);
     }
 
-    &:focus {
+    &:hover {
       border-color: var(--colors-element-border);
     }
 
-    &:hover {
-      border-color: var(--colors-element-border-hover);
+    &:focus {
+      border-color: var(--colors-element-border-active);
     }
   }
 }
@@ -86,5 +86,15 @@
     font-size: var(--text-xs);
     line-height: var(--line-height-xs);
     color: var(--colors-text-error);
+  }
+}
+
+.withError {
+  > label, i {
+    color: var(--colors-text-error);
+  }
+
+  input {
+    border-color: var(--colors-text-error);
   }
 }

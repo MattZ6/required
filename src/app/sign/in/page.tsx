@@ -9,6 +9,19 @@ import styles from './styles.module.scss'
 export const metadata: Metadata = {
   title: 'Login',
   description: 'Sign in to continue to your profile page',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Login',
+    description: 'Sign in to continue to your profile page',
+    site: 'https://required.vercel.app',
+  },
+  openGraph: {
+    type: 'website',
+    title: 'Login',
+    siteName: 'required',
+    description: 'Sign in to continue to your profile page',
+    url: 'https://required.vercel.app/sign/in',
+  },
 }
 
 export default function SignInPage() {

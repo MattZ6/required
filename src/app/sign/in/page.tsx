@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import { ContentContainer } from '@components/ContentContainer'
 import { PageHeader } from '@components/PageHeader'
 
 import { Form } from './components'
@@ -15,19 +14,17 @@ export const metadata: Metadata = {
 export default function SignInPage() {
   return (
     <section className={styles.page}>
-      <ContentContainer>
-        <PageHeader
-          title="Login"
-          description="Sign in to continue to your profile page"
-        />
+      <PageHeader
+        title="Login"
+        description="Sign in to continue to your profile page"
+      />
 
-        <Form />
+      <Form />
 
-        <span className={styles.text}>
-          Don&apos;t have an account yet?{' '}
-          <Link href="/sign/up">Create account right now</Link>
-        </span>
-      </ContentContainer>
+      <span className={styles.text}>
+        Don&apos;t have an account yet?{' '}
+        <Link href="/sign/up">Create account right now</Link>
+      </span>
     </section>
   )
 }

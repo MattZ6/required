@@ -3,6 +3,8 @@ import '@styles/global.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import { About } from '@components/About'
+import { ContentContainer } from '@components/ContentContainer'
 import { Footer } from '@components/Footer'
 import { Header } from '@components/Header'
 
@@ -31,7 +33,15 @@ export default function RootLayout({ children }: Props) {
     <html>
       <body className={inter.className}>
         <Header />
-        <main className={styles.main}>{children}</main>
+
+        <main className={styles.main}>
+          <ContentContainer>
+            {children}
+
+            <About />
+          </ContentContainer>
+        </main>
+
         <Footer />
       </body>
     </html>

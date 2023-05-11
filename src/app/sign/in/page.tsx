@@ -1,20 +1,30 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import commonStyles from '@styles/common.module.scss'
+import { PageHeader } from '@components/PageHeader'
+
+import { Form } from './components'
+import styles from './styles.module.scss'
 
 export const metadata: Metadata = {
-  title: 'Sign in',
+  title: 'Login',
+  description: 'Sign in to continue to your profile page',
 }
 
 export default function SignInPage() {
   return (
-    <section>
-      <div className={commonStyles.contentContainer}>
-        <h1>Sign in</h1>
+    <section className={styles.page}>
+      <PageHeader
+        title="Login"
+        description="Sign in to continue to your profile page"
+      />
 
-        <Link href="/sign/up">Sign up</Link>
-      </div>
+      <Form />
+
+      <span className={styles.text}>
+        Don&apos;t have an account yet?{' '}
+        <Link href="/sign/up">Create account right now</Link>
+      </span>
     </section>
   )
 }

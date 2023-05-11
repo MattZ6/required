@@ -1,0 +1,100 @@
+.field {
+  display: flex;
+  flex-direction: column;
+
+  > label {
+    font-size: var(--text-xs);
+    line-height: var(--line-height-xs);
+    color: var(--colors-text-low-contrast);
+    font-weight: 500;
+
+    pointer-events: none;
+    user-select: none;
+
+    margin-bottom: var(--space-xs);
+  }
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  $horizontalPadding: 12px;
+  $iconSize: 20px;
+
+  &:has(i) > input {
+    padding-left: $horizontalPadding + $iconSize + $horizontalPadding;
+  }
+
+  &:focus-within > i {
+    color: var(--colors-text-high-contrast);
+  }
+
+  > i {
+    position: absolute;
+
+    font-size: $iconSize;
+    color: var(--colors-text-low-contrast);
+
+    left: $horizontalPadding;
+
+    pointer-events: none;
+    user-select: none;
+  }
+
+  > input {
+    flex: 1;
+
+    font-size: var(--text-sm);
+    line-height: var(--line-height-sm);
+    color: var(--colors-text-high-contrast);
+    font-weight: 500;
+
+    height: 40px;
+    padding: 0 $horizontalPadding;
+    border-radius: var(--radii-sm);
+    border: 1.5px solid transparent;
+
+    background-color: var(--colors-element-background);
+    caret-color: var(--colors-text-low-contrast);
+
+    outline: none;
+
+    &::placeholder {
+      color: var(--colors-text-low-contrast);
+    }
+
+    &:hover {
+      border-color: var(--colors-element-border);
+    }
+
+    &:focus {
+      border-color: var(--colors-element-border-active);
+    }
+  }
+}
+
+.errorContainer {
+  display: inline-flex;
+  align-items: center;
+
+  height: 24px;
+
+  > span {
+    font-size: var(--text-xs);
+    line-height: var(--line-height-xs);
+    color: var(--colors-text-error);
+  }
+}
+
+.withError {
+  > label, i {
+    color: var(--colors-text-error);
+  }
+
+  input {
+    border-color: var(--colors-text-error);
+  }
+}

@@ -18,6 +18,13 @@
     outline: 2px solid transparent;
     outline-offset: 2px;
 
+    @media (prefers-reduced-motion: no-preference) {
+      transition-duration: var(--duration-base);
+      transition-timing-function: ease-in-out;
+      transition-property: background-color, color, outline;
+    }
+
+
     &:focus-visible {
       outline-color: var(--colors-element-border);
     }

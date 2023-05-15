@@ -12,6 +12,12 @@
     user-select: none;
 
     margin-bottom: var(--space-xs);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-duration: var(--duration-base);
+      transition-timing-function: ease-in-out;
+      transition-property: color;
+    }
   }
 }
 
@@ -42,6 +48,12 @@
 
     pointer-events: none;
     user-select: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-duration: var(--duration-base);
+      transition-timing-function: ease-in-out;
+      transition-property: color;
+    }
   }
 
   > input {
@@ -61,6 +73,12 @@
     caret-color: var(--colors-text-low-contrast);
 
     outline: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition-duration: var(--duration-base);
+      transition-timing-function: ease-in-out;
+      transition-property: border-color, color;
+    }
 
     &::placeholder {
       color: var(--colors-text-low-contrast);
@@ -86,6 +104,12 @@
     font-size: var(--text-xs);
     line-height: var(--line-height-xs);
     color: var(--colors-text-error);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation-duration: var(--duration-base);
+      animation-timing-function: ease-in-out;
+      animation-name: fadeIn;
+    }
   }
 }
 
@@ -96,5 +120,16 @@
 
   input {
     border-color: var(--colors-text-error);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-xs));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -58,6 +58,10 @@
 
   --color-button-background: var(--colors-text-high-contrast);
   --color-button-text: var(--colors-app-background);
+
+  /** ----- Transition ----- */
+
+  --duration-base: 150ms;
 }
 
 @media (prefers-color-scheme: dark) {

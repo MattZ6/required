@@ -29,7 +29,7 @@
     "@tanstack/react-query": "4.29.7",
     "axios": "1.4.0",
     "next": "13.4.3",
-    "next-intl": "2.14.2",
+    "next-intl": "2.14.6",
     "next-themes": "0.2.1",
     "nookies": "2.5.2",
     "react": "18.2.0",

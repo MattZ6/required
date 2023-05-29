@@ -17,7 +17,7 @@
 
 - First, a cup of coffee ☕;
 - [Node JS](https://nodejs.org) installed on your host;
-- The [Required API](https://github.com/MattZ6/required-api) running.
+- The [✳️ Required API](https://github.com/MattZ6/required-api) running.
 
 ## 🎉 Starting
 

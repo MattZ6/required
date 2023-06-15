@@ -19,7 +19,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@hookform/resolvers": "3.1.0",
+    "@hookform/resolvers": "3.1.1",
     "@phosphor-icons/web": "2.0.3",
     "@radix-ui/colors": "0.1.8",
     "@radix-ui/react-alert-dialog": "1.0.4",

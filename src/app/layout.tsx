@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     url: 'https://github.com/MattZ6',
   },
   creator: 'Matheus Felipe Zanin',
+  metadataBase: new URL('https://required.vercel.app'),
 }
 
 type Props = {

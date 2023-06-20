@@ -36,28 +36,30 @@ export function Form() {
     } catch (error) {
       const requestError = parseError<SignInFormType>(error)
 
-      if (requestError.error.code) {
-        const { code, message, validation } = requestError.error
+      const { code, message, validation } = requestError.error
 
-        if (code === 'validation' && validation) {
-          const { field, message } = validation
+      if (code === 'validation' && validation) {
+        const { field, message } = validation
 
-          setTimeout(() => {
-            setError(field, { message }, { shouldFocus: true })
-          }, 0)
-        }
+        setTimeout(() => setError(field, { message }, { shouldFocus: true }), 0)
 
-        if (code === 'user.not.exists') {
-          setTimeout(() => {
-            setError('email', { message }, { shouldFocus: true })
-          }, 0)
-        }
+        return
+      }
 
-        if (code === 'password.wrong') {
-          setTimeout(() => {
-            setError('password', { message }, { shouldFocus: true })
-          }, 0)
-        }
+      if (code === 'user.not.exists') {
+        setTimeout(
+          () => setError('email', { message }, { shouldFocus: true }),
+          0,
+        )
+
+        return
+      }
+
+      if (code === 'password.wrong') {
+        setTimeout(
+          () => setError('password', { message }, { shouldFocus: true }),
+          0,
+        )
 
         return
       }
@@ -70,6 +72,7 @@ export function Form() {
           description: 'Please check your internet connection and try again.',
           closeButtonText: 'Ok',
         })
+
         return
       }
 

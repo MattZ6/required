@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import { About } from '@components/About'
+import { AlertDialogHandler } from '@components/AlertDialogHandler'
 import { ContentContainer } from '@components/ContentContainer'
 import { Footer } from '@components/Footer'
 import { Header } from '@components/Header'
@@ -30,20 +31,24 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html>
-      <body className={inter.className}>
-        <Header />
+    <>
+      <html>
+        <body className={inter.className}>
+          <Header />
 
-        <main className={styles.main}>
-          <ContentContainer>
-            {children}
+          <main className={styles.main}>
+            <ContentContainer>
+              {children}
 
-            <About />
-          </ContentContainer>
-        </main>
+              <About />
+            </ContentContainer>
+          </main>
 
-        <Footer />
-      </body>
-    </html>
+          <Footer />
+        </body>
+      </html>
+
+      <AlertDialogHandler />
+    </>
   )
 }

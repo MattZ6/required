@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  $size: 88px;
+
+  width: $size;
+  height: $size;
+  border-radius: $size;
+
+  background-color: var(--colors-error-element-background);
+
+  margin-bottom: var(--space-lg);
+
+  font-size: var(--text-4xl);
+  color: var(--colors-text-error);
+}

@@ -1,5 +1,3 @@
-import * as RadixAlertDialog from '@radix-ui/react-alert-dialog'
+import { Portal } from '@radix-ui/react-alert-dialog'
 
-import { styled } from '@styles/stitches.config'
-
-export const AlertDialogPortal = styled(RadixAlertDialog.Portal)
+export const AlertDialogPortal = Portal

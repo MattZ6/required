@@ -1,0 +1,51 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 100px;
+
+  $size: 36px;
+  height: $size;
+  border-radius: $size;
+
+  border: none;
+
+  padding: 0 var(--space-base);
+
+  font-size: var(--text-base);
+  line-height: var(--line-height-base);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  background-color: transparent;
+  color: var(--colors-text-low-contrast);
+
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: 2px;
+  outline-color: transparent;
+
+  transition-duration: var(--duration-base);
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, outline-color;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):hover {
+    background-color: var(--colors-element-background-hover);
+  }
+
+
+  &:focus-visible {
+    outline-color: var(--colors-element-border-active);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.56;
+  }
+}

@@ -37,6 +37,8 @@
   --radii-xs: 4px;
   --radii-sm: 6px;
   --radii-base: 8px;
+  --radii-lg: 12px;
+  --radii-xl: 16px;
 
   /** ----- Colors ----- */
 
@@ -54,9 +56,11 @@
   --colors-text-low-contrast: hsl(252, 4.0%, 44.8%);
   --colors-text-high-contrast: hsl(260, 25.0%, 11.0%);
 
+  --colors-error-element-background: hsl(360, 100%, 96.8%);
   --colors-text-error: hsl(358, 75.0%, 59.0%);
 
   --color-button-background: var(--colors-text-high-contrast);
+  --color-button-background-hover: var(--colors-text-low-contrast);
   --color-button-text: var(--colors-app-background);
 
   /** ----- Transition ----- */
@@ -82,9 +86,11 @@
     --colors-text-low-contrast: hsl(253, 4.0%, 63.7%);
     --colors-text-high-contrast: hsl(256, 6.0%, 93.2%);
 
+    --colors-error-element-background: hsl(356, 43.4%, 16.4%);
     --colors-text-error: hsl(358, 75.0%, 59.0%);
 
     --color-button-background: var(--colors-text-high-contrast);
+    --color-button-background-hover: var(--colors-text-low-contrast);
     --color-button-text: var(--colors-app-background);
   }
 }

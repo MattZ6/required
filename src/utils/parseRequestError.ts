@@ -46,3 +46,23 @@ export function parseRequestError<F = any>(
     error,
   }
 }
+
+export function parseError<F = any>(
+  error: Error | AxiosError | any,
+): ParsedError<F> {
+  if (error.code) {
+    return {
+      status: undefined,
+      error: {
+        code: error.code,
+        message: error.message ?? 'Unexpected error',
+        validation: error.validation,
+      },
+    }
+  }
+
+  return {
+    status: undefined,
+    error,
+  }
+}

@@ -84,12 +84,16 @@
       color: var(--colors-text-low-contrast);
     }
 
-    &:hover {
+    &:not(:disabled):hover {
       border-color: var(--colors-element-border);
     }
 
     &:focus {
       border-color: var(--colors-element-border-active);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
     }
   }
 }
@@ -120,6 +124,12 @@
 
   input {
     border-color: var(--colors-text-error);
+    caret-color: var(--colors-text-error);
+
+
+    &::selection {
+      background-color: var(--colors-text-error);
+    }
   }
 }
 

@@ -12,6 +12,12 @@ export const requiredClient = createAlova({
   },
   responded: {
     onSuccess: async (response) => {
+      const contentLength = response.headers.get('Content-Length')
+
+      if (Number(contentLength) === 0) {
+        return
+      }
+
       const body = await response.json()
 
       if (response.status < 200 || response.status >= 400) {

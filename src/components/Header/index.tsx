@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import commonStyles from '@styles/common.module.scss'
 
+import { Links } from './components'
 import styles from './styles.module.scss'
 
 export function Header() {
@@ -10,15 +11,8 @@ export function Header() {
       <div className={commonStyles.contentContainer}>
         <strong>✳️ required</strong>
 
-        {/* @todo - change routes based on user's authentication */}
-
         <nav>
-          <Link className={styles.link} href="/sign/in">
-            Login
-          </Link>
-          <Link className={styles.link} href="/sign/up">
-            Create account
-          </Link>
+          <Links />
 
           <span />
 

@@ -13,6 +13,7 @@ export function Button({ children, trailingIcon, submiting, ...props }: Props) {
   return (
     <button className={styles.button} {...props}>
       {children}
+
       {!submiting && trailingIcon && (
         <i className={`ph ph-${trailingIcon}`}></i>
       )}

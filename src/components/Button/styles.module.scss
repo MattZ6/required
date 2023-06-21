@@ -4,12 +4,15 @@
   justify-content: center;
   gap: var(--space-sm);
 
+  $size: 36px;
+
   min-width: 100px;
-  height: 36px;
-  padding: 0 var(--space-sm);
+  height: $size;
+
+  padding: 0 var(--space-base);
 
   border: none;
-  border-radius: var(--radii-sm);
+  border-radius: $size;
 
   font-size: var(--text-sm);
   line-height: var(--line-height-sm);
@@ -28,7 +31,7 @@
   }
 
   &:focus-visible {
-    outline-color: var(--color-button-background);
+    outline-color: var(--colors-element-border-active);
   }
 
   &:focus-visible,

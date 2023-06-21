@@ -4,6 +4,7 @@ type ApplicationErrorCode =
   | 'validation'
   | 'user.not.exists'
   | 'user.exists'
+  | 'user.email_in_use'
   | 'password.wrong'
   | 'token.expired'
 

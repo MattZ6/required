@@ -1,9 +1,12 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import { useLayoutEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { useAuthAtom } from '@hooks/useAuthAtom'
+import { useSignIn } from '@hooks/useSignIn'
 import { useSignUp } from '@hooks/useSignUp'
 
 import { parseError } from '@utils/parseRequestError'
@@ -16,6 +19,10 @@ import { signUpSchema, SignUpFormType } from './schema'
 import styles from './styles.module.scss'
 
 export function Form() {
+  const router = useRouter()
+  const { send: signIn } = useSignIn()
+  const { send } = useSignUp()
+  const [, setAuth] = useAuthAtom()
   const {
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -26,13 +33,50 @@ export function Form() {
     resolver: zodResolver(signUpSchema),
   })
 
-  const { send } = useSignUp()
+  async function authenticate(
+    input: Pick<SignUpFormType, 'email' | 'password'>,
+  ) {
+    const { email, password } = input
+
+    try {
+      const authentication = await signIn({ email, password })
+
+      setAuth(authentication)
+
+      router.replace('/')
+    } catch (error) {
+      router.replace('/sign/in')
+
+      if (!navigator.onLine) {
+        showAlert({
+          type: 'error',
+          icon: 'ph-wifi-x',
+          title: 'You seem to be offline',
+          description: 'Please check your internet connection and try again.',
+          closeButtonText: 'Ok',
+        })
+
+        return
+      }
+
+      showAlert({
+        type: 'error',
+        icon: 'ph-warning-circle',
+        title: 'Ooops... Something went wrong!',
+        description:
+          'Your login could not be completed at this time. You can try again at any time.',
+        closeButtonText: 'Close',
+      })
+    }
+  }
 
   async function signUp(input: SignUpFormType) {
     const { name, email, password, password_confirmation } = input
 
     try {
       await send({ name, email, password, password_confirmation })
+
+      await authenticate({ email, password })
     } catch (error) {
       const requestError = parseError<SignUpFormType>(error)
 
@@ -72,7 +116,7 @@ export function Form() {
         icon: 'ph-warning-circle',
         title: 'Ooops... Something went wrong!',
         description:
-          'Your login could not be completed at this time. You can try again at any time.',
+          'It was not possible to complete the creation of your account at this time. You can try again at any time.',
         closeButtonText: 'Close',
       })
     }

@@ -10,7 +10,7 @@ import styles from './styles.module.scss'
 type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'id'> & {
   name: string
   label?: string
-  leadingIcon?: 'envelope-simple' | 'lock-simple'
+  leadingIcon?: 'smiley' | 'envelope' | 'lock'
   error?: FieldError
 }
 

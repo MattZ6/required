@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useLayoutEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { useSignIn } from '@hooks/useSignIn'
+import { useSignUp } from '@hooks/useSignUp'
 
 import { parseError } from '@utils/parseRequestError'
 
@@ -12,7 +12,7 @@ import { showAlert } from '@components/AlertDialogHandler'
 import { Button } from '@components/Button'
 import { Field } from '@components/Field'
 
-import { signInSchema, SignInFormType } from './schema'
+import { signUpSchema, SignUpFormType } from './schema'
 import styles from './styles.module.scss'
 
 export function Form() {
@@ -22,19 +22,19 @@ export function Form() {
     setFocus,
     register,
     setError,
-  } = useForm<SignInFormType>({
-    resolver: zodResolver(signInSchema),
+  } = useForm<SignUpFormType>({
+    resolver: zodResolver(signUpSchema),
   })
 
-  const { send } = useSignIn()
+  const { send } = useSignUp()
 
-  async function signIn(input: SignInFormType) {
-    const { email, password } = input
+  async function signUp(input: SignUpFormType) {
+    const { name, email, password, password_confirmation } = input
 
     try {
-      await send({ email, password })
+      await send({ name, email, password, password_confirmation })
     } catch (error) {
-      const requestError = parseError<SignInFormType>(error)
+      const requestError = parseError<SignUpFormType>(error)
 
       const { code, message, validation } = requestError.error
 
@@ -46,18 +46,9 @@ export function Form() {
         return
       }
 
-      if (code === 'user.not.exists') {
+      if (code === 'user.email_in_use') {
         setTimeout(
           () => setError('email', { message }, { shouldFocus: true }),
-          0,
-        )
-
-        return
-      }
-
-      if (code === 'password.wrong') {
-        setTimeout(
-          () => setError('password', { message }, { shouldFocus: true }),
           0,
         )
 
@@ -87,19 +78,29 @@ export function Form() {
     }
   }
 
-  useLayoutEffect(() => setFocus('email'), [setFocus])
+  useLayoutEffect(() => setFocus('name'), [setFocus])
 
   return (
     <form
       className={styles.container}
-      onSubmit={handleSubmit(signIn)}
+      onSubmit={handleSubmit(signUp)}
       noValidate
     >
       <Field
+        type="text"
+        label="Whats your name?"
+        leadingIcon="smiley"
+        placeholder="Alejandro? Fernando? Roberto?"
+        error={errors.name}
+        disabled={isSubmitting}
+        {...register('name')}
+      />
+
+      <Field
         type="email"
-        label="E-mail address"
+        label="Whats your e-mail?"
         leadingIcon="envelope"
-        placeholder="Just type your e-mail bro"
+        placeholder="Your best e-mail address"
         error={errors.email}
         disabled={isSubmitting}
         {...register('email')}
@@ -107,12 +108,22 @@ export function Form() {
 
       <Field
         type="password"
-        label="Password"
+        label="Enter a password"
         leadingIcon="lock"
-        placeholder="I won't tell anyone 🤫"
+        placeholder="It will be our little secret 😉"
         error={errors.password}
         disabled={isSubmitting}
         {...register('password')}
+      />
+
+      <Field
+        type="password"
+        label="Confirm your password"
+        leadingIcon="lock"
+        placeholder="Passwords must be the same"
+        error={errors.password_confirmation}
+        disabled={isSubmitting}
+        {...register('password_confirmation')}
       />
 
       <Button
@@ -121,7 +132,7 @@ export function Form() {
         disabled={isSubmitting}
         submiting={isSubmitting}
       >
-        Sign in
+        Create account
       </Button>
     </form>
   )

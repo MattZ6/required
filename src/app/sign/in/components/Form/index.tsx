@@ -98,7 +98,7 @@ export function Form() {
       <Field
         type="email"
         label="E-mail address"
-        leadingIcon="envelope-simple"
+        leadingIcon="envelope"
         placeholder="Just type your e-mail bro"
         error={errors.email}
         disabled={isSubmitting}
@@ -108,7 +108,7 @@ export function Form() {
       <Field
         type="password"
         label="Password"
-        leadingIcon="lock-simple"
+        leadingIcon="lock"
         placeholder="I won't tell anyone 🤫"
         error={errors.password}
         disabled={isSubmitting}

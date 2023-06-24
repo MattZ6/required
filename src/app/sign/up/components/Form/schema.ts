@@ -5,6 +5,7 @@ import { PASSWORD_MIN_LENGTH, NAME_MIN_LENGTH } from '@utils/constants'
 export const signUpSchema = z.object({
   name: z
     .string()
+    .trim()
     .nonempty({ message: 'The name is required' })
     .min(NAME_MIN_LENGTH, {
       message: `At least ${NAME_MIN_LENGTH} characters`,

@@ -74,7 +74,7 @@ export function Form() {
       if (!navigator.onLine) {
         showAlert({
           type: 'error',
-          icon: 'ph-wifi-x',
+          icon: 'ph-wifi-slash',
           title: 'You seem to be offline',
           description: 'Please check your internet connection and try again.',
           closeButtonText: 'Ok',

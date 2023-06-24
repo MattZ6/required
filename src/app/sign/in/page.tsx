@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Login',
     siteName: 'required',
     description: 'Sign in to continue to your profile page',
-    url: 'https://required.vercel.app/sign/in',
+    url: '/sign/in',
   },
 }
 

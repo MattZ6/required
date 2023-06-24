@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  > button {
+    align-self: flex-start;
+    margin-top: var(--space-xs);
+  }
+}

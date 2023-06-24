@@ -11,7 +11,12 @@ type Props = {
 export function PageHeader({ title, description, backLinkURL }: Props) {
   return (
     <div className={styles.container}>
-      {backLinkURL && <Link href={backLinkURL}>Back</Link>}
+      {backLinkURL && (
+        <Link href={backLinkURL}>
+          <i className="ph ph-arrow-left"></i>
+          Back
+        </Link>
+      )}
 
       <h1>{title}</h1>
       <p>{description}</p>

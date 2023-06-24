@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Create account',
     siteName: 'required',
     description: "Not have an account yet? You're in the right place",
-    url: '/sign/in',
+    url: '/sign/up',
   },
 }
 

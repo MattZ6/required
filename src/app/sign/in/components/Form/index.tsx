@@ -1,9 +1,11 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 import { useLayoutEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { useAuthAtom } from '@hooks/useAuthAtom'
 import { useSignIn } from '@hooks/useSignIn'
 
 import { parseError } from '@utils/parseRequestError'
@@ -16,6 +18,9 @@ import { signInSchema, SignInFormType } from './schema'
 import styles from './styles.module.scss'
 
 export function Form() {
+  const router = useRouter()
+  const [, setAuth] = useAuthAtom()
+  const { send } = useSignIn()
   const {
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -26,13 +31,15 @@ export function Form() {
     resolver: zodResolver(signInSchema),
   })
 
-  const { send } = useSignIn()
-
   async function signIn(input: SignInFormType) {
     const { email, password } = input
 
     try {
-      await send({ email, password })
+      const authentication = await send({ email, password })
+
+      setAuth(authentication)
+
+      router.replace('/')
     } catch (error) {
       const requestError = parseError<SignInFormType>(error)
 

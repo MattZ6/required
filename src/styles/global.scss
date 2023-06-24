@@ -127,6 +127,10 @@ a, button, input {
   font-family: inherit;
 }
 
+a, img, button {
+  user-select: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

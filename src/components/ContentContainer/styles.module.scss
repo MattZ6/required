@@ -7,4 +7,8 @@
   margin: 0 auto;
 
   padding: 0 var(--space-base);
+
+  @media screen and (max-width: 1080px) {
+    grid-template-columns: 1fr;
+  }
 }

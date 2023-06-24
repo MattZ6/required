@@ -1,6 +1,10 @@
 import styles from './styles.module.scss'
 
-export type DialogHeroIconOptions = 'ph-wifi-x' | 'ph-warning-circle'
+export type DialogHeroIconOptions =
+  | 'ph-wifi-slash'
+  | 'ph-warning-circle'
+  | 'ph-prohibit'
+  | 'ph-clock-countdown'
 
 type Props = {
   icon?: DialogHeroIconOptions

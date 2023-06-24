@@ -6,6 +6,7 @@ type ApplicationErrorCode =
   | 'user.exists'
   | 'user.email_in_use'
   | 'password.wrong'
+  | 'token.not.provided'
   | 'token.expired'
 
 type ValidationErrorData<F = any> = {

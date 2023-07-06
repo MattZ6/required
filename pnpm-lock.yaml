@@ -30,8 +30,8 @@ dependencies:
     specifier: 4.29.15
     version: 4.29.15(react-dom@18.2.0)(react@18.2.0)
   alova:
-    specifier: 2.6.2
-    version: 2.6.2
+    specifier: 2.9.1
+    version: 2.9.1
   axios:
     specifier: 1.4.0
     version: 1.4.0
@@ -1241,8 +1241,8 @@ packages:
       uri-js: 4.4.1
     dev: true
 
-  /alova@2.6.2:
-    resolution: {integrity: sha512-cbNdLt8E4XKamtJU2iFemi+m1dxauxlL5LiApizoKt8nIEPYlkqdqRe4pT3Vsh0Ncv4P5R4AvO3nU6Avy4jQcw==}
+  /alova@2.9.1:
+    resolution: {integrity: sha512-u2efRvkO6o+UI6vHYVHmrkaINOAG3pFgyrwq5VSF39PAolvUkkbnnBNac0cffX7her2QjGpa7WnKBgdsasDH7Q==}
     engines: {node: '>= 0.12.0'}
     dev: false
 

@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "1.2.0",
-    "@types/node": "20.3.1",
+    "@types/node": "20.4.0",
     "@types/react": "18.2.14",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",

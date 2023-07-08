@@ -29,7 +29,7 @@
     "@tanstack/react-query": "4.29.15",
     "alova": "2.6.2",
     "axios": "1.4.0",
-    "jotai": "2.2.1",
+    "jotai": "2.2.2",
     "next": "13.4.7",
     "next-intl": "2.15.1",
     "next-themes": "0.2.1",

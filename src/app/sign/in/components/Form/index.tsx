@@ -5,10 +5,10 @@ import { useRouter } from 'next/navigation'
 import { useLayoutEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { useAuthAtom } from '@hooks/useAuthAtom'
 import { useSignIn } from '@hooks/useSignIn'
 
-import { parseError } from '@utils/parseRequestError'
+import { isRequestError } from '@services/http/error'
+import { RequiredApiError } from '@services/new-required/client'
 
 import { showAlert } from '@components/AlertDialogHandler'
 import { Button } from '@components/Button'
@@ -19,8 +19,7 @@ import styles from './styles.module.scss'
 
 export function Form() {
   const router = useRouter()
-  const [, setAuth] = useAuthAtom()
-  const { send } = useSignIn()
+  const { mutate } = useSignIn()
   const {
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -35,15 +34,36 @@ export function Form() {
     const { email, password } = input
 
     try {
-      const authentication = await send({ email, password })
-
-      setAuth(authentication)
+      await mutate({ email, password })
 
       router.replace('/')
     } catch (error) {
-      const requestError = parseError<SignInFormType>(error)
+      if (!navigator.onLine) {
+        showAlert({
+          type: 'error',
+          icon: 'ph-wifi-slash',
+          title: 'You seem to be offline',
+          description: 'Please check your internet connection and try again.',
+          closeButtonText: 'Ok',
+        })
 
-      const { code, message, validation } = requestError.error
+        return
+      }
+
+      if (!isRequestError<RequiredApiError<SignInFormType>>(error)) {
+        showAlert({
+          type: 'error',
+          icon: 'ph-warning-circle',
+          title: 'Ooops... Something went wrong!',
+          description:
+            'Your login could not be completed at this time. You can try again at any time.',
+          closeButtonText: 'Close',
+        })
+
+        return
+      }
+
+      const { code, message, validation } = error.body
 
       if (code === 'validation' && validation) {
         const { field, message } = validation

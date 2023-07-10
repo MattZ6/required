@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
+
+import { isRequestError } from '@services/http/error'
+import { GetProfileService } from '@services/new-required/GetProfile'
 
 import styles from './page.module.scss'
 
@@ -14,7 +18,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function HomePage() {
+async function getProfile() {
+  try {
+    const profile = await GetProfileService.execute()
+
+    return profile
+  } catch (error) {
+    if (isRequestError(error) && error.statusCode === 401) {
+      redirect('/sign/in')
+    } else {
+      throw error
+    }
+  }
+}
+
+export default async function HomePage() {
+  const profile = await getProfile()
+
   return (
     <section className={styles.page}>
       <header>
@@ -28,7 +48,7 @@ export default function HomePage() {
 
           <div>
             <strong>Name</strong>
-            <span>John Doe</span>
+            <span>{profile.name}</span>
           </div>
 
           <i className="ph ph-pencil-simple"></i>
@@ -39,7 +59,7 @@ export default function HomePage() {
 
           <div>
             <strong>E-mail address</strong>
-            <span>john.doe@example.com</span>
+            <span>{profile.email}</span>
           </div>
 
           <i className="ph ph-pencil-simple"></i>

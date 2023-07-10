@@ -63,6 +63,8 @@ export function Form() {
         return
       }
 
+      // @todo: add token.invalid error message
+
       if (code === 'token.expired') {
         showAlert({
           type: 'error',

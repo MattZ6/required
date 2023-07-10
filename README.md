@@ -5,7 +5,7 @@
 
   > Simple authentication flow application.
 
-  <strong>🚧 Under development... 🚧</strong>
+  <strong>🚧 Discontinued 🚧</strong>
 
   [![build-image]][build-url] [![license-image]][license-url]
 </div>

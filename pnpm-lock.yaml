@@ -42,8 +42,8 @@ dependencies:
     specifier: 13.4.7
     version: 13.4.7(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
   next-intl:
-    specifier: 2.15.1
-    version: 2.15.1(next@13.4.7)(react@18.2.0)
+    specifier: 2.17.5
+    version: 2.17.5(next@13.4.7)(react@18.2.0)
   next-themes:
     specifier: 0.2.1
     version: 0.2.1(next@13.4.7)(react-dom@18.2.0)(react@18.2.0)
@@ -2686,8 +2686,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next-intl@2.15.1(next@13.4.7)(react@18.2.0):
-    resolution: {integrity: sha512-xgus3HsFOJWk4vssfuI9OLSiqOjlS0O7eApzsvGp+tAJHyyw8WPzTsy+kuus74DsrVZGUDzJt+k1RFhPogwWvA==}
+  /next-intl@2.17.5(next@13.4.7)(react@18.2.0):
+    resolution: {integrity: sha512-p/tit4/FN0eHLw6Mjwsx4ktiFZWq9VMcuY9hhkAlYWXCQgKq09PB0lZcMNw5xLvV9eor818BzXxdA+3bSvFMmw==}
     engines: {node: '>=10'}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
@@ -2697,7 +2697,7 @@ packages:
       negotiator: 0.6.3
       next: 13.4.7(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
       react: 18.2.0
-      use-intl: 2.15.1(react@18.2.0)
+      use-intl: 2.17.5(react@18.2.0)
     dev: false
 
   /next-themes@0.2.1(next@13.4.7)(react-dom@18.2.0)(react@18.2.0):
@@ -3498,8 +3498,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /use-intl@2.15.1(react@18.2.0):
-    resolution: {integrity: sha512-bpxUk6NmOirGJr5RSZHYSg6/sKvSHOHZYiiFBWS0ZAkbsEytIKbWR8VMYLpu84C7PHqvwGvV7c5ff4RLYT/nvQ==}
+  /use-intl@2.17.5(react@18.2.0):
+    resolution: {integrity: sha512-pkTRoGZsOyHImBFgV23z7g/Hzt1auap+cWvsiWzHpc70NK7Rm9R3LNI3wm3FnYEWNF8N3+CZKV+SCTrHwcNK1w==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
